@@ -1,8 +1,8 @@
 {
   "$schema": "https://open.skuba.app/schemas/certifications/dive-certifications.schema.v1.0.0.json",
   "meta": {
-    "version": "2025.11.03.1",
-    "generated_at": "2025-11-03T12:00:00Z"
+    "version": "2025.11.16.1",
+    "generated_at": "2025-11-16T12:00:00Z"
   },
   "certifications": [
     {
@@ -3313,6 +3313,384 @@
       "notes": "Leadership/guide level in French system.",
       "links": ["https://ffessm.fr/pratiquer/formations"],
       "updated_at": "2025-10-31T12:00:00Z"
+    },
+
+    {
+      "id": "cert-isc-scuba-diver",
+      "agency": "agency-isc",
+      "name": "Scuba Diver",
+      "abbr": "SD",
+      "category": "recreational",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": [],
+        "general": ["Minimum age 10 years", "Medical clearance as required", "Basic swimming ability"]
+      },
+      "equivalent_to": ["cert-padi-scuba-diver", "cert-ssi-scuba-diver", "cert-sdi-scuba-diver"],
+      "limits": [
+        "Training-level certification",
+        "Must dive under direct supervision of a professional",
+        "Maximum depth 12 m (40 ft)",
+        "No decompression dives",
+        "No overhead environment"
+      ],
+      "notes": "Entry-level subset of Open Water; upgrade path to OWD.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-open-water-diver",
+      "agency": "agency-isc",
+      "name": "Open Water Diver",
+      "abbr": "OWD",
+      "category": "recreational",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": [],
+        "general": [
+          "Minimum age 10 years (or 15 for full certification)",
+          "Basic swimming ability",
+          "Medical clearance as required"
+        ]
+      },
+      "equivalent_to": [
+        "cert-padi-owd",
+        "cert-ssi-open-water-diver",
+        "cert-sdi-open-water-scuba-diver",
+        "cert-naui-scuba-diver",
+        "cert-bsac-ocean-diver",
+        "cert-cmas-one-star-diver"
+      ],
+      "limits": ["Recommended max depth 18 m (60 ft)", "No decompression dives", "No overhead environment"],
+      "notes": "Core entry-level ISO-certified qualification for autonomous recreational diving within limits.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-advanced-open-water",
+      "agency": "agency-isc",
+      "name": "Advanced Open Water",
+      "abbr": "AOWD",
+      "category": "recreational",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-open-water-diver"],
+        "general": ["Minimum age 12 years"]
+      },
+      "equivalent_to": [
+        "cert-padi-aowd",
+        "cert-ssi-advanced-adventurer",
+        "cert-sdi-advanced-adventure-diver",
+        "cert-naui-advanced-scuba-diver",
+        "cert-bsac-sports-diver",
+        "cert-cmas-two-star-diver"
+      ],
+      "limits": [
+        "Recommended max depth 30 m (100 ft) for adults, 21 m (70 ft) for 12-14 years",
+        "No decompression dives",
+        "No overhead environment"
+      ],
+      "notes": "Advanced recreational diving extending depth training to 30 m.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-rescue-diver",
+      "agency": "agency-isc",
+      "name": "Rescue",
+      "abbr": "RD",
+      "category": "rescue",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-advanced-open-water"],
+        "general": ["Minimum age 12 years", "Current CPR/First Aid certification"]
+      },
+      "equivalent_to": [
+        "cert-padi-rescue-diver",
+        "cert-ssi-diver-stress-and-rescue",
+        "cert-sdi-rescue-diver",
+        "cert-naui-rescue-diver",
+        "cert-bsac-dive-leader"
+      ],
+      "limits": ["Not a depth rating", "Focus on problem prevention and management"],
+      "notes": "Required for leadership tracks.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-deep-diver",
+      "agency": "agency-isc",
+      "name": "Deep Diver",
+      "category": "specialty",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-advanced-open-water"],
+        "general": ["Minimum age 15 years"]
+      },
+      "equivalent_to": ["cert-padi-deep-diver", "cert-ssi-deep-diving", "cert-sdi-deep-diver", "cert-naui-deep-diver"],
+      "limits": ["Training to dive to 40 m (130 ft) within recreational limits", "No staged decompression"],
+      "notes": "Extends recreational depth training to the 40 m recreational limit.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-wreck-diver",
+      "agency": "agency-isc",
+      "name": "Wreck Diver",
+      "category": "specialty",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-advanced-open-water"],
+        "general": ["Minimum age 15 years"]
+      },
+      "equivalent_to": [
+        "cert-padi-wreck-diver",
+        "cert-ssi-wreck-diving",
+        "cert-sdi-wreck-diver",
+        "cert-naui-wreck-diver"
+      ],
+      "limits": ["External wreck exploration", "Limited penetration within daylight zone"],
+      "notes": "Covers wreck diving techniques, hazards, and marine archaeology ethics.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-divemaster",
+      "agency": "agency-isc",
+      "name": "Divemaster",
+      "abbr": "DM",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-rescue-diver"],
+        "general": [
+          "Minimum age 18 years",
+          "Minimum 40 logged dives to start, 60 to certify",
+          "Current CPR/First Aid or equivalent",
+          "Medical clearance within 12 months"
+        ]
+      },
+      "equivalent_to": ["cert-padi-divemaster", "cert-ssi-dive-guide", "cert-sdi-divemaster", "cert-naui-divemaster"],
+      "limits": ["May supervise certified divers", "May assist with training", "May not conduct courses independently"],
+      "notes": "First professional-level rating in ISC system.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-assistant-instructor",
+      "agency": "agency-isc",
+      "name": "Assistant Instructor",
+      "abbr": "AI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-divemaster"],
+        "general": ["Minimum age 18 years", "Minimum logged dives per ISC standards", "Current CPR/First Aid"]
+      },
+      "equivalent_to": [],
+      "limits": ["May assist instructors with training", "May not independently certify divers"],
+      "notes": "Bridge to full instructor status.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-open-water-instructor",
+      "agency": "agency-isc",
+      "name": "Open Water Instructor",
+      "abbr": "OWSI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-assistant-instructor"],
+        "general": [
+          "Minimum age 18 years",
+          "Complete Instructor Development Course",
+          "Pass Instructor Examination",
+          "Current CPR/First Aid"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["May teach and certify divers up to leadership level within certification"],
+      "notes": "Qualified to independently conduct ISC courses.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-instructor-trainer",
+      "agency": "agency-isc",
+      "name": "Instructor Trainer",
+      "abbr": "IT",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-open-water-instructor"],
+        "general": [
+          "Extensive teaching experience",
+          "Minimum certifications issued per ISC standards",
+          "Instructor Trainer Course completion"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["May train and certify instructors"],
+      "notes": "Highest professional level - trains and evaluates instructor candidates.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+
+    {
+      "id": "cert-isc-snorkeler",
+      "agency": "agency-isc",
+      "name": "Snorkeler",
+      "category": "freediving",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": [],
+        "general": ["Basic water comfort", "Medical clearance as required"]
+      },
+      "equivalent_to": [],
+      "limits": ["Surface swimming with snorkel", "No breath-hold diving"],
+      "notes": "Entry-level snorkeling certification.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-free-diver-5m",
+      "agency": "agency-isc",
+      "name": "Free Diver 5 meters / 16 feet",
+      "abbr": "FD 5m",
+      "category": "freediving",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": [],
+        "general": ["Basic water comfort", "Medical clearance as required"]
+      },
+      "equivalent_to": ["cert-aida-1"],
+      "limits": ["Maximum depth 5 m (16 ft)"],
+      "notes": "Introductory freediving level.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-free-diver-16m",
+      "agency": "agency-isc",
+      "name": "Free Diver 16m/52ft",
+      "abbr": "FD 16m",
+      "category": "freediving",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-free-diver-5m"],
+        "general": []
+      },
+      "equivalent_to": ["cert-aida-2", "cert-molchanovs-wave-1"],
+      "limits": ["Maximum depth 16 m (52 ft)"],
+      "notes": "Basic freediving certification with open water skills.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-advanced-free-diver-24m",
+      "agency": "agency-isc",
+      "name": "Advanced Free Diver 24m/79ft",
+      "abbr": "AFD 24m",
+      "category": "freediving",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-free-diver-16m"],
+        "general": []
+      },
+      "equivalent_to": ["cert-aida-3", "cert-molchanovs-wave-2"],
+      "limits": ["Maximum depth 24 m (79 ft)"],
+      "notes": "Advanced freediving with deeper capabilities.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-master-free-diver-32m",
+      "agency": "agency-isc",
+      "name": "Master Free Diver 32m/105ft",
+      "abbr": "MFD 32m",
+      "category": "freediving",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-advanced-free-diver-24m"],
+        "general": []
+      },
+      "equivalent_to": ["cert-aida-4", "cert-molchanovs-wave-3"],
+      "limits": ["Maximum depth 32 m (105 ft)"],
+      "notes": "Expert level freediving with advanced techniques.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-snorkel-instructor",
+      "agency": "agency-isc",
+      "name": "Snorkel Instructor",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-snorkeler"],
+        "general": ["Minimum age 18 years", "Teaching experience or instructor development", "Current CPR/First Aid"]
+      },
+      "equivalent_to": [],
+      "limits": ["May teach and certify snorkelers"],
+      "notes": "Professional snorkeling instructor certification.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-freediver-instructor",
+      "agency": "agency-isc",
+      "name": "Freediver Instructor",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-advanced-free-diver-24m"],
+        "general": ["Minimum age 18 years", "Complete Instructor Development Course", "Current CPR/First Aid"]
+      },
+      "equivalent_to": [],
+      "limits": ["May teach and certify freedivers up to advanced levels within certification"],
+      "notes": "Professional freediving instructor certification.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
+    },
+    {
+      "id": "cert-isc-freediver-instructor-trainer",
+      "agency": "agency-isc",
+      "name": "Freediver Instructor Trainer",
+      "abbr": "FIT",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-isc-freediver-instructor"],
+        "general": [
+          "Extensive teaching experience",
+          "Minimum certifications issued per ISC standards",
+          "Instructor Trainer Course completion"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["May train and certify freediving instructors"],
+      "notes": "Highest freediving professional level - trains and evaluates instructor candidates.",
+      "links": ["https://www.diveisc.com/courses"],
+      "updated_at": "2025-11-16T12:00:00Z"
     }
   ]
 }

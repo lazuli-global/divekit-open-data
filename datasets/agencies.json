@@ -1,8 +1,8 @@
 {
   "$schema": "https://open.skuba.app/schemas/agencies/agencies.schema.v1.0.0.json",
   "meta": {
-    "version": "2025.11.03.1",
-    "generated_at": "2025-11-03T12:00:00Z"
+    "version": "2025.11.16.1",
+    "generated_at": "2025-11-16T12:00:00Z"
   },
   "agencies": [
     {
@@ -316,6 +316,18 @@
       "links": ["https://www.firstresponse-ed.com/training-programs/"],
       "notes": "CPR, First Aid, and emergency care training. OSHA & ILCoR compliant standards.",
       "updated_at": "2025-11-03T12:00:00Z"
+    },
+    {
+      "id": "agency-isc",
+      "name": "International Scuba Certification",
+      "abbr": "ISC",
+      "website": "https://www.diveisc.com",
+      "status": "active",
+      "historical_names": [],
+      "regions": ["Global"],
+      "links": ["https://www.diveisc.com/courses"],
+      "notes": "ISO accredited (audited by European Underwater Federation), CDWS Egypt approved, HSE UK approved. Offers 100% digital training and student record system.",
+      "updated_at": "2025-11-16T12:00:00Z"
     }
   ]
 }
