@@ -52,9 +52,9 @@ validate_json_schema() {
     fi
     
     # Convert URL to local file path
-    # Example: https://open.skuba.app/schemas/agencies/agencies.schema.v1.0.0.json
+    # Example: https://open.divekit.app/schemas/agencies/agencies.schema.v1.0.0.json
     # -> schemas/agencies/agencies.schema.v1.0.0.json
-    local schema_file=$(echo "$schema_ref" | sed 's|https://open.skuba.app/||')
+    local schema_file=$(echo "$schema_ref" | sed 's|https://open.divekit.app/||')
     
     if [ ! -f "$schema_file" ]; then
         echo -e "${RED}❌ ERROR: Schema file not found: ${schema_file}${NC}"

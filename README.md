@@ -1,17 +1,17 @@
-# <img src="assets/skuba/favicon.png" alt="Skuba" width="32" height="32" align="center" /> Project Skuba — Open Data & Standards
+# <img src="assets/skuba/favicon.png" alt="DiveKit" width="32" height="32" align="center" /> Project DiveKit — Open Data & Standards
 
-**Welcome to the open data, schemas, and public standards hub of the Skuba ecosystem.**  
-This repository powers [open.skuba.app](https://open.skuba.app) — the canonical home for all open, machine-readable resources maintained by the Skuba project.
+**Welcome to the open data, schemas, and public standards hub of the DiveKit ecosystem.**
+This repository powers [open.divekit.app](https://open.divekit.app) — the canonical home for all open, machine-readable resources maintained by the DiveKit project.
 
 ---
 
 ## 🧭 Purpose
 
-`lazuli-collective/skuba-open-data` provides:
+`lazuli-global/divekit-open-data` provides:
 
 - **Public Datasets** – Canonical, versioned JSON datasets for dive certifications, agencies, and other scuba-related information.
-- **Schemas & Standards** – JSON Schema definitions for validating and interoperating with Skuba's open data formats.
-- **Visual Assets** – Agency logos (third-party trademarks) and Skuba branding.
+- **Schemas & Standards** – JSON Schema definitions for validating and interoperating with DiveKit's open data formats.
+- **Visual Assets** – Agency logos (third-party trademarks) and DiveKit branding.
 - **Documentation** – Design guidelines, contributor guidelines, and open-data governance notes.
 
 Our goal is to make diving data **accessible, standardized, and developer-friendly**, so apps, researchers, and training platforms can all share a common foundation.
@@ -42,7 +42,7 @@ open/
 │ │ └── LICENSE.md
 │ ├── agency-logos/       # Third-party trademarks
 │ │ └── ...
-│ ├── skuba/              # Skuba brand assets
+│ ├── skuba/              # DiveKit brand assets
 │ │ ├── logo.png
 │ │ ├── logo-circle-light.png
 │ │ ├── logo-circle-dark.png
@@ -62,7 +62,7 @@ open/
 ├── 404.html
 ├── CONTRIBUTING.md
 ├── LICENSE.md
-└── CNAME (→ open.skuba.app)
+└── CNAME (→ open.divekit.app)
 
 ```
 
@@ -72,15 +72,15 @@ open/
 
 | Resource                        | Description                                                        | URL                                                                                                   |
 | ------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| **Dive Certifications Dataset** | Comprehensive global database of scuba certifications and agencies | [View JSON →](https://open.skuba.app/datasets/certifications.json)                                    |
-| **Dive Certifications Schema**  | JSON Schema for validating certification data                      | [View Schema →](https://open.skuba.app/schemas/certifications/dive-certifications.schema.v1.0.0.json) |
-| **Agencies Dataset**            | List of recognized certifying agencies                             | [View JSON →](https://open.skuba.app/datasets/agencies.json)                                          |
-| **Agencies Schema**             | JSON Schema for validating agencies data                           | [View Schema →](https://open.skuba.app/schemas/agencies/agencies.schema.v1.0.0.json)                  |
-| **Cylinder Database**           | Specifications for common scuba cylinders                          | [View JSON →](https://open.skuba.app/datasets/cylinders.json)                                         |
-| **Cylinder Schema**             | JSON Schema for validating cylinder data                           | [View Schema →](https://open.skuba.app/schemas/cylinders/cylinders.schema.v1.0.0.json)                |
-| **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://open.skuba.app/assets/agency-logos/)                                           |
-| **Dataset Documentation**       | Beginner-friendly guide to understanding and contributing          | [View Guide →](https://open.skuba.app/docs/DATASETS.md)                                               |
-| **Docs**                        | Design guidelines and documentation                                | [View Docs →](https://open.skuba.app/docs/)                                                           |
+| **Dive Certifications Dataset** | Comprehensive global database of scuba certifications and agencies | [View JSON →](https://open.divekit.app/datasets/certifications.json)                                    |
+| **Dive Certifications Schema**  | JSON Schema for validating certification data                      | [View Schema →](https://open.divekit.app/schemas/certifications/dive-certifications.schema.v1.0.0.json) |
+| **Agencies Dataset**            | List of recognized certifying agencies                             | [View JSON →](https://open.divekit.app/datasets/agencies.json)                                          |
+| **Agencies Schema**             | JSON Schema for validating agencies data                           | [View Schema →](https://open.divekit.app/schemas/agencies/agencies.schema.v1.0.0.json)                  |
+| **Cylinder Database**           | Specifications for common scuba cylinders                          | [View JSON →](https://open.divekit.app/datasets/cylinders.json)                                         |
+| **Cylinder Schema**             | JSON Schema for validating cylinder data                           | [View Schema →](https://open.divekit.app/schemas/cylinders/cylinders.schema.v1.0.0.json)                |
+| **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://open.divekit.app/assets/agency-logos/)                                           |
+| **Dataset Documentation**       | Beginner-friendly guide to understanding and contributing          | [View Guide →](https://open.divekit.app/docs/DATASETS.md)                                               |
+| **Docs**                        | Design guidelines and documentation                                | [View Docs →](https://open.divekit.app/docs/)                                                           |
 
 ---
 
@@ -88,27 +88,27 @@ open/
 
 ### For Everyone
 
-If you're new to working with data or just want to understand what's in these datasets, check out our [Dataset Documentation](https://open.skuba.app/docs/DATASETS.md) for a beginner-friendly guide.
+If you're new to working with data or just want to understand what's in these datasets, check out our [Dataset Documentation](https://open.divekit.app/docs/DATASETS.md) for a beginner-friendly guide.
 
 ### For Developers
 
 You can consume the datasets directly from the web:
 
 ```bash
-curl https://open.skuba.app/datasets/certifications.json
+curl https://open.divekit.app/datasets/certifications.json
 ```
 
 Validate them against the corresponding schema:
 
 ```bash
 npx ajv validate \
-  -s https://open.skuba.app/schemas/certifications/dive-certifications.schema.v1.0.0.json \
-  -d https://open.skuba.app/datasets/certifications.json
+  -s https://open.divekit.app/schemas/certifications/dive-certifications.schema.v1.0.0.json \
+  -d https://open.divekit.app/datasets/certifications.json
 ```
 
 ### For Designers / Educators
 
-Explore the agency logos from [`assets/agency-logos`](https://open.skuba.app/assets/agency-logos/).
+Explore the agency logos from [`assets/agency-logos`](https://open.divekit.app/assets/agency-logos/).
 These are third-party trademarks and should be used for reference purposes only.
 
 ---
@@ -164,7 +164,7 @@ Unless otherwise noted:
 | **Datasets & Docs**    | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Free to share/remix with attribution             |
 | **Schemas & Code**     | [MIT](https://opensource.org/licenses/MIT)                | Free to use in software projects                 |
 | **Agency Logos**       | Third-party trademarks                                    | Owned by respective agencies, reference use only |
-| **Skuba Brand Assets** | All rights reserved                                       | Skuba trademark, permission required for use     |
+| **DiveKit Brand Assets** | All rights reserved                                       | DiveKit trademark, permission required for use     |
 
 See [LICENSE.md](LICENSE.md) for full details.
 
@@ -176,15 +176,15 @@ Each dataset and schema is versioned semantically (`v1.0.0`, `v1.1.0`, …).
 Breaking changes will increment the major version.
 
 All changes are tracked via pull requests and validated in CI.
-Community suggestions are discussed in [Discussions](https://github.com/lazuli-collective/open/discussions).
+Community suggestions are discussed in [Discussions](https://github.com/lazuli-global/open/discussions).
 
 ---
 
 ## 🧭 Mission
 
-> Skuba Open exists to unify how the diving world represents, shares, and understands its data — safely, transparently, and for everyone.
+> DiveKit Open exists to unify how the diving world represents, shares, and understands its data — safely, transparently, and for everyone.
 
 ---
 
-**Maintained by:** [Project Skuba](https://github.com/lazuli-collective)
-**Canonical URL:** [https://open.skuba.app](https://open.skuba.app)
+**Maintained by:** [Project DiveKit](https://github.com/lazuli-global)
+**Canonical URL:** [https://open.divekit.app](https://open.divekit.app)

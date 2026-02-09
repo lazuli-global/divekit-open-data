@@ -1,11 +1,11 @@
-# 🎨 Skuba Open - Color Theme
+# 🎨 DiveKit Open - Color Theme
 
-This site uses the official Skuba brand colors for a consistent experience across all platforms.
+This site uses the official DiveKit brand colors for a consistent experience across all platforms.
 
 ## Primary Colors
 
 - **Background**: `#f3f4f6` - Light gray background
-- **Accent (Primary Blue)**: `#0b95da` - Skuba blue (links, buttons, headings)
+- **Accent (Primary Blue)**: `#0b95da` - DiveKit blue (links, buttons, headings)
 - **Accent Dark**: `#075985` - Darker blue for hover states
 
 ## Neutral Colors
@@ -50,4 +50,4 @@ All color combinations meet WCAG AA standards for contrast:
 
 ## Consistency
 
-These colors match the Skuba mobile app theme (see `/skuba-app/src/lib/tamagui/themes.ts`), ensuring a unified brand experience.
+These colors match the DiveKit mobile app theme (see `/divekit-app/src/lib/tamagui/themes.ts`), ensuring a unified brand experience.

@@ -1,4 +1,4 @@
-# Licensing for Project Skuba Open
+# Licensing for Project DiveKit Open
 
 This repository contains multiple types of content with different licenses.
 
@@ -18,8 +18,8 @@ Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 ## Proprietary & Third-Party Content
 
-**Skuba Brand Assets** (`/assets/skuba`)  
-All rights reserved. Skuba trademarks and logos may not be used without permission.  
+**DiveKit Brand Assets** (`/assets/skuba`)
+All rights reserved. DiveKit trademarks and logos may not be used without permission.
 See `/assets/skuba/LICENSE.md` for details.
 
 **Agency Logos** (`/assets/agency-logos`)  

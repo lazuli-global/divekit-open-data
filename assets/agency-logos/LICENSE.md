@@ -18,4 +18,4 @@ These logos are provided for **informational and reference purposes only** withi
 ---
 
 For questions regarding agency logos, please open an issue at:  
-https://github.com/lazuli-collective/open
+https://github.com/lazuli-global/open

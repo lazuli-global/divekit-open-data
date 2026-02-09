@@ -1,5 +1,5 @@
 {
-  "$id": "https://open.skuba.app/schemas/certifications/dive-certifications.schema.v1.0.0.json",
+  "$id": "https://open.divekit.app/schemas/certifications/dive-certifications.schema.v1.0.0.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Universal Dive Certifications Schema",
   "description": "Defines the structure for representing scuba diving certifications across all agencies, including recreational, technical, cave, rescue, and professional levels.",

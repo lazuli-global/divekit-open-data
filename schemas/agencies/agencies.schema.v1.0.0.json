@@ -1,5 +1,5 @@
 {
-  "$id": "https://open.skuba.app/schemas/agencies/agencies.schema.v1.0.0.json",
+  "$id": "https://open.divekit.app/schemas/agencies/agencies.schema.v1.0.0.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Dive Certifying Agencies Schema",
   "description": "Defines the structure for agencies that issue scuba diving certifications.",

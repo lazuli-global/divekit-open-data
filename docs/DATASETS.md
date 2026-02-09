@@ -1,6 +1,6 @@
-# Skuba Open Datasets Documentation
+# DiveKit Open Datasets Documentation
 
-Welcome! This guide will help you understand and contribute to the Skuba Open diving certification datasets. No technical expertise required!
+Welcome! This guide will help you understand and contribute to the DiveKit Open diving certification datasets. No technical expertise required!
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Welcome! This guide will help you understand and contribute to the Skuba Open di
 
 ## What are these datasets?
 
-The Skuba Open project maintains two main datasets:
+The DiveKit Open project maintains two main datasets:
 
 1. **Agencies** - A list of all scuba diving certification agencies (like PADI, SSI, NAUI)
 2. **Certifications** - A comprehensive list of diving certifications offered by these agencies
@@ -102,7 +102,7 @@ We welcome contributions! Here's how to help:
 
 If you find incorrect information:
 
-1. Go to the [GitHub repository](https://github.com/skuba-app/skuba-open)
+1. Go to the [GitHub repository](https://github.com/lazuli-global/divekit-open)
 2. Click "Issues" → "New Issue"
 3. Describe what's wrong (e.g., "PADI Advanced Open Water max depth is 30m, not 40m")
 
@@ -307,8 +307,8 @@ A: Here are the most common validation errors and how to fix them:
 
 ## Need More Help?
 
-- **Questions?** Open a discussion on [GitHub](https://github.com/skuba-app/skuba-open/discussions)
-- **Found a bug?** Report it in [Issues](https://github.com/skuba-app/skuba-open/issues)
+- **Questions?** Open a discussion on [GitHub](https://github.com/lazuli-global/divekit-open/discussions)
+- **Found a bug?** Report it in [Issues](https://github.com/lazuli-global/divekit-open/issues)
 - **Want to contribute code?** See [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 Remember: Every contribution helps make diving certification information more accessible to everyone! 🤿

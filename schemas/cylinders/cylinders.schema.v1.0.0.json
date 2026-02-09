@@ -1,5 +1,5 @@
 {
-  "$id": "https://open.skuba.app/schemas/cylinders/cylinders.schema.v1.0.0.json",
+  "$id": "https://open.divekit.app/schemas/cylinders/cylinders.schema.v1.0.0.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Scuba Diving Common Cylinder Types Database",
   "description": "A collection of common scuba diving cylinder types and their specifications.",
