@@ -18,9 +18,9 @@ Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 ## Proprietary & Third-Party Content
 
-**DiveKit Brand Assets** (`/assets/skuba`)
+**DiveKit Brand Assets** (`/assets/divekit`)
 All rights reserved. DiveKit trademarks and logos may not be used without permission.
-See `/assets/skuba/LICENSE.md` for details.
+See `/assets/divekit/LICENSE.md` for details.
 
 **Agency Logos** (`/assets/agency-logos`)  
 Third-party trademarks owned by respective diving certification agencies.  

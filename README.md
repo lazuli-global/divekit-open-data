@@ -1,4 +1,4 @@
-# <img src="assets/skuba/favicon.png" alt="DiveKit" width="32" height="32" align="center" /> Project DiveKit — Open Data & Standards
+# <img src="assets/divekit/favicon.png" alt="DiveKit" width="32" height="32" align="center" /> Project DiveKit — Open Data & Standards
 
 **Welcome to the open data, schemas, and public standards hub of the DiveKit ecosystem.**
 This repository powers [open.divekit.app](https://open.divekit.app) — the canonical home for all open, machine-readable resources maintained by the DiveKit project.

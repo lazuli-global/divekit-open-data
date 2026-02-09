@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,25 +6,18 @@
     <title>Project DiveKit — Open Data & Standards</title>
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/assets/skuba/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/skuba/logo-circle-light.png" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/divekit/logo-circle-light.png" />
 
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Project DiveKit — Open Data & Standards" />
-    <meta
-      property="og:description"
-      content="Open data, schemas, and public standards for the diving community"
-    />
-    <meta
-      property="og:image"
-      content="https://open.divekit.app/assets/skuba/logo-circle-light.png"
-    />
+    <meta property="og:description" content="Open data, schemas, and public standards for the diving community" />
+    <meta property="og:image" content="https://open.divekit.app/assets/divekit/logo-circle-light.png" />
     <meta property="og:type" content="website" />
 
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.0/marked.min.js"></script>
     <style>
       body {
@@ -145,8 +138,7 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
-          Helvetica, Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
         font-size: 16px;
         color: #374151;
         background-color: #f3f4f6;
@@ -189,11 +181,7 @@
   </head>
   <body>
     <div id="loading" class="loading">
-      <img
-        src="/assets/skuba/logo-circle-light.png"
-        alt="Project DiveKit Logo"
-        class="loading-logo"
-      />
+      <img src="/assets/divekit/logo-circle-light.png" alt="Project DiveKit Logo" class="loading-logo" />
       <div class="spinner"></div>
       <span>Loading...</span>
     </div>
@@ -203,7 +191,7 @@
 
     <script>
       // Fetch and render README.md
-      fetch("README.md")
+      fetch('README.md')
         .then((response) => response.text())
         .then((markdown) => {
           // Configure marked for GitHub Flavored Markdown
@@ -218,21 +206,21 @@
           const html = marked.parse(markdown);
 
           // Insert into page
-          document.getElementById("markdown-content").innerHTML = html;
+          document.getElementById('markdown-content').innerHTML = html;
 
           // Hide loading, show content
-          document.getElementById("loading").style.display = "none";
-          document.getElementById("content").style.display = "block";
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('content').style.display = 'block';
 
           // Update page title from first h1
-          const firstH1 = document.querySelector("h1");
+          const firstH1 = document.querySelector('h1');
           if (firstH1) {
-            document.title = firstH1.textContent + " — Project DiveKit";
+            document.title = firstH1.textContent + ' — Project DiveKit';
           }
         })
         .catch((error) => {
-          console.error("Error loading README:", error);
-          document.getElementById("loading").innerHTML =
+          console.error('Error loading README:', error);
+          document.getElementById('loading').innerHTML =
             '<div style="color: #f85149;">⚠️ Failed to load README.md</div>';
         });
     </script>
