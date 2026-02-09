@@ -42,7 +42,7 @@ open/
 │ │ └── LICENSE.md
 │ ├── agency-logos/       # Third-party trademarks
 │ │ └── ...
-│ ├── skuba/              # DiveKit brand assets
+│ ├── divekit/              # DiveKit brand assets
 │ │ ├── logo.png
 │ │ ├── logo-circle-light.png
 │ │ ├── logo-circle-dark.png
