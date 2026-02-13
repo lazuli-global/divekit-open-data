@@ -16,5 +16,5 @@ For the full license text, see: https://creativecommons.org/licenses/by/4.0/
 ---
 
 **Attribution:**  
-Hand signals by Project DiveKit — https://open.divekit.app
+Hand signals by Project Dive Kit — https://open.divekit.app
 

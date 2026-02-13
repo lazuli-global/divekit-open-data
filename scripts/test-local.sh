@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🌊 Project DiveKit - Local Testing Script"
+echo "🌊 Project Dive Kit - Local Testing Script"
 echo "========================================"
 echo ""
 

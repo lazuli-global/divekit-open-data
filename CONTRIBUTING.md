@@ -1,7 +1,7 @@
-# 🤝 Contributing to Project DiveKit Open
+# 🤝 Contributing to Project Dive Kit Open
 
 Thank you for your interest in contributing!
-This repository hosts the **open data, schemas, and public standards** that power the [DiveKit](https://divekit.app) ecosystem.
+This repository hosts the **open data, schemas, and public standards** that power the [Dive Kit](https://divekit.app) ecosystem.
 Everything here is published at [open.divekit.app](https://open.divekit.app) for use by the community.
 
 We welcome contributions of all kinds — from fixing a typo to adding new datasets, improving schemas, or refining visuals.
@@ -16,7 +16,7 @@ This repository is structured into several areas:
 | ----------- | ----------------------------------------------------------- |
 | `datasets/` | JSON datasets for dive certifications and agencies          |
 | `schemas/`  | JSON Schema definitions for validation and interoperability |
-| `assets/`   | Visual assets (agency logos and DiveKit branding)             |
+| `assets/`   | Visual assets (agency logos and Dive Kit branding)             |
 | `docs/`     | Design guidelines and documentation                         |
 | `scripts/`  | Validation and testing scripts                              |
 
@@ -175,7 +175,7 @@ Full license details: [LICENSE.md](LICENSE.md)
 
 ## 🧭 Mission
 
-> Project DiveKit Open exists to unify how the diving world represents, shares,
+> Project Dive Kit Open exists to unify how the diving world represents, shares,
 > and understands its data — safely, transparently, and for everyone.
 
 Thank you for helping make that vision real 🌊

@@ -1,6 +1,6 @@
-# DiveKit Open Datasets Documentation
+# Dive Kit Open Datasets Documentation
 
-Welcome! This guide will help you understand and contribute to the DiveKit Open diving certification datasets. No technical expertise required!
+Welcome! This guide will help you understand and contribute to the Dive Kit Open diving certification datasets. No technical expertise required!
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Welcome! This guide will help you understand and contribute to the DiveKit Open 
 
 ## What are these datasets?
 
-The DiveKit Open project maintains two main datasets:
+The Dive Kit Open project maintains two main datasets:
 
 1. **Agencies** - A list of all scuba diving certification agencies (like PADI, SSI, NAUI)
 2. **Certifications** - A comprehensive list of diving certifications offered by these agencies

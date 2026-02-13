@@ -1,7 +1,7 @@
-# <img src="assets/divekit/favicon.png" alt="DiveKit" width="32" height="32" align="center" /> Project DiveKit — Open Data & Standards
+# <img src="assets/divekit/favicon.png" alt="Dive Kit" width="32" height="32" align="center" /> Project Dive Kit — Open Data & Standards
 
-**Welcome to the open data, schemas, and public standards hub of the DiveKit ecosystem.**
-This repository powers [open.divekit.app](https://open.divekit.app) — the canonical home for all open, machine-readable resources maintained by the DiveKit project.
+**Welcome to the open data, schemas, and public standards hub of the Dive Kit ecosystem.**
+This repository powers [open.divekit.app](https://open.divekit.app) — the canonical home for all open, machine-readable resources maintained by the Dive Kit project.
 
 ---
 
@@ -10,8 +10,8 @@ This repository powers [open.divekit.app](https://open.divekit.app) — the cano
 `lazuli-global/divekit-open-data` provides:
 
 - **Public Datasets** – Canonical, versioned JSON datasets for dive certifications, agencies, and other scuba-related information.
-- **Schemas & Standards** – JSON Schema definitions for validating and interoperating with DiveKit's open data formats.
-- **Visual Assets** – Agency logos (third-party trademarks) and DiveKit branding.
+- **Schemas & Standards** – JSON Schema definitions for validating and interoperating with Dive Kit's open data formats.
+- **Visual Assets** – Agency logos (third-party trademarks) and Dive Kit branding.
 - **Documentation** – Design guidelines, contributor guidelines, and open-data governance notes.
 
 Our goal is to make diving data **accessible, standardized, and developer-friendly**, so apps, researchers, and training platforms can all share a common foundation.
@@ -42,7 +42,7 @@ open/
 │ │ └── LICENSE.md
 │ ├── agency-logos/       # Third-party trademarks
 │ │ └── ...
-│ ├── divekit/              # DiveKit brand assets
+│ ├── divekit/              # Dive Kit brand assets
 │ │ ├── logo.png
 │ │ ├── logo-circle-light.png
 │ │ ├── logo-circle-dark.png
@@ -164,7 +164,7 @@ Unless otherwise noted:
 | **Datasets & Docs**    | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Free to share/remix with attribution             |
 | **Schemas & Code**     | [MIT](https://opensource.org/licenses/MIT)                | Free to use in software projects                 |
 | **Agency Logos**       | Third-party trademarks                                    | Owned by respective agencies, reference use only |
-| **DiveKit Brand Assets** | All rights reserved                                       | DiveKit trademark, permission required for use     |
+| **Dive Kit Brand Assets** | All rights reserved                                       | Dive Kit trademark, permission required for use     |
 
 See [LICENSE.md](LICENSE.md) for full details.
 
@@ -182,9 +182,9 @@ Community suggestions are discussed in [Discussions](https://github.com/lazuli-g
 
 ## 🧭 Mission
 
-> DiveKit Open exists to unify how the diving world represents, shares, and understands its data — safely, transparently, and for everyone.
+> Dive Kit Open exists to unify how the diving world represents, shares, and understands its data — safely, transparently, and for everyone.
 
 ---
 
-**Maintained by:** [Project DiveKit](https://github.com/lazuli-global)
+**Maintained by:** [Project Dive Kit](https://github.com/lazuli-global)
 **Canonical URL:** [https://open.divekit.app](https://open.divekit.app)
