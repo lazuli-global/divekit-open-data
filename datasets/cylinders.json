@@ -4,7 +4,7 @@
     {
       "id": "al80",
       "commonName": "AL80",
-      "waterVolumeL": 11.1,
+      "waterVolumeL": 10.9,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Recreational single tank (warm water, training, sidemount)",
@@ -28,7 +28,7 @@
     {
       "id": "al72",
       "commonName": "AL72",
-      "waterVolumeL": 10.0,
+      "waterVolumeL": 9.8,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Recreational single tank (smaller divers, shorter dives)",
@@ -40,7 +40,7 @@
     {
       "id": "al63",
       "commonName": "AL63",
-      "waterVolumeL": 9.0,
+      "waterVolumeL": 8.6,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Small divers, short recreational dives",
@@ -52,7 +52,7 @@
     {
       "id": "al50",
       "commonName": "AL50",
-      "waterVolumeL": 7.0,
+      "waterVolumeL": 6.8,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Stage / deco for light gas",
@@ -64,7 +64,7 @@
     {
       "id": "al40",
       "commonName": "AL40",
-      "waterVolumeL": 5.7,
+      "waterVolumeL": 5.5,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Stage / deco / O₂ bottle",
@@ -76,7 +76,7 @@
     {
       "id": "al30",
       "commonName": "AL30",
-      "waterVolumeL": 4.3,
+      "waterVolumeL": 4.1,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Pony / emergency",
@@ -88,7 +88,7 @@
     {
       "id": "al19",
       "commonName": "AL19",
-      "waterVolumeL": 2.7,
+      "waterVolumeL": 2.6,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Pony / bailout",
@@ -100,7 +100,7 @@
     {
       "id": "al13",
       "commonName": "AL13",
-      "waterVolumeL": 1.9,
+      "waterVolumeL": 1.8,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Argon inflation / bailout",
@@ -220,7 +220,7 @@
     {
       "id": "hp100",
       "commonName": "HP100",
-      "waterVolumeL": 12.1,
+      "waterVolumeL": 11.9,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Popular US cold-water single",
@@ -244,7 +244,7 @@
     {
       "id": "hp117",
       "commonName": "HP117",
-      "waterVolumeL": 14.2,
+      "waterVolumeL": 14.0,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Tech singles / doubles US",
@@ -316,7 +316,7 @@
     {
       "id": "hp119",
       "commonName": "HP119",
-      "waterVolumeL": 14.4,
+      "waterVolumeL": 14.2,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Long cold-water single / big-gas doubles",
@@ -364,7 +364,7 @@
     {
       "id": "lp108",
       "commonName": "LP108",
-      "waterVolumeL": 17.0,
+      "waterVolumeL": 16.8,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "US tech doubles / big single",
