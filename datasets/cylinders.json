@@ -196,7 +196,7 @@
     {
       "id": "lp85",
       "commonName": "LP85",
-      "waterVolumeL": 13.9,
+      "waterVolumeL": 13.2,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "Tech singles / doubles US",
@@ -208,7 +208,7 @@
     {
       "id": "lp95",
       "commonName": "LP95",
-      "waterVolumeL": 15.5,
+      "waterVolumeL": 14.8,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "Tech doubles US",
@@ -232,7 +232,7 @@
     {
       "id": "hp120",
       "commonName": "HP120",
-      "waterVolumeL": 15.7,
+      "waterVolumeL": 14.3,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Long US single dives",
@@ -256,7 +256,7 @@
     {
       "id": "hp130",
       "commonName": "HP130",
-      "waterVolumeL": 17.0,
+      "waterVolumeL": 15.5,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Very long cold dives",
