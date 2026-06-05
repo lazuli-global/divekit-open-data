@@ -408,6 +408,42 @@
       "buoyancyKg": { "full": -1.1, "at50bar": -0.5, "empty": -0.3 },
       "brands": ["Faber", "Eurocylinders"],
       "notes": "Very common CCR bottle size; fits many frames."
+    },
+    {
+      "id": "ccr2l-232",
+      "commonName": "CCR 2L 232",
+      "waterVolumeL": 2.0,
+      "workingPressureBar": 232,
+      "material": "steel",
+      "typicalUse": "CCR oxygen/diluent",
+      "emptyWeightKg": 3.2,
+      "buoyancyKg": { "full": -1.1, "at50bar": -0.6, "empty": -0.5 },
+      "brands": ["Faber"],
+      "notes": "The EU-standard 232 bar rating of the compact CCR bottle."
+    },
+    {
+      "id": "ccr3l-232",
+      "commonName": "CCR 3L 232",
+      "waterVolumeL": 3.0,
+      "workingPressureBar": 232,
+      "material": "steel",
+      "typicalUse": "CCR diluent",
+      "emptyWeightKg": 4.7,
+      "buoyancyKg": { "full": -2.0, "at50bar": -1.1, "empty": -0.9 },
+      "brands": ["Faber", "Eurocylinders"],
+      "notes": "The EU-standard 232 bar rating of the common CCR diluent cylinder."
+    },
+    {
+      "id": "steel12-200",
+      "commonName": "Steel 12L 200",
+      "waterVolumeL": 12.0,
+      "workingPressureBar": 200,
+      "material": "steel",
+      "typicalUse": "Sidemount / single tank EU",
+      "emptyWeightKg": 12.9,
+      "buoyancyKg": { "full": -3.1, "at50bar": -0.9, "empty": -0.2 },
+      "brands": ["Faber"],
+      "notes": "The light 200 bar Faber 12L; popular for sidemount in Europe."
     }
   ]
 }
