@@ -44,6 +44,11 @@
             "description": "Rated working pressure in bar",
             "minimum": 0
           },
+          "ratedCapacityCuft": {
+            "type": "number",
+            "description": "Marketed cu ft rating (the number in the name, e.g. 80 for an AL80), for cuft-named tanks only. The displayed size is the real deliverable gas, which can differ. Omitted for metric-named tanks.",
+            "minimum": 0
+          },
           "material": {
             "type": "string",
             "enum": ["steel", "aluminum", "composite", "carbon_fiber"],

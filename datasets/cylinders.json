@@ -4,14 +4,23 @@
     {
       "id": "al80",
       "commonName": "AL80",
-      "waterVolumeL": 10.9,
+      "waterVolumeL": 11.1,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Recreational single tank (warm water, training, sidemount)",
       "emptyWeightKg": 14.2,
-      "buoyancyKg": { "full": -1.0, "at50bar": 1.1, "empty": 1.8 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Standard rental tank globally; becomes positively buoyant near end of dive."
+      "buoyancyKg": {
+        "full": -1.0,
+        "at50bar": 1.1,
+        "empty": 1.8
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Standard rental tank globally; becomes positively buoyant near end of dive.",
+      "ratedCapacityCuft": 80
     },
     {
       "id": "al12-200",
@@ -21,93 +30,162 @@
       "material": "aluminum",
       "typicalUse": "Recreational single tank (Asia, some EU regions)",
       "emptyWeightKg": 16.5,
-      "buoyancyKg": { "full": -0.4, "at50bar": 1.8, "empty": 2.5 },
-      "brands": ["Various Asian manufacturers", "Some EU brands"],
+      "buoyancyKg": {
+        "full": -0.4,
+        "at50bar": 1.8,
+        "empty": 2.5
+      },
+      "brands": [
+        "Various Asian manufacturers",
+        "Some EU brands"
+      ],
       "notes": "Common in Asian dive markets; larger and heavier than AL80."
     },
     {
       "id": "al72",
       "commonName": "AL72",
-      "waterVolumeL": 9.8,
+      "waterVolumeL": 10.0,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Recreational single tank (smaller divers, shorter dives)",
       "emptyWeightKg": 13.0,
-      "buoyancyKg": { "full": -1.0, "at50bar": 0.9, "empty": 1.5 },
-      "brands": ["Luxfer", "Catalina"],
-      "notes": "Good option between AL63 and AL80; popular for travel and sidemount."
+      "buoyancyKg": {
+        "full": -1.0,
+        "at50bar": 0.9,
+        "empty": 1.5
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina"
+      ],
+      "notes": "Good option between AL63 and AL80; popular for travel and sidemount.",
+      "ratedCapacityCuft": 72
     },
     {
       "id": "al63",
       "commonName": "AL63",
-      "waterVolumeL": 8.6,
+      "waterVolumeL": 9.0,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Small divers, short recreational dives",
       "emptyWeightKg": 11.3,
-      "buoyancyKg": { "full": -1.2, "at50bar": 0.5, "empty": 1.0 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Popular with small-frame divers or kids; lighter but same diameter as AL80."
+      "buoyancyKg": {
+        "full": -1.2,
+        "at50bar": 0.5,
+        "empty": 1.0
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Popular with small-frame divers or kids; lighter but same diameter as AL80.",
+      "ratedCapacityCuft": 63
     },
     {
       "id": "al50",
       "commonName": "AL50",
-      "waterVolumeL": 6.8,
+      "waterVolumeL": 6.9,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Stage / deco for light gas",
       "emptyWeightKg": 9.0,
-      "buoyancyKg": { "full": -0.9, "at50bar": 0.4, "empty": 0.8 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Compact stage/deco bottle; manageable for warm-water tech dives."
+      "buoyancyKg": {
+        "full": -0.9,
+        "at50bar": 0.4,
+        "empty": 0.8
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Compact stage/deco bottle; manageable for warm-water tech dives.",
+      "ratedCapacityCuft": 50
     },
     {
       "id": "al40",
       "commonName": "AL40",
-      "waterVolumeL": 5.5,
+      "waterVolumeL": 5.7,
       "workingPressureBar": 207,
       "material": "aluminum",
-      "typicalUse": "Stage / deco / O₂ bottle",
+      "typicalUse": "Stage / deco / O\u2082 bottle",
       "emptyWeightKg": 6.0,
-      "buoyancyKg": { "full": -0.7, "at50bar": 0.4, "empty": 0.7 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Common oxygen bottle for deco; good trim when clipped to left side."
+      "buoyancyKg": {
+        "full": -0.7,
+        "at50bar": 0.4,
+        "empty": 0.7
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Common oxygen bottle for deco; good trim when clipped to left side.",
+      "ratedCapacityCuft": 40
     },
     {
       "id": "al30",
       "commonName": "AL30",
-      "waterVolumeL": 4.1,
+      "waterVolumeL": 4.3,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Pony / emergency",
       "emptyWeightKg": 4.9,
-      "buoyancyKg": { "full": -0.8, "at50bar": 0.0, "empty": 0.3 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Pony bottle for emergency gas; small enough for travel or boat use."
+      "buoyancyKg": {
+        "full": -0.8,
+        "at50bar": 0.0,
+        "empty": 0.3
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Pony bottle for emergency gas; small enough for travel or boat use.",
+      "ratedCapacityCuft": 30
     },
     {
       "id": "al19",
       "commonName": "AL19",
-      "waterVolumeL": 2.6,
+      "waterVolumeL": 2.7,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Pony / bailout",
       "emptyWeightKg": 3.6,
-      "buoyancyKg": { "full": -0.8, "at50bar": -0.3, "empty": -0.1 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Very small bailout bottle; slightly negative when empty."
+      "buoyancyKg": {
+        "full": -0.8,
+        "at50bar": -0.3,
+        "empty": -0.1
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Very small bailout bottle; slightly negative when empty.",
+      "ratedCapacityCuft": 19
     },
     {
       "id": "al13",
       "commonName": "AL13",
-      "waterVolumeL": 1.8,
+      "waterVolumeL": 1.9,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Argon inflation / bailout",
       "emptyWeightKg": 2.7,
-      "buoyancyKg": { "full": -0.6, "at50bar": -0.2, "empty": -0.1 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "Usually mounted for drysuit argon inflation; rarely used for breathing gas."
+      "buoyancyKg": {
+        "full": -0.6,
+        "at50bar": -0.2,
+        "empty": -0.1
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "Usually mounted for drysuit argon inflation; rarely used for breathing gas.",
+      "ratedCapacityCuft": 13
     },
     {
       "id": "steel12-232",
@@ -117,8 +195,15 @@
       "material": "steel",
       "typicalUse": "Single tank EU cold water",
       "emptyWeightKg": 14.5,
-      "buoyancyKg": { "full": -3.8, "at50bar": -1.3, "empty": -0.5 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -3.8,
+        "at50bar": -1.3,
+        "empty": -0.5
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Most common steel tank in Europe; stays negative."
     },
     {
@@ -129,8 +214,15 @@
       "material": "steel",
       "typicalUse": "Compact high-pressure single",
       "emptyWeightKg": 17.0,
-      "buoyancyKg": { "full": -5.5, "at50bar": -2.2, "empty": -1.5 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -5.5,
+        "at50bar": -2.2,
+        "empty": -1.5
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Very dense; allows more gas but heavier topside and affects trim."
     },
     {
@@ -141,8 +233,15 @@
       "material": "steel",
       "typicalUse": "Cold/long dives",
       "emptyWeightKg": 17.5,
-      "buoyancyKg": { "full": -4.2, "at50bar": -1.0, "empty": 0.0 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -4.2,
+        "at50bar": -1.0,
+        "empty": 0.0
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Heavy but long bottom time; usually neutral when empty."
     },
     {
@@ -153,8 +252,14 @@
       "material": "steel",
       "typicalUse": "Small divers / twinset",
       "emptyWeightKg": 12.5,
-      "buoyancyKg": { "full": -3.4, "at50bar": -1.3, "empty": -0.6 },
-      "brands": ["Faber"],
+      "buoyancyKg": {
+        "full": -3.4,
+        "at50bar": -1.3,
+        "empty": -0.6
+      },
+      "brands": [
+        "Faber"
+      ],
       "notes": "Often used as twin 10s for balanced doubles in cold water."
     },
     {
@@ -165,8 +270,15 @@
       "material": "steel",
       "typicalUse": "Small divers / twinset",
       "emptyWeightKg": 13.0,
-      "buoyancyKg": { "full": -3.8, "at50bar": -1.5, "empty": -0.8 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -3.8,
+        "at50bar": -1.5,
+        "empty": -0.8
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Popular compact steel; often used as twin 10.5s in Europe."
     },
     {
@@ -177,8 +289,14 @@
       "material": "steel",
       "typicalUse": "Deco/stage EU",
       "emptyWeightKg": 9.2,
-      "buoyancyKg": { "full": -2.8, "at50bar": -1.3, "empty": -0.8 },
-      "brands": ["Faber"],
+      "buoyancyKg": {
+        "full": -2.8,
+        "at50bar": -1.3,
+        "empty": -0.8
+      },
+      "brands": [
+        "Faber"
+      ],
       "notes": "Stage/deco bottle for cold water; remains negative throughout."
     },
     {
@@ -189,81 +307,153 @@
       "material": "steel",
       "typicalUse": "CCR oxygen / diluent",
       "emptyWeightKg": 4.5,
-      "buoyancyKg": { "full": -1.9, "at50bar": -1.0, "empty": -0.8 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -1.9,
+        "at50bar": -1.0,
+        "empty": -0.8
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Standard 3L rebreather bottle; fits most CCR frames."
     },
     {
       "id": "lp85",
       "commonName": "LP85",
-      "waterVolumeL": 13.2,
+      "waterVolumeL": 13.0,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "Tech singles / doubles US",
       "emptyWeightKg": 14.0,
-      "buoyancyKg": { "full": -1.9, "at50bar": 0.4, "empty": 1.1 },
-      "brands": ["Worthington", "PST"],
-      "notes": "Popular cave/wreck tank; becomes positive if not overfilled."
+      "buoyancyKg": {
+        "full": -1.9,
+        "at50bar": 0.4,
+        "empty": 1.1
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "Popular cave/wreck tank; becomes positive if not overfilled.",
+      "ratedCapacityCuft": 85
     },
     {
       "id": "lp95",
       "commonName": "LP95",
-      "waterVolumeL": 14.8,
+      "waterVolumeL": 15.0,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "Tech doubles US",
       "emptyWeightKg": 17.0,
-      "buoyancyKg": { "full": -3.6, "at50bar": -1.0, "empty": -0.2 },
-      "brands": ["Worthington", "PST"],
-      "notes": "Cave/wreck doubles workhorse; roughly neutral when empty."
+      "buoyancyKg": {
+        "full": -3.6,
+        "at50bar": -1.0,
+        "empty": -0.2
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "Cave/wreck doubles workhorse; roughly neutral when empty.",
+      "ratedCapacityCuft": 95
     },
     {
       "id": "hp100",
       "commonName": "HP100",
-      "waterVolumeL": 11.9,
+      "waterVolumeL": 12.9,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Popular US cold-water single",
       "emptyWeightKg": 15.2,
-      "buoyancyKg": { "full": -4.2, "at50bar": -1.6, "empty": -0.8 },
-      "brands": ["Worthington", "PST"],
-      "notes": "Good trim and buoyancy; favorite single for drysuit divers."
+      "buoyancyKg": {
+        "full": -4.2,
+        "at50bar": -1.6,
+        "empty": -0.8
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "Good trim and buoyancy; favorite single for drysuit divers.",
+      "ratedCapacityCuft": 100
     },
     {
       "id": "hp120",
       "commonName": "HP120",
-      "waterVolumeL": 14.3,
+      "waterVolumeL": 15.3,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Long US single dives",
       "emptyWeightKg": 18.0,
-      "buoyancyKg": { "full": -5.5, "at50bar": -2.0, "empty": -1.1 },
-      "brands": ["Worthington", "PST"],
-      "notes": "Tall and heavy; lots of gas for single-tank tech or long rec dives."
+      "buoyancyKg": {
+        "full": -5.5,
+        "at50bar": -2.0,
+        "empty": -1.1
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "Tall and heavy; lots of gas for single-tank tech or long rec dives.",
+      "ratedCapacityCuft": 120
     },
     {
       "id": "hp117",
       "commonName": "HP117",
-      "waterVolumeL": 14.0,
+      "waterVolumeL": 15.0,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Tech singles / doubles US",
       "emptyWeightKg": 17.5,
-      "buoyancyKg": { "full": -5.0, "at50bar": -1.9, "empty": -1.0 },
-      "brands": ["Faber"],
-      "notes": "Popular tech diving cylinder; good balance of capacity and trim."
+      "buoyancyKg": {
+        "full": -5.0,
+        "at50bar": -1.9,
+        "empty": -1.0
+      },
+      "brands": [
+        "Faber"
+      ],
+      "notes": "Popular tech diving cylinder; good balance of capacity and trim.",
+      "ratedCapacityCuft": 117
     },
     {
       "id": "hp130",
       "commonName": "HP130",
-      "waterVolumeL": 15.5,
+      "waterVolumeL": 16.0,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Very long cold dives",
       "emptyWeightKg": 20.0,
-      "buoyancyKg": { "full": -5.8, "at50bar": -2.2, "empty": -1.0 },
-      "brands": ["Worthington"],
-      "notes": "Gas monster; heavy and long, often awkward for smaller divers."
+      "buoyancyKg": {
+        "full": -5.8,
+        "at50bar": -2.2,
+        "empty": -1.0
+      },
+      "brands": [
+        "Worthington"
+      ],
+      "notes": "Gas monster; heavy and long, often awkward for smaller divers.",
+      "ratedCapacityCuft": 130
+    },
+    {
+      "id": "hp133",
+      "commonName": "HP133",
+      "waterVolumeL": 17.0,
+      "workingPressureBar": 237,
+      "material": "steel",
+      "ratedCapacityCuft": 133,
+      "typicalUse": "Very long cold/deep single dives",
+      "emptyWeightKg": 21.0,
+      "buoyancyKg": {
+        "full": -6.0,
+        "at50bar": -2.3,
+        "empty": -1.0
+      },
+      "brands": [
+        "Faber"
+      ],
+      "notes": "Faber's largest single (sometimes called a 130). Heavy; buoyancy values estimated from the HP130, verify against a Faber spec sheet."
     },
     {
       "id": "ccr2l",
@@ -273,9 +463,15 @@
       "material": "steel",
       "typicalUse": "CCR oxygen",
       "emptyWeightKg": 3.0,
-      "buoyancyKg": { "full": -0.9, "at50bar": -0.5, "empty": -0.4 },
-      "brands": ["Faber"],
-      "notes": "Compact CCR O₂ bottle; easy to travel with and replace."
+      "buoyancyKg": {
+        "full": -0.9,
+        "at50bar": -0.5,
+        "empty": -0.4
+      },
+      "brands": [
+        "Faber"
+      ],
+      "notes": "Compact CCR O\u2082 bottle; easy to travel with and replace."
     },
     {
       "id": "ccr3l",
@@ -285,45 +481,76 @@
       "material": "steel",
       "typicalUse": "CCR diluent",
       "emptyWeightKg": 4.5,
-      "buoyancyKg": { "full": -1.9, "at50bar": -1.0, "empty": -0.8 },
-      "brands": ["Faber"],
+      "buoyancyKg": {
+        "full": -1.9,
+        "at50bar": -1.0,
+        "empty": -0.8
+      },
+      "brands": [
+        "Faber"
+      ],
       "notes": "Standard diluent cylinder for most CCR units; often filled to 232 bar."
     },
     {
       "id": "al100",
       "commonName": "AL100",
-      "waterVolumeL": 12.4,
+      "waterVolumeL": 13.2,
       "workingPressureBar": 228,
       "material": "aluminum",
       "typicalUse": "Longer rec single / big gas in warm water",
       "emptyWeightKg": 16.0,
-      "buoyancyKg": { "full": -2.2, "at50bar": 0.8, "empty": 1.6 },
-      "brands": ["Luxfer", "Catalina", "Thunderbird"],
-      "notes": "High-capacity aluminum; tall and heavy."
+      "buoyancyKg": {
+        "full": -2.2,
+        "at50bar": 0.8,
+        "empty": 1.6
+      },
+      "brands": [
+        "Luxfer",
+        "Catalina",
+        "Thunderbird"
+      ],
+      "notes": "High-capacity aluminum; tall and heavy.",
+      "ratedCapacityCuft": 100
     },
     {
       "id": "hp80",
       "commonName": "HP80",
-      "waterVolumeL": 9.6,
+      "waterVolumeL": 10.2,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Short/shallower cold-water single or doubles",
       "emptyWeightKg": 12.0,
-      "buoyancyKg": { "full": -3.6, "at50bar": -1.6, "empty": -0.9 },
-      "brands": ["Worthington", "PST"],
-      "notes": "Compact steel; remains negative when empty."
+      "buoyancyKg": {
+        "full": -3.6,
+        "at50bar": -1.6,
+        "empty": -0.9
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "Compact steel; remains negative when empty.",
+      "ratedCapacityCuft": 80
     },
     {
       "id": "hp119",
       "commonName": "HP119",
-      "waterVolumeL": 14.2,
+      "waterVolumeL": 14.8,
       "workingPressureBar": 237,
       "material": "steel",
       "typicalUse": "Long cold-water single / big-gas doubles",
       "emptyWeightKg": 18.6,
-      "buoyancyKg": { "full": -4.8, "at50bar": -1.7, "empty": -0.7 },
-      "brands": ["Worthington", "PST"],
-      "notes": "High-capacity HP steel; stays negative."
+      "buoyancyKg": {
+        "full": -4.8,
+        "at50bar": -1.7,
+        "empty": -0.7
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "High-capacity HP steel; stays negative.",
+      "ratedCapacityCuft": 119
     },
     {
       "id": "lp50",
@@ -333,9 +560,17 @@
       "material": "steel",
       "typicalUse": "Doubles/sidemount small-frame divers, cave/wreck",
       "emptyWeightKg": 8.5,
-      "buoyancyKg": { "full": -2.0, "at50bar": -0.7, "empty": -0.3 },
-      "brands": ["Worthington", "PST"],
-      "notes": "Popular small LP cylinder in the US; often overfilled in practice."
+      "buoyancyKg": {
+        "full": -2.0,
+        "at50bar": -0.7,
+        "empty": -0.3
+      },
+      "brands": [
+        "Worthington",
+        "PST"
+      ],
+      "notes": "Popular small LP cylinder in the US; often overfilled in practice.",
+      "ratedCapacityCuft": 50
     },
     {
       "id": "lp72",
@@ -345,33 +580,56 @@
       "material": "steel",
       "typicalUse": "Vintage/ubiquitous US steel; still common on boats",
       "emptyWeightKg": 12.7,
-      "buoyancyKg": { "full": -3.0, "at50bar": -1.1, "empty": -0.6 },
-      "brands": ["PST", "Worthington"],
-      "notes": "Classic 2250 psi steel; slim profile."
+      "buoyancyKg": {
+        "full": -3.0,
+        "at50bar": -1.1,
+        "empty": -0.6
+      },
+      "brands": [
+        "PST",
+        "Worthington"
+      ],
+      "notes": "Classic 2250 psi steel; slim profile.",
+      "ratedCapacityCuft": 72
     },
     {
       "id": "lp104",
       "commonName": "LP104",
-      "waterVolumeL": 16.2,
+      "waterVolumeL": 16.6,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "US tech doubles workhorse",
       "emptyWeightKg": 20.5,
-      "buoyancyKg": { "full": -5.0, "at50bar": -2.3, "empty": -1.5 },
-      "brands": ["PST", "Worthington"],
-      "notes": "Large LP steel; heavy topside; remains negative when empty."
+      "buoyancyKg": {
+        "full": -5.0,
+        "at50bar": -2.3,
+        "empty": -1.5
+      },
+      "brands": [
+        "PST",
+        "Worthington"
+      ],
+      "notes": "Large LP steel; heavy topside; remains negative when empty.",
+      "ratedCapacityCuft": 104
     },
     {
       "id": "lp108",
       "commonName": "LP108",
-      "waterVolumeL": 16.8,
+      "waterVolumeL": 17.0,
       "workingPressureBar": 182,
       "material": "steel",
       "typicalUse": "US tech doubles / big single",
       "emptyWeightKg": 21.5,
-      "buoyancyKg": { "full": -5.3, "at50bar": -2.5, "empty": -1.6 },
-      "brands": ["Faber"],
-      "notes": "High-capacity LP steel; excellent for long tech dives and doubles."
+      "buoyancyKg": {
+        "full": -5.3,
+        "at50bar": -2.5,
+        "empty": -1.6
+      },
+      "brands": [
+        "Faber"
+      ],
+      "notes": "High-capacity LP steel; excellent for long tech dives and doubles.",
+      "ratedCapacityCuft": 108
     },
     {
       "id": "steel18-232",
@@ -381,8 +639,15 @@
       "material": "steel",
       "typicalUse": "Very long cold-water single",
       "emptyWeightKg": 21.0,
-      "buoyancyKg": { "full": -5.5, "at50bar": -1.7, "empty": -0.5 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -5.5,
+        "at50bar": -1.7,
+        "empty": -0.5
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Common EU large single; heavy but lots of gas."
     },
     {
@@ -393,8 +658,15 @@
       "material": "steel",
       "typicalUse": "Small divers / twinset",
       "emptyWeightKg": 11.0,
-      "buoyancyKg": { "full": -3.1, "at50bar": -1.3, "empty": -0.7 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -3.1,
+        "at50bar": -1.3,
+        "empty": -0.7
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Compact EU steel; often used as twin 8.5s."
     },
     {
@@ -405,8 +677,15 @@
       "material": "steel",
       "typicalUse": "CCR oxygen/diluent (varies by unit)",
       "emptyWeightKg": 3.9,
-      "buoyancyKg": { "full": -1.1, "at50bar": -0.5, "empty": -0.3 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -1.1,
+        "at50bar": -0.5,
+        "empty": -0.3
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "Very common CCR bottle size; fits many frames."
     },
     {
@@ -417,8 +696,14 @@
       "material": "steel",
       "typicalUse": "CCR oxygen/diluent",
       "emptyWeightKg": 3.2,
-      "buoyancyKg": { "full": -1.1, "at50bar": -0.6, "empty": -0.5 },
-      "brands": ["Faber"],
+      "buoyancyKg": {
+        "full": -1.1,
+        "at50bar": -0.6,
+        "empty": -0.5
+      },
+      "brands": [
+        "Faber"
+      ],
       "notes": "The EU-standard 232 bar rating of the compact CCR bottle."
     },
     {
@@ -429,8 +714,15 @@
       "material": "steel",
       "typicalUse": "CCR diluent",
       "emptyWeightKg": 4.7,
-      "buoyancyKg": { "full": -2.0, "at50bar": -1.1, "empty": -0.9 },
-      "brands": ["Faber", "Eurocylinders"],
+      "buoyancyKg": {
+        "full": -2.0,
+        "at50bar": -1.1,
+        "empty": -0.9
+      },
+      "brands": [
+        "Faber",
+        "Eurocylinders"
+      ],
       "notes": "The EU-standard 232 bar rating of the common CCR diluent cylinder."
     },
     {
@@ -441,8 +733,14 @@
       "material": "steel",
       "typicalUse": "Sidemount / single tank EU",
       "emptyWeightKg": 12.9,
-      "buoyancyKg": { "full": -3.1, "at50bar": -0.9, "empty": -0.2 },
-      "brands": ["Faber"],
+      "buoyancyKg": {
+        "full": -3.1,
+        "at50bar": -0.9,
+        "empty": -0.2
+      },
+      "brands": [
+        "Faber"
+      ],
       "notes": "The light 200 bar Faber 12L; popular for sidemount in Europe."
     }
   ]
