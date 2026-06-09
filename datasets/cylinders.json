@@ -372,10 +372,9 @@
         "empty": -0.8
       },
       "brands": [
-        "Worthington",
-        "PST"
+        "Faber"
       ],
-      "notes": "Good trim and buoyancy; favorite single for drysuit divers.",
+      "notes": "Good trim and buoyancy; favorite single for drysuit divers. The 12.9 L water volume is the Faber HP100; the Worthington/PST X7-100 is a different cylinder (~11.6 L).",
       "ratedCapacityCuft": 100
     },
     {
@@ -446,14 +445,14 @@
       "typicalUse": "Very long cold/deep single dives",
       "emptyWeightKg": 21.0,
       "buoyancyKg": {
-        "full": -6.0,
-        "at50bar": -2.3,
-        "empty": -1.0
+        "full": -4.1,
+        "at50bar": -0.3,
+        "empty": 0.7
       },
       "brands": [
         "Faber"
       ],
-      "notes": "Faber's largest single (sometimes called a 130). Heavy; buoyancy values estimated from the HP130, verify against a Faber spec sheet."
+      "notes": "Faber's largest single (sometimes called a 130). Heavy, but floats slightly when empty. Buoyancy from the Faber FX133 sheet (full -9.08 lb, empty +1.45 lb, in sea water with valve)."
     },
     {
       "id": "ccr2l",
