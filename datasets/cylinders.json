@@ -148,7 +148,7 @@
     {
       "id": "al19",
       "commonName": "AL19",
-      "waterVolumeL": 2.7,
+      "waterVolumeL": 2.87,
       "workingPressureBar": 207,
       "material": "aluminum",
       "typicalUse": "Pony / bailout",
@@ -163,7 +163,7 @@
         "Catalina",
         "Thunderbird"
       ],
-      "notes": "Very small bailout bottle; slightly negative when empty.",
+      "notes": "Very small bailout bottle; slightly negative when empty. Water volume is Luxfer's true LAL19 figure (2.87 L), so its real-gas free gas reads a touch over the marketed 19.",
       "ratedCapacityCuft": 19
     },
     {
@@ -367,14 +367,14 @@
       "typicalUse": "Popular US cold-water single",
       "emptyWeightKg": 15.2,
       "buoyancyKg": {
-        "full": -4.2,
-        "at50bar": -1.6,
-        "empty": -0.8
+        "full": -3.8,
+        "at50bar": -1.0,
+        "empty": -0.3
       },
       "brands": [
         "Faber"
       ],
-      "notes": "Good trim and buoyancy; favorite single for drysuit divers. The 12.9 L water volume is the Faber HP100; the Worthington/PST X7-100 is a different cylinder (~11.6 L).",
+      "notes": "Good trim and buoyancy; favorite single for drysuit divers. The 12.9 L water volume and buoyancy are the Faber FX100 (full -8.41 lb, empty -0.59 lb, in sea water with valve); the Worthington/PST X7-100 is a different cylinder (~11.6 L).",
       "ratedCapacityCuft": 100
     },
     {
