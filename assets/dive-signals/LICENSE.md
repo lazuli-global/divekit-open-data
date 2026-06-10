@@ -2,7 +2,7 @@
 
 ## Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-The hand signal illustrations and visual assets in this directory are licensed under the **Creative Commons Attribution 4.0 International License**.
+The dive signal illustrations and visual assets in this directory are licensed under the **Creative Commons Attribution 4.0 International License**.
 
 **You are free to:**
 - Share — copy and redistribute the material in any medium or format
@@ -15,6 +15,8 @@ For the full license text, see: https://creativecommons.org/licenses/by/4.0/
 
 ---
 
-**Attribution:**  
-Hand signals by Project Dive Kit — https://open.divekit.app
+**Attribution:**
+Dive signals by Project Dive Kit — https://divekit.app
 
+The machine-readable index of these signals (names, meanings, categories) lives in
+[`datasets/dive-signals.json`](../../datasets/dive-signals.json), licensed CC BY 4.0 as well.

@@ -1,0 +1,660 @@
+{
+  "$schema": "https://open.divekit.app/schemas/dive-signals/dive-signals.schema.v1.0.0.json",
+  "meta": {
+    "version": "2026.06.10.1",
+    "generated_at": "2026-06-10T12:00:00Z"
+  },
+  "signals": [
+    {
+      "id": "hand-core-ok",
+      "category": "hand-core",
+      "name": "OK",
+      "description": "Form a circle with thumb and index finger, extend other fingers. Everything is fine. Also used as a question: 'Are you OK?' Respond with same signal if OK.",
+      "image": "assets/dive-signals/hand/core/ok.svg"
+    },
+    {
+      "id": "hand-core-problem",
+      "category": "hand-core",
+      "name": "Problem / Not OK",
+      "description": "Flat hand, palm down, rock side to side. Something is wrong. Follow with pointing to indicate the problem source.",
+      "image": "assets/dive-signals/hand/core/problem.svg"
+    },
+    {
+      "id": "hand-core-end-dive",
+      "category": "hand-core",
+      "name": "End Dive / Ascend",
+      "description": "Thumb pointing upward. Terminate the dive immediately and begin controlled ascent to surface.",
+      "image": "assets/dive-signals/hand/core/end-dive.svg"
+    },
+    {
+      "id": "hand-core-descend",
+      "category": "hand-core",
+      "name": "Go Down / Descend",
+      "description": "Thumb pointing downward. Begin controlled descent. Also used to ask buddy to descend.",
+      "image": "assets/dive-signals/hand/core/descend-go-down.svg"
+    },
+    {
+      "id": "hand-core-level-off",
+      "category": "hand-core",
+      "name": "Level Off / Hold Depth",
+      "description": "Flat hand, palm down, held horizontal. Maintain current depth, stop ascending or descending.",
+      "image": "assets/dive-signals/hand/core/level-off-hold-depth.svg"
+    },
+    {
+      "id": "hand-core-stop",
+      "category": "hand-core",
+      "name": "Stop",
+      "description": "Open palm facing buddy, fingers up. Halt immediately and hold position.",
+      "image": "assets/dive-signals/hand/core/stop.svg"
+    },
+    {
+      "id": "hand-core-up",
+      "category": "hand-core",
+      "name": "Up",
+      "description": "Index finger pointing upward. Indicates direction or something above - 'look up there' or 'something is above us'. Not to be confused with thumbs up which means end dive/ascend.",
+      "image": "assets/dive-signals/hand/core/up.svg"
+    },
+    {
+      "id": "hand-core-pressure-check",
+      "category": "hand-core",
+      "name": "Pressure Check / How Much Air?",
+      "description": "Two fingers tapping the open palm of your other hand. Check your pressure gauge and report remaining air, or asking buddy's remaining air.",
+      "image": "assets/dive-signals/hand/core/pressure-check.svg"
+    },
+    {
+      "id": "hand-core-safety-stop",
+      "category": "hand-core",
+      "name": "Safety Stop",
+      "description": "Three fingers extended (showing 3), hand held horizontal. Perform 3-minute safety stop at 5 meters/15 feet.",
+      "image": "assets/dive-signals/hand/core/safety-stop.svg"
+    },
+    {
+      "id": "hand-core-turn-around",
+      "category": "hand-core",
+      "name": "Turn Around / Turn the Dive",
+      "description": "Rotate index finger in circular motion. Reverse direction and start heading back.",
+      "image": "assets/dive-signals/hand/core/turn-around.svg"
+    },
+    {
+      "id": "hand-core-look-at",
+      "category": "hand-core",
+      "name": "Look / Watch",
+      "description": "Two fingers pointing at own eyes, then pointing in direction. Look at me, or look at what I'm pointing to.",
+      "image": "assets/dive-signals/hand/core/look-at.svg"
+    },
+    {
+      "id": "hand-core-come-here",
+      "category": "hand-core",
+      "name": "Come Here",
+      "description": "Beckoning motion with hand or fingers. Move closer to me.",
+      "image": "assets/dive-signals/hand/core/come-here.svg"
+    },
+    {
+      "id": "hand-core-you-lead",
+      "category": "hand-core",
+      "name": "You Lead / Go First",
+      "description": "Both hands with index fingers extended. Point one finger at the person who should lead, then move that pointing finger in front of the other finger. The person indicated is now in the lead position, with the other following behind.",
+      "image": "assets/dive-signals/hand/core/you-lead-go-first.svg"
+    },
+    {
+      "id": "hand-core-get-with-buddy",
+      "category": "hand-core",
+      "name": "Get With Your Buddy",
+      "description": "Both index fingers extended, then bring them together until touching. Stay close to your buddy, maintain buddy contact, don't separate.",
+      "image": "assets/dive-signals/hand/core/get-with-your-buddy.svg"
+    },
+    {
+      "id": "hand-core-hold-hands",
+      "category": "hand-core",
+      "name": "Hold Hands / Link Up",
+      "description": "Reach out hand to buddy. Join hands for navigation in low visibility or strong current.",
+      "image": "assets/dive-signals/hand/core/hold-hands-link-up.svg"
+    },
+    {
+      "id": "hand-core-help",
+      "category": "hand-core",
+      "name": "Help / Distress (Surface)",
+      "description": "Wave one arm overhead at the surface. Emergency assistance needed. Universal distress signal.",
+      "image": "assets/dive-signals/hand/core/help.svg"
+    },
+    {
+      "id": "hand-core-danger",
+      "category": "hand-core",
+      "name": "Danger / Hazard",
+      "description": "Make a fist and punch in the direction of the hazard with a quick jabbing motion. Danger in indicated direction, stay alert.",
+      "image": "assets/dive-signals/hand/core/danger.svg"
+    },
+    {
+      "id": "hand-core-share-air",
+      "category": "hand-core",
+      "name": "Share Air / Out of Air",
+      "description": "Two signals: OUT OF AIR - slice your flat hand across your throat. SHARE AIR - tap your hand on your own regulator then wave forward toward your buddy. Request to share buddy's air supply.",
+      "image": "assets/dive-signals/hand/core/share-air.svg"
+    },
+    {
+      "id": "hand-core-ears-not-clearing",
+      "category": "hand-core",
+      "name": "Ears Not Clearing",
+      "description": "Point to ear with finger. Unable to equalize ear pressure. May need to ascend slightly.",
+      "image": "assets/dive-signals/hand/core/ears-not-clearing.svg"
+    },
+    {
+      "id": "hand-core-cramp",
+      "category": "hand-core",
+      "name": "Cramp",
+      "description": "Make a squeezing motion with your hand like squeezing a stress ball, then point to the affected muscle. Muscle cramp in indicated location.",
+      "image": "assets/dive-signals/hand/core/cramp.svg"
+    },
+    {
+      "id": "hand-core-cold",
+      "category": "hand-core",
+      "name": "Cold",
+      "description": "Cross arms over chest, hugging motion, shivering. Feeling cold, may need to end dive.",
+      "image": "assets/dive-signals/hand/core/cold.svg"
+    },
+    {
+      "id": "hand-core-calm-down",
+      "category": "hand-core",
+      "name": "Slow Down / Calm Down",
+      "description": "Both hands palms down, slow downward pressing motion. Reduce speed, breathe slowly, relax.",
+      "image": "assets/dive-signals/hand/core/calm-down.svg"
+    },
+    {
+      "id": "hand-core-narcosis",
+      "category": "hand-core",
+      "name": "Narcosis",
+      "description": "Finger spiraling at temple (crazy sign). Experiencing nitrogen narcosis symptoms. Signal to buddy and begin ascending to shallower depth.",
+      "image": "assets/dive-signals/hand/core/narcosis.svg"
+    },
+    {
+      "id": "hand-core-broken-equipment",
+      "category": "hand-core",
+      "name": "Broken Equipment",
+      "description": "Both hands in front of body, make a snapping motion like breaking a stick in half. Equipment is broken or malfunctioning.",
+      "image": "assets/dive-signals/hand/core/broken-equipment.svg"
+    },
+    {
+      "id": "hand-core-need-weight",
+      "category": "hand-core",
+      "name": "Need Weight",
+      "description": "Fist pushing down against thigh. Having difficulty descending, need more weight.",
+      "image": "assets/dive-signals/hand/core/need-weight.svg"
+    },
+    {
+      "id": "hand-core-deploy-smb",
+      "category": "hand-core",
+      "name": "Deploy SMB",
+      "description": "One hand releasing upward motion, like releasing an SMB to the surface. I'm deploying my surface marker buoy, or requesting buddy to deploy theirs.",
+      "image": "assets/dive-signals/hand/core/smb.svg"
+    },
+    {
+      "id": "hand-core-boat",
+      "category": "hand-core",
+      "name": "Boat",
+      "description": "Hands together forming boat hull shape, rocking motion. Reference to the dive boat or boat location.",
+      "image": "assets/dive-signals/hand/core/boat.svg"
+    },
+    {
+      "id": "hand-core-talk",
+      "category": "hand-core",
+      "name": "Let's Talk",
+      "description": "Fingers and thumb together, open and close repeatedly like a talking mouth. I need to talk to you - usually means we should surface for verbal communication.",
+      "image": "assets/dive-signals/hand/core/talk.svg"
+    },
+    {
+      "id": "hand-technical-hold",
+      "category": "hand-technical",
+      "name": "Hold Position",
+      "description": "Closed fist held steady in front of body. Hold your current position and wait - don't move until further signal. Different from 'stop' which is an open palm.",
+      "image": "assets/dive-signals/hand/technical/hold.svg"
+    },
+    {
+      "id": "hand-technical-ascend",
+      "category": "hand-technical",
+      "name": "Ascend",
+      "description": "Flat hand, palm facing down, move it upward along a curved path while maintaining the same flat posture. Begin ascending at proper rate.",
+      "image": "assets/dive-signals/hand/technical/ascend.svg"
+    },
+    {
+      "id": "hand-technical-level-off",
+      "category": "hand-technical",
+      "name": "Level Off",
+      "description": "Flat hand, palm down, horizontal motion. Stop vertical movement, maintain current depth.",
+      "image": "assets/dive-signals/hand/technical/level-off.svg"
+    },
+    {
+      "id": "hand-technical-time",
+      "category": "hand-technical",
+      "name": "Time",
+      "description": "Tap your wrist where a watch would be, or point to your dive computer. Asking about time - runtime, bottom time remaining, or TTS. Respond with number signals.",
+      "image": "assets/dive-signals/hand/technical/time.svg"
+    },
+    {
+      "id": "hand-technical-pressure-check",
+      "category": "hand-technical",
+      "name": "Pressure Check",
+      "description": "Make a fist and do a quick pump-pump squeezing motion, like squeezing a stress ball. TDI one-hand pressure signal. Check and report cylinder pressure using number signals.",
+      "image": "assets/dive-signals/hand/technical/pressure-check.svg"
+    },
+    {
+      "id": "hand-technical-deco",
+      "category": "hand-technical",
+      "name": "Deco",
+      "description": "Hold up your pinky finger. Used to communicate or ask about decompression obligations. Commonly used to ask your teammate's TTS (time to surface). Follow with number signals to communicate deco time.",
+      "image": "assets/dive-signals/hand/technical/deco.svg"
+    },
+    {
+      "id": "hand-technical-gas-switch",
+      "category": "hand-technical",
+      "name": "Gas Switch",
+      "description": "Index and middle fingers extended, do a rotation/swivel motion in front of your regulator. Indicates switching to a different gas. Confirm the gas being switched to with your buddy.",
+      "image": "assets/dive-signals/hand/technical/gas-switch.svg"
+    },
+    {
+      "id": "hand-technical-bubbles",
+      "category": "hand-technical",
+      "name": "Bubbles / Leak",
+      "description": "Thumb and index/middle fingers doing an open-close pinching motion, like bubbles rising. Gas leak detected, bubbles escaping from equipment.",
+      "image": "assets/dive-signals/hand/technical/bubbles.svg"
+    },
+    {
+      "id": "hand-technical-s-drill",
+      "category": "hand-technical",
+      "name": "S-Drill",
+      "description": "Draw an 'S' in the air with your index finger. TDI S-Drill: check that you can share long hose freely, check for bubbles/leaks, and check for entanglements on your buddy. Performed at the start of a dive before completing the descent.",
+      "image": "assets/dive-signals/hand/technical/s-drill.svg"
+    },
+    {
+      "id": "hand-technical-light",
+      "category": "hand-technical",
+      "name": "Light",
+      "description": "Fingertips clenched together, then open, then close, then open repeatedly. Mimics a light flashing. Turn on light, adjust light, or light-related communication.",
+      "image": "assets/dive-signals/hand/technical/light.svg"
+    },
+    {
+      "id": "hand-technical-reel",
+      "category": "hand-technical",
+      "name": "Reel",
+      "description": "Thumb pressed against flat fingers, make a circular winding motion. Deploy reel, reel in line, or referring to the reel.",
+      "image": "assets/dive-signals/hand/technical/reel.svg"
+    },
+    {
+      "id": "hand-technical-line",
+      "category": "hand-technical",
+      "name": "Line",
+      "description": "Cross your index and middle fingers together. Indicates reference to a guideline, caveline, or distance line.",
+      "image": "assets/dive-signals/hand/technical/line.svg"
+    },
+    {
+      "id": "hand-technical-tie-off",
+      "category": "hand-technical",
+      "name": "Tie Off",
+      "description": "Make the line sign (crossed index and middle fingers), then draw a circle in the air. Secure the line, create a tie-off point.",
+      "image": "assets/dive-signals/hand/technical/tie-off.svg"
+    },
+    {
+      "id": "hand-technical-entangled",
+      "category": "hand-technical",
+      "name": "Entangled",
+      "description": "Make the line symbol (cross index and middle fingers), then draw an infinity shape in the air. Caught in line, net, or kelp. Need assistance.",
+      "image": "assets/dive-signals/hand/technical/entangled.svg"
+    },
+    {
+      "id": "hand-technical-lock",
+      "category": "hand-technical",
+      "name": "Lock / Secure",
+      "description": "Two index fingers interlocking together like a chain link. Lock position, secure equipment in place.",
+      "image": "assets/dive-signals/hand/technical/lock-secure.svg"
+    },
+    {
+      "id": "hand-technical-wrap",
+      "category": "hand-technical",
+      "name": "Wrap",
+      "description": "Wrap one hand around your fist with your other hand. Wrap up line or wrap procedure.",
+      "image": "assets/dive-signals/hand/technical/wrap.svg"
+    },
+    {
+      "id": "hand-technical-cleanup",
+      "category": "hand-technical",
+      "name": "Clean Up",
+      "description": "Both hands making gathering/collecting motion toward body. Stow loose equipment, secure dangling hoses or lines, tidy up your gear configuration before moving.",
+      "image": "assets/dive-signals/hand/technical/cleanup.svg"
+    },
+    {
+      "id": "hand-technical-question",
+      "category": "hand-technical",
+      "name": "Question / What?",
+      "description": "Index finger curled into a question mark shape. Used to ask a question or indicate confusion. What is it? What do you mean?",
+      "image": "assets/dive-signals/hand/technical/question.svg"
+    },
+    {
+      "id": "hand-technical-zero",
+      "category": "hand-technical",
+      "name": "Zero (0)",
+      "description": "Form an O-shape with thumb and index finger, or show a closed fist. Number zero. Used with other number signals to communicate pressure or time values.",
+      "image": "assets/dive-signals/hand/technical/number_0.svg"
+    },
+    {
+      "id": "hand-technical-one",
+      "category": "hand-technical",
+      "name": "One (1)",
+      "description": "One finger (index) extended, palm facing outward. Number one. Used for communicating pressure (bars/psi), time, depth, or other values.",
+      "image": "assets/dive-signals/hand/technical/number_1.svg"
+    },
+    {
+      "id": "hand-technical-two",
+      "category": "hand-technical",
+      "name": "Two (2)",
+      "description": "Two fingers (index and middle) extended, palm facing outward. Number two.",
+      "image": "assets/dive-signals/hand/technical/number_2.svg"
+    },
+    {
+      "id": "hand-technical-three",
+      "category": "hand-technical",
+      "name": "Three (3)",
+      "description": "Three fingers (index, middle, ring) extended, palm facing outward. Number three.",
+      "image": "assets/dive-signals/hand/technical/number_3.svg"
+    },
+    {
+      "id": "hand-technical-four",
+      "category": "hand-technical",
+      "name": "Four (4)",
+      "description": "Four fingers extended (thumb tucked in), palm facing outward. Number four.",
+      "image": "assets/dive-signals/hand/technical/number_4.svg"
+    },
+    {
+      "id": "hand-technical-five",
+      "category": "hand-technical",
+      "name": "Five (5)",
+      "description": "All five fingers extended, open palm facing outward. Number five. Also represents 50 bar / 500 psi when used for pressure.",
+      "image": "assets/dive-signals/hand/technical/number_5.svg"
+    },
+    {
+      "id": "hand-technical-six",
+      "category": "hand-technical",
+      "name": "Six (6)",
+      "description": "Hand sideways with back of hand facing outward, one finger extended. TDI style: numbers 6-9 use a sideways hand position to distinguish from 1-4. Number six.",
+      "image": "assets/dive-signals/hand/technical/number_6.svg"
+    },
+    {
+      "id": "hand-technical-seven",
+      "category": "hand-technical",
+      "name": "Seven (7)",
+      "description": "Hand sideways with back of hand facing outward, two fingers extended. TDI style: numbers 6-9 use a sideways hand position to distinguish from 1-4. Number seven.",
+      "image": "assets/dive-signals/hand/technical/number_7.svg"
+    },
+    {
+      "id": "hand-technical-eight",
+      "category": "hand-technical",
+      "name": "Eight (8)",
+      "description": "Hand sideways with back of hand facing outward, three fingers extended. TDI style: numbers 6-9 use a sideways hand position to distinguish from 1-4. Number eight.",
+      "image": "assets/dive-signals/hand/technical/number_8.svg"
+    },
+    {
+      "id": "hand-technical-nine",
+      "category": "hand-technical",
+      "name": "Nine (9)",
+      "description": "Hand sideways with back of hand facing outward, four fingers extended. TDI style: numbers 6-9 use a sideways hand position to distinguish from 1-4. Number nine.",
+      "image": "assets/dive-signals/hand/technical/number_9.svg"
+    },
+    {
+      "id": "hand-fish-id-shark",
+      "category": "hand-fish-id",
+      "name": "Shark",
+      "description": "Flat hand on top of head mimicking dorsal fin. Shark sighting.",
+      "image": "assets/dive-signals/hand/fish-id/shark.svg"
+    },
+    {
+      "id": "hand-fish-id-hammerhead",
+      "category": "hand-fish-id",
+      "name": "Hammerhead Shark",
+      "description": "Fists on sides of head, extended outward like hammer shape. Hammerhead shark sighting.",
+      "image": "assets/dive-signals/hand/fish-id/hammer-head-shark.svg"
+    },
+    {
+      "id": "hand-fish-id-manta-ray",
+      "category": "hand-fish-id",
+      "name": "Manta Ray",
+      "description": "Arms extended wide, slow graceful wave motion like wings. Manta ray sighting.",
+      "image": "assets/dive-signals/hand/fish-id/manta-ray.svg"
+    },
+    {
+      "id": "hand-fish-id-dolphin",
+      "category": "hand-fish-id",
+      "name": "Dolphin",
+      "description": "Hand in undulating wave motion, rising and diving like dolphin swimming. Dolphin sighting.",
+      "image": "assets/dive-signals/hand/fish-id/dolphin.svg"
+    },
+    {
+      "id": "hand-fish-id-turtle",
+      "category": "hand-fish-id",
+      "name": "Turtle",
+      "description": "One fist covered by other flat hand, thumbs rotating like swimming flippers. Sea turtle sighting.",
+      "image": "assets/dive-signals/hand/fish-id/turtle.svg"
+    },
+    {
+      "id": "hand-fish-id-seal",
+      "category": "hand-fish-id",
+      "name": "Seal / Sea Lion",
+      "description": "Hands together at wrists, flapping like flippers. Seal or sea lion sighting.",
+      "image": "assets/dive-signals/hand/fish-id/seal.svg"
+    },
+    {
+      "id": "hand-fish-id-stingray",
+      "category": "hand-fish-id",
+      "name": "Stingray",
+      "description": "Flat hands together, undulating motion with whipping tail gesture. Stingray sighting.",
+      "image": "assets/dive-signals/hand/fish-id/stingray.svg"
+    },
+    {
+      "id": "hand-fish-id-blue-spotted-ray",
+      "category": "hand-fish-id",
+      "name": "Blue-Spotted Ray",
+      "description": "Flat hand undulating like a ray swimming, then tap fingertips on the back of your hand to indicate spots. Blue-spotted ribbontail ray sighting.",
+      "image": "assets/dive-signals/hand/fish-id/blue-spotted-ray.svg"
+    },
+    {
+      "id": "hand-fish-id-napoleon",
+      "category": "hand-fish-id",
+      "name": "Napoleon Wrasse",
+      "description": "Bump on forehead with fist. Humphead or Napoleon wrasse sighting.",
+      "image": "assets/dive-signals/hand/fish-id/napoleon.svg"
+    },
+    {
+      "id": "hand-fish-id-barracuda",
+      "category": "hand-fish-id",
+      "name": "Barracuda",
+      "description": "Chop your forearm with your other hand using a knife-like motion. Represents the barracuda's elongated body and sharp profile. Barracuda sighting.",
+      "image": "assets/dive-signals/hand/fish-id/barracuda.svg"
+    },
+    {
+      "id": "hand-fish-id-tuna",
+      "category": "hand-fish-id",
+      "name": "Tuna",
+      "description": "Fast torpedo-shaped hand motion. Large fast-swimming pelagic fish sighting.",
+      "image": "assets/dive-signals/hand/fish-id/tuna.svg"
+    },
+    {
+      "id": "hand-fish-id-triggerfish",
+      "category": "hand-fish-id",
+      "name": "Triggerfish",
+      "description": "Finger like trigger being pulled. Triggerfish sighting. May be territorial.",
+      "image": "assets/dive-signals/hand/fish-id/triggerfish.svg"
+    },
+    {
+      "id": "hand-fish-id-angelfish",
+      "category": "hand-fish-id",
+      "name": "Angelfish",
+      "description": "Halo motion above head with finger. Angelfish sighting.",
+      "image": "assets/dive-signals/hand/fish-id/angelfish.svg"
+    },
+    {
+      "id": "hand-fish-id-pufferfish",
+      "category": "hand-fish-id",
+      "name": "Pufferfish",
+      "description": "Puffed cheeks, hands around face expanding. Pufferfish or boxfish sighting.",
+      "image": "assets/dive-signals/hand/fish-id/pufferfish.svg"
+    },
+    {
+      "id": "hand-fish-id-trumpetfish",
+      "category": "hand-fish-id",
+      "name": "Trumpetfish",
+      "description": "Hands at mouth like trumpet, extended forward. Trumpetfish or cornetfish sighting.",
+      "image": "assets/dive-signals/hand/fish-id/trumpetfish.svg"
+    },
+    {
+      "id": "hand-fish-id-moray",
+      "category": "hand-fish-id",
+      "name": "Moray Eel",
+      "description": "Hand opens and closes like eel mouth, arm waving like eel body. Moray eel sighting.",
+      "image": "assets/dive-signals/hand/fish-id/moray.svg"
+    },
+    {
+      "id": "hand-fish-id-lionfish",
+      "category": "hand-fish-id",
+      "name": "Lionfish",
+      "description": "Fingers spread out like spines radiating from face. Lionfish sighting. Venomous - keep distance.",
+      "image": "assets/dive-signals/hand/fish-id/lionfish.svg"
+    },
+    {
+      "id": "hand-fish-id-scorpionfish",
+      "category": "hand-fish-id",
+      "name": "Scorpionfish",
+      "description": "Fingers spread, hand low like camouflaged fish on bottom. Scorpionfish sighting. Venomous - do not touch.",
+      "image": "assets/dive-signals/hand/fish-id/scorpionfish.svg"
+    },
+    {
+      "id": "hand-fish-id-stonefish",
+      "category": "hand-fish-id",
+      "name": "Stonefish",
+      "description": "Fist like stone on bottom. Stonefish sighting. Extremely venomous - maintain distance.",
+      "image": "assets/dive-signals/hand/fish-id/stonefish.svg"
+    },
+    {
+      "id": "hand-fish-id-crocodilefish",
+      "category": "hand-fish-id",
+      "name": "Crocodilefish",
+      "description": "Hold flat hand low (near bottom), then make long jaw snapping motion with fingers against palm. Crocodilefish, flathead, or bottom-dwelling predator sighting.",
+      "image": "assets/dive-signals/hand/fish-id/crocodilefish.svg"
+    },
+    {
+      "id": "hand-fish-id-octopus",
+      "category": "hand-fish-id",
+      "name": "Octopus",
+      "description": "Fingers wiggling outward like tentacles from palm. Octopus sighting.",
+      "image": "assets/dive-signals/hand/fish-id/octopus.svg"
+    },
+    {
+      "id": "hand-fish-id-seahorse",
+      "category": "hand-fish-id",
+      "name": "Seahorse",
+      "description": "Curved fist with extended thumb like seahorse snout. Seahorse sighting.",
+      "image": "assets/dive-signals/hand/fish-id/seahorse.svg"
+    },
+    {
+      "id": "hand-fish-id-nudibranch",
+      "category": "hand-fish-id",
+      "name": "Nudibranch",
+      "description": "Two fingers on head wiggling like rhinophores (nudibranch antennae), then pinch fingers to show small size. Nudibranch or sea slug sighting - usually tiny and colorful.",
+      "image": "assets/dive-signals/hand/fish-id/nudibranch.svg"
+    },
+    {
+      "id": "hand-fish-id-jellyfish",
+      "category": "hand-fish-id",
+      "name": "Jellyfish",
+      "description": "Hand pulsing open and closed, fingers trailing downward. Jellyfish in area - avoid contact.",
+      "image": "assets/dive-signals/hand/fish-id/jellyfish.svg"
+    },
+    {
+      "id": "hand-fish-id-crab",
+      "category": "hand-fish-id",
+      "name": "Crab",
+      "description": "Pinching motion with index finger and thumb. Crab sighting.",
+      "image": "assets/dive-signals/hand/fish-id/crab.svg"
+    },
+    {
+      "id": "hand-fish-id-shrimp",
+      "category": "hand-fish-id",
+      "name": "Shrimp",
+      "description": "Two fingers at forehead like antennae, small size indicated. Shrimp sighting.",
+      "image": "assets/dive-signals/hand/fish-id/shrimp.svg"
+    },
+    {
+      "id": "hand-fish-id-small-creature",
+      "category": "hand-fish-id",
+      "name": "Small Creature",
+      "description": "Pinch thumb and index finger close together indicating tiny size, then point to location. Small/macro creature spotted - look closely at the indicated area.",
+      "image": "assets/dive-signals/hand/fish-id/small-creature.svg"
+    },
+    {
+      "id": "light-ok",
+      "category": "light",
+      "name": "OK (Light)",
+      "description": "Slow large circle motion with light beam. Everything is fine. Used as both signal and response.",
+      "image": "assets/dive-signals/light/light-ok.svg"
+    },
+    {
+      "id": "light-attention",
+      "category": "light",
+      "name": "Attention",
+      "description": "Wave light beam horizontally across buddy's field of vision. Get buddy's attention for communication.",
+      "image": "assets/dive-signals/light/light-attention.svg"
+    },
+    {
+      "id": "light-emergency",
+      "category": "light",
+      "name": "Emergency",
+      "description": "Rapid continuous shaking of light, erratic motion. Emergency situation, immediate assistance required.",
+      "image": "assets/dive-signals/light/light-emergency.svg"
+    },
+    {
+      "id": "touch-contact-ok",
+      "category": "touch-contact",
+      "name": "OK",
+      "description": "Two deliberate squeezes on buddy's arm or hand. Everything is OK. Reply with same signal.",
+      "image": "assets/dive-signals/buddy-contact/touch-ok.svg"
+    },
+    {
+      "id": "touch-contact-stop",
+      "category": "touch-contact",
+      "name": "Stop",
+      "description": "Single firm grip or squeeze. Stop immediately, hold position.",
+      "image": "assets/dive-signals/buddy-contact/touch-stop.svg"
+    },
+    {
+      "id": "touch-contact-hold",
+      "category": "touch-contact",
+      "name": "Hold / Wait",
+      "description": "Maintain firm grip without movement. Stay here, maintain position, wait.",
+      "image": "assets/dive-signals/buddy-contact/touch-hold.svg"
+    },
+    {
+      "id": "touch-contact-ascend",
+      "category": "touch-contact",
+      "name": "Ascend / Go Up",
+      "description": "Push upward on buddy's arm. Move up, begin ascent.",
+      "image": "assets/dive-signals/buddy-contact/touch-ascend.svg"
+    },
+    {
+      "id": "touch-contact-descend",
+      "category": "touch-contact",
+      "name": "Descend / Go Down",
+      "description": "Push downward on buddy's arm. Move down, continue descent.",
+      "image": "assets/dive-signals/buddy-contact/touch-descend.svg"
+    },
+    {
+      "id": "touch-contact-left-right",
+      "category": "touch-contact",
+      "name": "Left / Right",
+      "description": "Tug arm in lateral direction. Move left or right as indicated.",
+      "image": "assets/dive-signals/buddy-contact/touch-left-right.svg"
+    },
+    {
+      "id": "touch-contact-forward-backward",
+      "category": "touch-contact",
+      "name": "Forward / Backward",
+      "description": "Pull or push along the arm horizontally. Move forward or backward in indicated direction.",
+      "image": "assets/dive-signals/buddy-contact/touch-forward-backward.svg"
+    }
+  ]
+}

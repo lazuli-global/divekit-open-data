@@ -7,6 +7,8 @@ on:
     paths:
       - 'datasets/**.json'
       - 'schemas/**.json'
+      - 'assets/dive-signals/**'
+      - 'assets/agency-logos/**'
       - 'scripts/validate.sh'
       - '.github/workflows/validate.yml'
   push:
@@ -15,6 +17,8 @@ on:
     paths:
       - 'datasets/**.json'
       - 'schemas/**.json'
+      - 'assets/dive-signals/**'
+      - 'assets/agency-logos/**'
       - 'scripts/validate.sh'
       - '.github/workflows/validate.yml'
   workflow_dispatch:

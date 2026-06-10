@@ -1,0 +1,68 @@
+{
+  "$id": "https://open.divekit.app/schemas/dive-signals/dive-signals.schema.v1.0.0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dive Signals Schema",
+  "description": "Defines the structure for diver communication signals (hand, light, and buddy-contact signals) and their illustrations.",
+  "type": "object",
+
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to this schema URL."
+    },
+
+    "meta": {
+      "type": "object",
+      "description": "Metadata about this dataset version.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Semantic or date-based dataset release tag (e.g., '2026.06')."
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp when this dataset was generated."
+        }
+      },
+      "required": ["version", "generated_at"]
+    },
+
+    "signals": {
+      "type": "array",
+      "description": "List of diver communication signals.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9\\-]+$",
+            "description": "Unique signal ID in kebab-case, prefixed by its category. Example: 'hand-core-ok'."
+          },
+          "category": {
+            "type": "string",
+            "enum": ["hand-core", "hand-technical", "hand-fish-id", "light", "touch-contact"],
+            "description": "Signal category: core recreational hand signals, technical-diving hand signals, fish/marine-life identification hand signals, light (torch) signals, or buddy-contact (touch) signals for low/no visibility."
+          },
+          "name": {
+            "type": "string",
+            "description": "English display name of the signal."
+          },
+          "description": {
+            "type": "string",
+            "description": "English description of how the signal is performed and what it means."
+          },
+          "image": {
+            "type": "string",
+            "pattern": "^assets/dive-signals/.+\\.svg$",
+            "description": "Repository-relative path to the signal's SVG illustration (CC BY 4.0, see assets/dive-signals/LICENSE.md)."
+          }
+        },
+        "required": ["id", "category", "name", "description", "image"]
+      }
+    }
+  },
+
+  "required": ["meta", "signals"],
+  "additionalProperties": false
+}

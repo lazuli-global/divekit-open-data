@@ -461,6 +461,86 @@ check_agency_logos() {
     echo ""
 }
 
+# Function to check if dive signal illustrations exist
+check_signal_images() {
+    local json_file="$1"
+
+    # Only check dive-signals.json
+    if [[ "$json_file" != *"dive-signals.json"* ]]; then
+        return 0
+    fi
+
+    echo -e "${YELLOW}🖼️  Checking signal illustrations in: ${json_file}${NC}"
+
+    # Check if assets/dive-signals directory exists
+    if [ ! -d "assets/dive-signals" ]; then
+        echo -e "${RED}❌ ERROR: assets/dive-signals directory not found${NC}"
+        VALIDATION_FAILED=1
+        echo ""
+        return 1
+    fi
+
+    # Extract all image paths
+    local image_paths
+    image_paths=$(jq -r '.signals[]? | .image? // empty' "$json_file" 2>/dev/null || echo "")
+
+    if [ -z "$image_paths" ]; then
+        echo -e "${BLUE}ℹ️  No signals found in file${NC}"
+        echo ""
+        return 0
+    fi
+
+    local missing_images=()
+    local found_count=0
+    local total_count=0
+
+    # Check each referenced illustration exists
+    while IFS= read -r image_path; do
+        if [ -z "$image_path" ]; then
+            continue
+        fi
+
+        total_count=$((total_count + 1))
+
+        if [ -f "$image_path" ]; then
+            found_count=$((found_count + 1))
+        else
+            missing_images+=("$image_path")
+        fi
+    done <<< "$image_paths"
+
+    # Report results
+    if [ ${#missing_images[@]} -gt 0 ]; then
+        echo -e "${RED}❌ ERROR: Missing signal illustrations (${#missing_images[@]} out of $total_count signals)${NC}"
+        echo -e "${RED}   Every signal entry must reference an existing SVG in assets/dive-signals/${NC}"
+        echo ""
+        echo -e "${RED}   Missing files:${NC}"
+        for missing_path in "${missing_images[@]}"; do
+            echo -e "${RED}   - ${missing_path}${NC}"
+        done
+        VALIDATION_FAILED=1
+    else
+        echo -e "${GREEN}✅ All ${total_count} signals have illustration files${NC}"
+    fi
+
+    # Warn about orphaned SVGs not referenced by any signal entry
+    local orphaned
+    orphaned=$(comm -23 \
+        <(find assets/dive-signals -name "*.svg" -type f 2>/dev/null | sort) \
+        <(echo "$image_paths" | sort -u))
+
+    if [ -n "$orphaned" ]; then
+        echo -e "${YELLOW}⚠️  WARNING: SVG files not referenced by any dataset entry:${NC}"
+        echo "$orphaned" | while read -r orphan; do
+            if [ -n "$orphan" ]; then
+                echo -e "${YELLOW}   - ${orphan}${NC}"
+            fi
+        done
+    fi
+
+    echo ""
+}
+
 # Main validation logic
 main() {
     # Check if jq is installed
@@ -541,6 +621,7 @@ main() {
                 check_unique_cert_names_and_abbrs_per_agency "$json_file"
                 check_unique_cylinder_common_names "$json_file"
                 check_agency_logos "$json_file"
+                check_signal_images "$json_file"
             fi
         done <<< "$json_files"
     fi
