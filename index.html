@@ -17,14 +17,33 @@
 
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.0/marked.min.js"></script>
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
+      integrity="sha384-LTbdgUzZ3SXn50n5dAZ75Kpp86fR5oSHELRlFJqZ08kHpI2/Jwsgi/KA8UdnqXSK"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked@11.1.0/marked.min.js"
+      integrity="sha384-+pBQSmYtEXC3hQ5VUaVCf29+iZoVJLtwOW9Wf/iFxETwDke401fmC3cesoWnEI3r"
+      crossorigin="anonymous"></script>
     <style>
+      /* Dive Kit editorial palette (matches divekit.app) */
+      :root {
+        --paper: #fbfaf7;
+        --paper-raised: #ffffff;
+        --paper-tint: #f3f1ec;
+        --ink: #181a1c;
+        --ink-secondary: #494d52;
+        --ink-muted: #75797f;
+        --rule: rgb(24 26 28 / 0.14);
+        --rule-strong: rgb(24 26 28 / 0.45);
+        --accent: #0369a1;
+        --accent-strong: #075985;
+        --accent-wash: rgb(3 105 161 / 0.06);
+      }
       body {
         margin: 0;
         padding: 0;
-        background-color: #f3f4f6;
-        color: #000000;
+        background-color: var(--paper);
+        color: var(--ink);
       }
       .container {
         max-width: 1012px;
@@ -37,39 +56,41 @@
         max-width: 980px;
         margin: 0 auto;
         padding: 45px;
-        background-color: #ffffff;
-        color: #000000;
+        background-color: var(--paper-raised);
+        color: var(--ink);
         border-radius: 12px;
-        border: 3px solid #000000;
-        box-shadow: 2px 4px 0 #000000;
+        border: 1px solid var(--rule);
+        box-shadow: 0 1px 2px rgb(24 26 28 / 0.04), 0 8px 24px rgb(24 26 28 / 0.06);
       }
       @media (max-width: 767px) {
         .markdown-body {
           padding: 15px;
         }
+        .container {
+          padding: 16px;
+        }
       }
       /* Dive Kit brand theme colors */
       .markdown-body a {
-        color: #0b95da;
+        color: var(--accent);
         text-decoration: none;
       }
       .markdown-body a:hover {
-        color: #075985;
+        color: var(--accent-strong);
         text-decoration: underline;
       }
       .markdown-body code {
-        background-color: #f3f4f6;
+        background-color: var(--paper-tint);
         padding: 2px 6px;
-        border-radius: 8px;
-        border: 2px solid #000000;
-        color: #374151;
+        border-radius: 6px;
+        border: 1px solid var(--rule);
+        color: var(--ink-secondary);
       }
       .markdown-body pre {
-        background-color: #f3f4f6;
+        background-color: var(--paper-tint);
         padding: 16px;
-        border-radius: 12px;
-        border: 3px solid #000000;
-        box-shadow: 2px 4px 0 #000000;
+        border-radius: 10px;
+        border: 1px solid var(--rule);
         overflow-x: auto;
       }
       .markdown-body pre code {
@@ -80,20 +101,20 @@
       .markdown-body table {
         border-collapse: separate;
         border-spacing: 0;
-        border: 3px solid #000000;
-        border-radius: 12px;
+        border: 1px solid var(--rule);
+        border-radius: 10px;
         overflow: hidden;
       }
       .markdown-body table tr {
-        background-color: #ffffff;
+        background-color: var(--paper-raised);
       }
       .markdown-body table tr:nth-child(2n) {
-        background-color: #f9fafb;
+        background-color: var(--paper);
       }
       .markdown-body table th,
       .markdown-body table td {
-        border-right: 2px solid #000000;
-        border-bottom: 2px solid #000000;
+        border-right: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
         padding: 12px 16px;
       }
       .markdown-body table th:last-child,
@@ -104,21 +125,21 @@
         border-bottom: 0;
       }
       .markdown-body table th {
-        background-color: #f3f4f6;
+        background-color: var(--paper-tint);
         font-weight: 600;
-        border-bottom: 3px solid #000000;
+        border-bottom: 1px solid var(--rule-strong);
       }
       .markdown-body hr {
-        background-color: #000000;
-        height: 3px;
+        background-color: var(--rule);
+        height: 1px;
         border: 0;
       }
       .markdown-body blockquote {
-        border-left: 3px solid #0b95da;
-        color: #374151;
+        border-left: 3px solid var(--accent);
+        color: var(--ink-secondary);
         padding-left: 16px;
         margin-left: 0;
-        background-color: #f3f4f6;
+        background-color: var(--accent-wash);
         padding: 12px 16px;
         border-radius: 8px;
       }
@@ -128,8 +149,10 @@
       .markdown-body h4,
       .markdown-body h5,
       .markdown-body h6 {
-        color: #000000;
+        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+        color: var(--ink);
         font-weight: 600;
+        border-bottom-color: var(--rule);
       }
       /* Loading screen */
       .loading {
@@ -140,8 +163,8 @@
         min-height: 100vh;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
         font-size: 16px;
-        color: #374151;
-        background-color: #f3f4f6;
+        color: var(--ink-secondary);
+        background-color: var(--paper);
       }
       .loading-logo {
         width: 80px;
@@ -150,8 +173,8 @@
         animation: pulse 2s ease-in-out infinite;
       }
       .spinner {
-        border: 3px solid #e5e7eb;
-        border-top: 3px solid #0b95da;
+        border: 3px solid var(--paper-tint);
+        border-top: 3px solid var(--accent);
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -221,7 +244,7 @@
         .catch((error) => {
           console.error('Error loading README:', error);
           document.getElementById('loading').innerHTML =
-            '<div style="color: #f85149;">⚠️ Failed to load README.md</div>';
+            '<div style="color: #b91c1c;">⚠️ Failed to load README.md</div>';
         });
     </script>
   </body>

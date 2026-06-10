@@ -10,6 +10,20 @@
     <link rel="apple-touch-icon" href="/assets/divekit/logo-circle-light.png" />
 
     <style>
+      /* Dive Kit editorial palette (matches divekit.app) */
+      :root {
+        --paper: #fbfaf7;
+        --paper-raised: #ffffff;
+        --paper-tint: #f3f1ec;
+        --ink: #181a1c;
+        --ink-secondary: #494d52;
+        --ink-muted: #75797f;
+        --rule: rgb(24 26 28 / 0.14);
+        --rule-strong: rgb(24 26 28 / 0.45);
+        --accent: #0369a1;
+        --accent-strong: #075985;
+        --accent-wash: rgb(3 105 161 / 0.06);
+      }
       * {
         margin: 0;
         padding: 0;
@@ -17,8 +31,8 @@
       }
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-        background-color: #f3f4f6;
-        color: #000000;
+        background-color: var(--paper);
+        color: var(--ink);
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -28,11 +42,11 @@
       .container {
         text-align: center;
         max-width: 600px;
-        background-color: #ffffff;
+        background-color: var(--paper-raised);
         padding: 60px 40px;
         border-radius: 12px;
-        border: 3px solid #000000;
-        box-shadow: 2px 4px 0 #000000;
+        border: 1px solid var(--rule);
+        box-shadow: 0 1px 2px rgb(24 26 28 / 0.04), 0 8px 24px rgb(24 26 28 / 0.06);
       }
       .logo-404 {
         width: 120px;
@@ -51,21 +65,23 @@
         }
       }
       h1 {
+        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
         font-size: 72px;
         font-weight: 700;
         margin-bottom: 20px;
-        color: #0b95da;
+        color: var(--accent);
       }
       h2 {
+        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
         font-size: 28px;
         font-weight: 600;
         margin-bottom: 15px;
-        color: #000000;
+        color: var(--ink);
       }
       p {
         font-size: 18px;
         line-height: 1.6;
-        color: #374151;
+        color: var(--ink-secondary);
         margin-bottom: 30px;
       }
       .links {
@@ -77,43 +93,38 @@
       a {
         display: inline-block;
         padding: 12px 24px;
-        background-color: #0b95da;
+        background-color: var(--accent);
         color: #ffffff;
         text-decoration: none;
-        border-radius: 12px;
+        border-radius: 10px;
         font-weight: 600;
-        transition: all 0.15s ease;
-        border: 3px solid #000000;
-        box-shadow: 2px 4px 0 #000000;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+        border: 1px solid var(--accent);
       }
       a:hover {
-        background-color: #075985;
-        transform: translate(1px, 2px);
-        box-shadow: 1px 2px 0 #000000;
+        background-color: var(--accent-strong);
+        border-color: var(--accent-strong);
       }
       a.secondary {
-        background-color: #e5e7eb;
-        border: 3px solid #000000;
-        color: #000000;
-        box-shadow: 2px 4px 0 #000000;
+        background-color: var(--paper-raised);
+        border: 1px solid var(--rule-strong);
+        color: var(--ink);
       }
       a.secondary:hover {
-        background-color: #9ca3af;
-        transform: translate(1px, 2px);
-        box-shadow: 1px 2px 0 #000000;
+        background-color: var(--paper-tint);
+        border-color: var(--ink-secondary);
       }
       .suggestions {
         margin-top: 40px;
         padding: 20px;
-        background-color: #f3f4f6;
+        background-color: var(--paper-tint);
         border-radius: 12px;
-        border: 3px solid #000000;
-        box-shadow: 2px 4px 0 #000000;
+        border: 1px solid var(--rule);
       }
       .suggestions h3 {
         font-size: 18px;
         margin-bottom: 15px;
-        color: #0b95da;
+        color: var(--accent);
         font-weight: 600;
       }
       .suggestions ul {
@@ -122,7 +133,7 @@
       }
       .suggestions li {
         padding: 10px 0;
-        border-bottom: 2px solid #000000;
+        border-bottom: 1px solid var(--rule);
       }
       .suggestions li:last-child {
         border-bottom: none;
@@ -131,26 +142,23 @@
         padding: 0;
         background: none;
         border: none;
-        color: #0b95da;
+        color: var(--accent);
         font-weight: 400;
         display: inline;
-        box-shadow: none;
       }
       .suggestions a:hover {
-        color: #075985;
+        color: var(--accent-strong);
         text-decoration: underline;
-        transform: none;
-        box-shadow: none;
         background: none;
       }
       code {
-        background-color: #f3f4f6;
+        background-color: var(--paper-tint);
         padding: 2px 6px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
         font-size: 14px;
-        color: #374151;
-        border: 2px solid #000000;
+        color: var(--ink-secondary);
+        border: 1px solid var(--rule);
       }
       @media (max-width: 600px) {
         .container {
@@ -178,7 +186,7 @@
 
       <div class="links">
         <a href="/">← Back to Home</a>
-        <a href="https://github.com/lazuli-global/open" class="secondary">View on GitHub</a>
+        <a href="https://github.com/lazuli-global/divekit-open-data" class="secondary">View on GitHub</a>
       </div>
 
       <div class="suggestions">
@@ -186,15 +194,28 @@
         <ul>
           <li>
             📊
-            <a href="/datasets/certifications/certifications.json">Dive Certifications Dataset</a>
+            <a href="/datasets/certifications.json">Dive Certifications Dataset</a>
+          </li>
+          <li>
+            🤿
+            <a href="/datasets/dive-signals.json">Dive Signals Dataset</a>
           </li>
           <li>
             📋
             <a href="/schemas/certifications/dive-certifications.schema.v1.0.0.json">Dive Certifications Schema</a>
           </li>
-          <li>🖼️ <a href="/assets/">Visual Assets Library</a></li>
-          <li>📚 <a href="/docs/">Documentation</a></li>
-          <li>🤝 <a href="/CONTRIBUTING.md">Contributing Guide</a></li>
+          <li>
+            🖼️
+            <a href="https://github.com/lazuli-global/divekit-open-data/tree/main/assets">Visual Assets Library</a>
+          </li>
+          <li>
+            📚
+            <a href="https://github.com/lazuli-global/divekit-open-data/tree/main/docs">Documentation</a>
+          </li>
+          <li>
+            🤝
+            <a href="https://github.com/lazuli-global/divekit-open-data/blob/main/CONTRIBUTING.md">Contributing Guide</a>
+          </li>
         </ul>
       </div>
     </div>

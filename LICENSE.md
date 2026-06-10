@@ -12,8 +12,9 @@ Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
 Licensed under the MIT License  
 → https://opensource.org/licenses/MIT
 
-**Hand Signal Assets** (`/assets/hand-signals`)  
+**Dive Signal Illustrations** (`/assets/dive-signals`)  
 Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)  
+Attribution: "Dive signals by Project Dive Kit — https://divekit.app"  
 → https://creativecommons.org/licenses/by/4.0/
 
 ## Proprietary & Third-Party Content

@@ -8,6 +8,8 @@ Welcome! This guide will help you understand and contribute to the Dive Kit Open
 - [Understanding the Data](#understanding-the-data)
   - [Agencies Dataset](#agencies-dataset)
   - [Certifications Dataset](#certifications-dataset)
+  - [Cylinders Dataset](#cylinders-dataset)
+  - [Dive Signals Dataset](#dive-signals-dataset)
 - [How to Read the Data](#how-to-read-the-data)
 - [How to Contribute](#how-to-contribute)
 - [Examples](#examples)
@@ -15,12 +17,14 @@ Welcome! This guide will help you understand and contribute to the Dive Kit Open
 
 ## What are these datasets?
 
-The Dive Kit Open project maintains two main datasets:
+The Dive Kit Open project maintains four main datasets:
 
 1. **Agencies** - A list of all scuba diving certification agencies (like PADI, SSI, NAUI)
 2. **Certifications** - A comprehensive list of diving certifications offered by these agencies
+3. **Cylinders** - Specifications for common scuba cylinders (volume, pressure, buoyancy)
+4. **Dive Signals** - Diver communication signals (hand, light, and buddy-contact signals) with openly licensed illustrations
 
-These datasets help developers, dive shops, and diving platforms standardize certification information across the diving industry.
+These datasets help developers, dive shops, and diving platforms standardize diving information across the industry.
 
 ## Understanding the Data
 
@@ -58,6 +62,45 @@ Each certification entry includes:
 - **prerequisites**: What you need before taking this course
 - **limits**: What you can do with this certification
 - **equivalent_to**: Similar certifications from other agencies
+
+### Cylinders Dataset
+
+The cylinders dataset (`datasets/cylinders.json`) contains specifications for common scuba cylinders.
+
+Each cylinder entry includes:
+
+- **id**: A unique identifier (e.g., "al80")
+- **commonName**: The name divers use (e.g., "AL80")
+- **waterVolumeL**: Internal water volume in liters
+- **workingPressureBar**: Rated working pressure in bar
+- **material**: "steel", "aluminum", "composite", or "carbon_fiber"
+- **emptyWeightKg** and **buoyancyKg**: Weight and buoyancy characteristics (full, at 50 bar, empty)
+
+### Dive Signals Dataset
+
+The dive signals dataset (`datasets/dive-signals.json`) is a machine-readable index of diver
+communication signals, each paired with a vector illustration in `assets/dive-signals/`.
+
+Each signal entry includes:
+
+- **id**: A unique identifier (e.g., "hand-core-ok")
+- **category**: One of:
+  - `hand-core` - Essential hand signals every diver learns (OK, problem, up, share air)
+  - `hand-technical` - Technical-diving hand signals (deco, gas switch, numbers 0-9)
+  - `hand-fish-id` - Fun hand signals for pointing out marine life (turtle, shark, octopus)
+  - `light` - Torch signals for night diving (OK circle, attention, emergency)
+  - `touch-contact` - Buddy-contact (touch) signals for low or no visibility
+- **name**: The signal's English name
+- **description**: How the signal is performed and what it means
+- **image**: Path to the signal's SVG illustration
+
+The illustrations are licensed **CC BY 4.0**: you may use them anywhere, including commercially,
+with the credit "Dive signals by Project Dive Kit — https://divekit.app". See
+`assets/dive-signals/LICENSE.md`.
+
+> **Safety note:** signal meanings vary slightly between training agencies and regions. Always
+> agree on signals with your buddy or team before the dive. This dataset documents common usage;
+> it is not a substitute for training.
 
 ## How to Read the Data
 
@@ -102,7 +145,7 @@ We welcome contributions! Here's how to help:
 
 If you find incorrect information:
 
-1. Go to the [GitHub repository](https://github.com/lazuli-global/divekit-open)
+1. Go to the [GitHub repository](https://github.com/lazuli-global/divekit-open-data)
 2. Click "Issues" → "New Issue"
 3. Describe what's wrong (e.g., "PADI Advanced Open Water max depth is 30m, not 40m")
 
@@ -307,8 +350,8 @@ A: Here are the most common validation errors and how to fix them:
 
 ## Need More Help?
 
-- **Questions?** Open a discussion on [GitHub](https://github.com/lazuli-global/divekit-open/discussions)
-- **Found a bug?** Report it in [Issues](https://github.com/lazuli-global/divekit-open/issues)
+- **Questions?** Open a discussion on [GitHub](https://github.com/lazuli-global/divekit-open-data/discussions)
+- **Found a bug?** Report it in [Issues](https://github.com/lazuli-global/divekit-open-data/issues)
 - **Want to contribute code?** See [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 Remember: Every contribution helps make diving certification information more accessible to everyone! 🤿

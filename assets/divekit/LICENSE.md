@@ -19,4 +19,4 @@ These assets are provided for reference purposes to ensure consistent brand repr
 ---
 
 For questions regarding Dive Kit brand assets, please open an issue at:
-https://github.com/lazuli-global/open
+https://github.com/lazuli-global/divekit-open-data

@@ -10,6 +10,22 @@
       "type": "string",
       "description": "The URI of the schema for validation"
     },
+    "meta": {
+      "type": "object",
+      "description": "Metadata about this dataset version.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Semantic or date-based dataset release tag (e.g., '2025.10')."
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp when this dataset was generated."
+        }
+      },
+      "required": ["version", "generated_at"]
+    },
     "cylinders": {
       "type": "array",
       "description": "List of cylinders",

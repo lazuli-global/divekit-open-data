@@ -12,13 +12,13 @@ We welcome contributions of all kinds — from fixing a typo to adding new datas
 
 This repository is structured into several areas:
 
-| Folder      | Purpose                                                     |
-| ----------- | ----------------------------------------------------------- |
-| `datasets/` | JSON datasets for dive certifications and agencies          |
-| `schemas/`  | JSON Schema definitions for validation and interoperability |
-| `assets/`   | Visual assets (agency logos and Dive Kit branding)             |
-| `docs/`     | Design guidelines and documentation                         |
-| `scripts/`  | Validation and testing scripts                              |
+| Folder      | Purpose                                                                    |
+| ----------- | -------------------------------------------------------------------------- |
+| `datasets/` | JSON datasets for dive certifications, agencies, cylinders, and signals    |
+| `schemas/`  | JSON Schema definitions for validation and interoperability                |
+| `assets/`   | Visual assets (dive signal illustrations, agency logos, Dive Kit branding) |
+| `docs/`     | Design guidelines and documentation                                        |
+| `scripts/`  | Validation and testing scripts                                             |
 
 If you're contributing to a specific folder, please follow the corresponding section below.
 
@@ -88,6 +88,10 @@ For new or updated datasets:
 - For agencies:
   - Include full name, abbreviation, website, and region.
   - **IMPORTANT:** When adding a new agency, you must also add the corresponding agency logo to `assets/agency-logos/`. Logo files should be named using the pattern `agency-{id}.{svg|png}` (e.g., `agency-padi.svg`).
+- For dive signals:
+  - Include `id`, `category`, `name`, `description`, and `image` as defined in the schema.
+  - **IMPORTANT:** Every signal entry must reference an SVG illustration in `assets/dive-signals/`. When adding a new signal, add both the dataset entry and the artwork (see Visual Contributions below).
+  - Signal meanings are safety-relevant. Only submit signals documented by recognized training agencies or established community practice, and describe them accurately.
 
 Refer to the schema files in `/schemas` for detailed field requirements and examples.
 
@@ -109,6 +113,18 @@ Pull requests that modify schemas will trigger stricter validation checks.
 ---
 
 ## 🎨 Visual Contributions
+
+### Dive Signal Illustrations
+
+When adding or updating signal artwork in `assets/dive-signals/`:
+
+- Format: **SVG only**, pure vector paths (no embedded raster images).
+- Place the file in the matching category folder (`hand/core/`, `hand/technical/`, `hand/fish-id/`, `light/`, `buddy-contact/`).
+- File naming: kebab-case matching the dataset entry's `image` path (e.g., `pressure-check.svg`).
+- Match the existing visual style: simple line-art figures with flat fills, readable at small sizes.
+- Run the file through `svgo` before committing.
+- Every illustration must have a corresponding entry in `datasets/dive-signals.json`.
+- By contributing, you license the artwork under **CC BY 4.0** (see `assets/dive-signals/LICENSE.md`).
 
 ### Agency Logos
 
@@ -167,7 +183,7 @@ Full license details: [LICENSE.md](LICENSE.md)
 
 ## 💬 Community & Support
 
-- **Discussions:** [GitHub Discussions →](https://github.com/lazuli-global/open/discussions)
+- **Discussions:** [GitHub Discussions →](https://github.com/lazuli-global/divekit-open-data/discussions)
 - **Issues:** Use GitHub Issues for bugs, schema suggestions, or data corrections.
 - **Website:** [open.divekit.app](https://open.divekit.app)
 
@@ -179,7 +195,3 @@ Full license details: [LICENSE.md](LICENSE.md)
 > and understands its data — safely, transparently, and for everyone.
 
 Thank you for helping make that vision real 🌊
-
-```
-
-```

@@ -1,5 +1,9 @@
 {
   "$schema": "https://open.divekit.app/schemas/cylinders/cylinders.schema.v1.0.0.json",
+  "meta": {
+    "version": "2026.06.10.1",
+    "generated_at": "2026-06-10T12:00:00Z"
+  },
   "cylinders": [
     {
       "id": "al80",
@@ -109,7 +113,7 @@
       "waterVolumeL": 5.7,
       "workingPressureBar": 207,
       "material": "aluminum",
-      "typicalUse": "Stage / deco / O\u2082 bottle",
+      "typicalUse": "Stage / deco / O₂ bottle",
       "emptyWeightKg": 6.0,
       "buoyancyKg": {
         "full": -0.7,
@@ -470,7 +474,7 @@
       "brands": [
         "Faber"
       ],
-      "notes": "Compact CCR O\u2082 bottle; easy to travel with and replace."
+      "notes": "Compact CCR O₂ bottle; easy to travel with and replace."
     },
     {
       "id": "ccr3l",
