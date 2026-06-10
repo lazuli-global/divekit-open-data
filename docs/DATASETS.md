@@ -71,10 +71,18 @@ Each cylinder entry includes:
 
 - **id**: A unique identifier (e.g., "al80")
 - **commonName**: The name divers use (e.g., "AL80")
-- **waterVolumeL**: Internal water volume in liters
+- **waterVolumeL**: The cylinder's **true internal water volume** in liters, the physical space inside. This is the real figure, not a number tuned so that the ideal-gas math reproduces the cylinder's marketed name.
 - **workingPressureBar**: Rated working pressure in bar
+- **ratedCapacityCuft** (optional): The **marketed cubic-foot name** carried by imperial cylinders (an "AL80" carries `80`). It comes from the ideal gas law and is a label, not a measured deliverable.
 - **material**: "steel", "aluminum", "composite", or "carbon_fiber"
 - **emptyWeightKg** and **buoyancyKg**: Weight and buoyancy characteristics (full, at 50 bar, empty)
+
+**On "free gas" capacity.** This dataset stores the physical facts (water volume and working pressure) plus the marketed name, and leaves the deliverable free gas for the consumer to derive. There is no single capacity number, because the answer depends on two choices:
+
+1. **Gas law.** The ideal gas law (`free gas = waterVolumeL × workingPressureBar`) overstates a high-pressure cylinder. A real-gas model divides by a compressibility factor Z (about 1.03 for air at 207 bar), which is closer to the truth. An AL80 (11.1 L, 207 bar) is about 80 cu ft by the ideal law and about 77 to 79 cu ft real.
+2. **Surface reference.** Free gas is measured at the surface, but is that 1 bar or 1 atmosphere (1.01325 bar)? The 1-atm convention behind US manufacturer charts (Luxfer lists ~77.4 cu ft for an AL80) reads about 1.3% lower than a 1-bar convention.
+
+So one AL80 can legitimately read 80 (marketed, ideal), ~77.4 (Luxfer, real gas at 1 atm), or ~79 (real gas at 1 bar), all from the same `waterVolumeL` and `workingPressureBar`. Store the physics; pick your convention when you display it.
 
 ### Dive Signals Dataset
 
