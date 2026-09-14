@@ -2347,9 +2347,10 @@
       "status": "active",
       "historical_names": [],
       "prerequisites": {
-        "certifications": ["cert-iantd-open-water-diver", "IANTD Rescue Diver or equivalent"],
+        "certifications": ["cert-iantd-open-water-diver"],
         "general": [
           "Minimum age 18 years",
+          "IANTD Rescue Diver or equivalent",
           "Logged dives and in-water experience per IANTD standards",
           "Current CPR, first aid and oxygen provider training",
           "Medical clearance"
