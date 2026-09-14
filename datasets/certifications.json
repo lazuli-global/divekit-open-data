@@ -1,8 +1,8 @@
 {
   "$schema": "https://open.divekit.app/schemas/certifications/dive-certifications.schema.v1.0.0.json",
   "meta": {
-    "version": "2025.11.16.1",
-    "generated_at": "2025-11-16T12:00:00Z"
+    "version": "2026.09.14.1",
+    "generated_at": "2026-09-14T12:00:00Z"
   },
   "certifications": [
     {
@@ -363,6 +363,170 @@
       "notes": "First professional-level rating in PADI system.",
       "links": ["https://www.padi.com/courses/divemaster"],
       "updated_at": "2025-10-31T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-assistant-instructor",
+      "agency": "agency-padi",
+      "name": "Assistant Instructor",
+      "abbr": "AI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-divemaster"],
+        "general": [
+          "Minimum age 18 years",
+          "Minimum 60 logged dives",
+          "Certified diver for at least six months",
+          "Emergency First Response Primary and Secondary Care within the past 24 months",
+          "Medical clearance within 12 months"
+        ]
+      },
+      "equivalent_to": ["cert-isc-assistant-instructor"],
+      "limits": [
+        "May teach knowledge development and confined water skills under an instructor's supervision",
+        "May not certify divers independently"
+      ],
+      "notes": "First half of the PADI Instructor Development Course (IDC). Divemasters may take the Assistant Instructor course on its own or continue straight through the full IDC.",
+      "links": ["https://www.padi.com/courses/assistant-instructor"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-open-water-scuba-instructor",
+      "agency": "agency-padi",
+      "name": "Open Water Scuba Instructor",
+      "abbr": "OWSI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-divemaster"],
+        "general": [
+          "Minimum age 18 years",
+          "Minimum 60 logged dives to start the IDC, 100 to attend the Instructor Examination",
+          "Certified diver for at least six months",
+          "PADI Assistant Instructor rating or the complete Instructor Development Course (IDC)",
+          "Emergency First Response Instructor rating (may be earned during training)",
+          "Emergency First Response Primary and Secondary Care within the past 24 months",
+          "Medical clearance within 12 months",
+          "Pass the PADI Instructor Examination (IE)"
+        ]
+      },
+      "equivalent_to": ["cert-isc-open-water-instructor"],
+      "limits": [
+        "May independently teach and certify divers through PADI Divemaster",
+        "Specialty courses require the matching Specialty Instructor rating"
+      ],
+      "notes": "Full instructor rating, awarded after the Instructor Development Course and the Instructor Examination.",
+      "links": ["https://www.padi.com/courses/open-water-scuba-instructor"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-specialty-instructor",
+      "agency": "agency-padi",
+      "name": "Specialty Instructor",
+      "abbr": "SI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-open-water-scuba-instructor"],
+        "general": [
+          "PADI Instructor rating in good standing",
+          "Specialty Instructor Training Course, or application with the diving experience the specialty requires"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["May teach the specific PADI specialty course each rating covers", "One rating per specialty"],
+      "notes": "Issued per specialty (Enriched Air, Deep, Wreck, Sidemount and the rest). Five of them, with 25 certifications issued, qualify an instructor for Master Scuba Diver Trainer.",
+      "links": ["https://www.padi.com/education/professional"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-master-scuba-diver-trainer",
+      "agency": "agency-padi",
+      "name": "Master Scuba Diver Trainer",
+      "abbr": "MSDT",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-open-water-scuba-instructor", "cert-padi-specialty-instructor"],
+        "general": [
+          "PADI Instructor rating in good standing",
+          "At least 25 PADI divers certified",
+          "At least five PADI Specialty Instructor ratings"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": [
+        "May teach every course needed to take a diver to Master Scuba Diver",
+        "Prerequisite for IDC Staff Instructor and for many TecRec instructor ratings"
+      ],
+      "notes": "Not a course: a rating earned by teaching. It is the gateway to the instructor-training ladder.",
+      "links": ["https://www.padi.com/courses/master-scuba-diver-trainer"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-idc-staff-instructor",
+      "agency": "agency-padi",
+      "name": "IDC Staff Instructor",
+      "abbr": "IDCS",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-master-scuba-diver-trainer"],
+        "general": ["PADI Master Scuba Diver Trainer rating", "IDC Staff Instructor course"]
+      },
+      "equivalent_to": ["cert-isc-instructor-trainer"],
+      "limits": ["May assist a Course Director with instructor training", "May not run an IDC independently"],
+      "notes": "First rung of instructor training: staff an IDC alongside a Course Director.",
+      "links": ["https://www.padi.com/courses/idc-staff-instructor"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-master-instructor",
+      "agency": "agency-padi",
+      "name": "Master Instructor",
+      "abbr": "MI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-idc-staff-instructor"],
+        "general": [
+          "PADI IDC Staff Instructor rating",
+          "Teaching experience, certifications issued and courses taught per PADI standards",
+          "Application and PADI approval"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["Recognition rating; teaching scope is that of the underlying instructor ratings"],
+      "notes": "Awarded on application for sustained teaching record and professional conduct, not by examination.",
+      "links": ["https://www.padi.com/courses/master-instructor"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-padi-course-director",
+      "agency": "agency-padi",
+      "name": "Course Director",
+      "abbr": "CD",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-padi-master-instructor"],
+        "general": [
+          "PADI Master Instructor rating, or IDC Staff Instructor meeting the published criteria",
+          "Selection for and completion of the Course Director Training Course (CDTC)"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["May conduct Instructor Development Courses and certify PADI instructors"],
+      "notes": "Highest PADI professional rating. Places are limited and awarded through a competitive application to the CDTC.",
+      "links": ["https://www.padi.com/courses/course-director"],
+      "updated_at": "2026-09-14T12:00:00Z"
     },
     {
       "id": "cert-padi-wreck-diver",
@@ -1911,6 +2075,90 @@
       "links": ["https://www.gue.com/training/cave/cave-2"],
       "updated_at": "2025-10-31T12:00:00Z"
     },
+    {
+      "id": "cert-gue-apprentice-instructor",
+      "agency": "agency-gue",
+      "name": "Apprentice Instructor",
+      "abbr": "AI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-gue-fundamentals"],
+        "general": [
+          "GUE diver certification at or above the level being taught",
+          "Acceptance onto the GUE instructor apprenticeship",
+          "Diving and teaching evaluation by a GUE Instructor Trainer"
+        ]
+      },
+      "equivalent_to": [],
+      "limits": ["May teach only under the supervision of a qualified GUE instructor", "Offered for a limited set of courses"],
+      "notes": "Apprenticeship stage of the GUE instructor programme; shown as [AI] in the agency's instructor listing.",
+      "links": ["https://www.gue.com/diver-training/gue-instructors"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-gue-instructor",
+      "agency": "agency-gue",
+      "name": "Instructor",
+      "abbr": "I",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-gue-apprentice-instructor"],
+        "general": [
+          "Completed GUE instructor apprenticeship",
+          "Passed GUE instructor evaluation",
+          "GUE diver certification at or above each level taught",
+          "Active status maintained through teaching and re-evaluation"
+        ]
+      },
+      "equivalent_to": ["cert-isc-open-water-instructor", "cert-padi-open-water-scuba-instructor"],
+      "limits": [
+        "Teaches only the GUE courses the instructor is rated for, level by level",
+        "Higher levels (Tech, Cave, CCR) each need their own rating"
+      ],
+      "notes": "GUE issues teaching authorisation per course rather than one blanket instructor rating, so an instructor is rated for a named list of courses.",
+      "links": ["https://www.gue.com/diver-training/gue-instructors"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-gue-instructor-trainer",
+      "agency": "agency-gue",
+      "name": "Instructor Trainer",
+      "abbr": "IT",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-gue-instructor"],
+        "general": ["Active GUE Instructor with an established teaching record", "Appointment by GUE"]
+      },
+      "equivalent_to": ["cert-isc-instructor-trainer"],
+      "limits": ["May train GUE instructor candidates in the courses the rating covers"],
+      "notes": "Shown as [IT] in GUE's instructor listing; tasked with developing GUE instructors.",
+      "links": ["https://www.gue.com/diver-training/gue-instructors"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-gue-instructor-evaluator",
+      "agency": "agency-gue",
+      "name": "Instructor Evaluator",
+      "abbr": "IE",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-gue-instructor"],
+        "general": ["Active GUE Instructor with an established teaching record", "Appointment by GUE"]
+      },
+      "equivalent_to": [],
+      "limits": ["May evaluate GUE instructor candidates and instructors"],
+      "notes": "Shown as [IE] in GUE's instructor listing; tasked with evaluating GUE instructors. GUE lists it alongside Instructor Trainer rather than above it.",
+      "links": ["https://www.gue.com/diver-training/gue-instructors"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
 
     {
       "id": "cert-iantd-advanced-nitrox-diver",
@@ -2089,6 +2337,131 @@
       "notes": "Technical diving skills foundation.",
       "links": ["https://www.iantd.com/pages/courses.php"],
       "updated_at": "2025-10-31T12:00:00Z"
+    },
+    {
+      "id": "cert-iantd-divemaster",
+      "agency": "agency-iantd",
+      "name": "Divemaster",
+      "abbr": "DM",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-iantd-open-water-diver", "IANTD Rescue Diver or equivalent"],
+        "general": [
+          "Minimum age 18 years",
+          "Logged dives and in-water experience per IANTD standards",
+          "Current CPR, first aid and oxygen provider training",
+          "Medical clearance"
+        ]
+      },
+      "equivalent_to": ["cert-padi-divemaster", "cert-isc-divemaster", "cert-ssi-dive-guide"],
+      "limits": ["May supervise certified IANTD divers", "May assist an instructor with training", "May not certify divers"],
+      "notes": "First IANTD leadership rating, listed under the agency's Sport Leadership programs.",
+      "links": ["https://iantd.com/category/programs-courses/open-water-sport-diving/sport-leadership/"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-iantd-assistant-instructor",
+      "agency": "agency-iantd",
+      "name": "Assistant Instructor",
+      "abbr": "AI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-iantd-divemaster"],
+        "general": [
+          "IANTD Divemaster in good standing",
+          "Assistant Instructor program",
+          "Current CPR, first aid and oxygen provider training"
+        ]
+      },
+      "equivalent_to": ["cert-isc-assistant-instructor", "cert-padi-assistant-instructor"],
+      "limits": ["May teach academic sessions and confined water skills", "May not certify divers independently"],
+      "notes": "Trains qualified IANTD Divemasters to teach theory and confined water skills.",
+      "links": ["https://iantd.com/category/programs-courses/open-water-sport-diving/sport-leadership/"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-iantd-open-water-instructor",
+      "agency": "agency-iantd",
+      "name": "Open Water Instructor",
+      "abbr": "OWI",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-iantd-divemaster", "cert-iantd-assistant-instructor"],
+        "general": [
+          "IANTD Divemaster or IANTD Assistant Instructor",
+          "Instructor Development Program and instructor evaluation",
+          "Current CPR, first aid and oxygen provider training",
+          "Medical clearance"
+        ]
+      },
+      "equivalent_to": ["cert-isc-open-water-instructor", "cert-padi-open-water-scuba-instructor"],
+      "limits": [
+        "May teach and certify IANTD divers at the levels each instructor rating covers",
+        "Technical, cave and rebreather teaching needs the matching instructor rating"
+      ],
+      "notes": "Entry instructor rating. IANTD runs a parallel Open Water EANx Instructor program for nitrox teaching.",
+      "links": ["https://iantd.com/category/programs-courses/open-water-sport-diving/sport-leadership/"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-iantd-instructor-trainer",
+      "agency": "agency-iantd",
+      "name": "Instructor Trainer",
+      "abbr": "IT",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-iantd-open-water-instructor"],
+        "general": ["Active IANTD Instructor with the teaching record IANTD requires", "Instructor Trainer program"]
+      },
+      "equivalent_to": ["cert-isc-instructor-trainer"],
+      "limits": ["May train and certify new IANTD instructors"],
+      "notes": "Listed by IANTD as the Open Water EANx Instructor Trainer program.",
+      "links": ["https://iantd.com/category/programs-courses/open-water-sport-diving/sport-leadership/"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-iantd-assistant-course-director",
+      "agency": "agency-iantd",
+      "name": "Assistant Course Director",
+      "abbr": "ACD",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-iantd-open-water-instructor"],
+        "general": ["Active IANTD Instructor with the teaching record IANTD requires", "Assistant Course Director course"]
+      },
+      "equivalent_to": [],
+      "limits": ["May assist with instructor training under a Course Director"],
+      "notes": "Assists with instructor training and develops future IANTD instructors.",
+      "links": ["https://iantd.com/category/programs-courses/open-water-sport-diving/sport-leadership/"],
+      "updated_at": "2026-09-14T12:00:00Z"
+    },
+    {
+      "id": "cert-iantd-course-director",
+      "agency": "agency-iantd",
+      "name": "Course Director",
+      "abbr": "CD",
+      "category": "professional",
+      "status": "active",
+      "historical_names": [],
+      "prerequisites": {
+        "certifications": ["cert-iantd-assistant-course-director"],
+        "general": ["IANTD Assistant Course Director", "Appointment by IANTD"]
+      },
+      "equivalent_to": ["cert-padi-course-director"],
+      "limits": ["May run IANTD Instructor Development Programs and Assistant Course Director courses"],
+      "notes": "Highest IANTD professional rating.",
+      "links": ["https://iantd.com/become-an-iantd-professional/"],
+      "updated_at": "2026-09-14T12:00:00Z"
     },
 
     {
