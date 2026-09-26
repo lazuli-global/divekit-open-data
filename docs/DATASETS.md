@@ -10,6 +10,7 @@ Welcome! This guide will help you understand and contribute to the Dive Kit Open
   - [Certifications Dataset](#certifications-dataset)
   - [Cylinders Dataset](#cylinders-dataset)
   - [Dive Signals Dataset](#dive-signals-dataset)
+  - [References Dataset](#references-dataset)
 - [How to Read the Data](#how-to-read-the-data)
 - [How to Contribute](#how-to-contribute)
 - [Examples](#examples)
@@ -17,12 +18,13 @@ Welcome! This guide will help you understand and contribute to the Dive Kit Open
 
 ## What are these datasets?
 
-The Dive Kit Open project maintains four main datasets:
+The Dive Kit Open project maintains five main datasets:
 
 1. **Agencies** - A list of all scuba diving certification agencies (like PADI, SSI, NAUI)
 2. **Certifications** - A comprehensive list of diving certifications offered by these agencies
 3. **Cylinders** - Specifications for common scuba cylinders (volume, pressure, buoyancy)
 4. **Dive Signals** - Diver communication signals (hand, light, and buddy-contact signals) with openly licensed illustrations
+5. **References** - Vetted papers, books, standards and articles behind Dive Kit's calculators and guide, each tagged with what it is authoritative for
 
 These datasets help developers, dive shops, and diving platforms standardize diving information across the industry.
 
@@ -109,6 +111,65 @@ with the credit "Dive signals by Project Dive Kit — https://divekit.app". See
 > **Safety note:** signal meanings vary slightly between training agencies and regions. Always
 > agree on signals with your buddy or team before the dive. This dataset documents common usage;
 > it is not a substitute for training.
+
+### References Dataset
+
+The references dataset (`datasets/references.json`) is a curated bibliography of the papers, books,
+standards, manuals and articles Dive Kit's calculators and guide are built from, the planners they
+are cross-checked against, and the community threads that shaped the app. It exists so an AI
+assistant (or a curious diver) can cite a vetted source instead of searching the web.
+
+Each reference entry includes:
+
+- **id**: A unique identifier, kebab-case, prefixed `ref-` (e.g., `ref-baker-understanding-m-values`)
+- **title**: The title of the work as published
+- **authors**: Authors or issuing body, in published order (empty for anonymous web pages)
+- **year**: Year of publication, or `null` for undated, living web pages
+- **type**: What kind of source it is: `paper`, `book`, `standard`, `manual`, `article`, `blog`, `thread`, `dataset`, `website`, `talk`, or `software`
+- **publisher** (optional): Publisher, journal, agency or site
+- **url** (optional): Canonical URL, preferring the publisher or an open archive over a mirror
+- **doi** (optional): DOI without the resolver prefix (e.g., `10.1002/cphy.c091004`)
+- **access**: How you can actually get it: `open` (free online), `paywalled` (subscription), `borrow` (lendable scan, e.g. archive.org), or `print` (no reliable online copy)
+- **topics**: One or more guide topics the reference supports (see below)
+- **authoritative_for**: One plain sentence, under 200 characters, saying what Dive Kit relies on this source for
+- **notes** (optional): Caveats, such as a superseded edition, a bot-blocking host, or which section to read
+- **checked_at**: The date the URL was last verified to resolve
+
+**Topics.** Each reference is tagged with one or more of these, aligned with the Dive Kit guide's own topic names:
+
+- `deco_theory` - decompression models and the Bühlmann ZH-L family
+- `gradient_factors` - gradient factors and deep-stops practice
+- `oxygen_toxicity` - CNS and OTU oxygen limits
+- `gas_density` - gas density and CO2 retention at depth
+- `icd` - isobaric counter-diffusion
+- `hpns` - high-pressure nervous syndrome
+- `ccr` - closed-circuit rebreather diluent and setpoint planning
+- `gas_selection` - choosing standard gases for a dive
+- `gas_planning` - reserve and minimum-gas calculations
+- `gas_blending` - partial-pressure and continuous blending methods
+- `oxygen_handling` - oxygen cleaning and service standards
+- `real_gas` - real-gas compressibility and equations of state
+- `cylinders` - cylinder capacity and sizing conventions
+- `buoyancy` - body composition and suit-lift buoyancy estimation
+- `breathing_rate` - RMV/SAC measurement
+- `conventions` - unit and reference-value conventions (seawater density, depth gauges)
+- `training` - certification agencies and technical training paths
+- `emergencies` - dive-injury emergency response
+- `cross_checks` - independent planners and engines used to validate results
+- `community` - forum and social threads that shaped a feature, not a source of numbers
+
+**Adding a reference.** To add a record:
+
+1. Pick an `id` matching `^ref-[a-z0-9-]+$`, unique within the file
+2. Fill in every required field; add `publisher`, `doi` and `notes` where known
+3. Check the `url` resolves with `curl -sIL -A 'Mozilla/5.0' <url>` and confirm it returns a 2xx or 3xx status. If a host blocks automated checks (some do), keep the record and add a note saying so instead of dropping it
+4. Set `checked_at` to the date you verified the URL
+5. Make sure the URL or DOI is not already used by another record; one record per work
+6. Run `./scripts/validate.sh` before submitting
+
+**Consumers.** This dataset is read by the Dive Kit MCP server's `lookup_references` tool, which
+searches by `topics`, `type`, and free text over `title`, `authors`, `authoritative_for` and `notes`,
+and by the Dive Kit app's public guide, which links out to these sources from its "Further reading" pages.
 
 ## How to Read the Data
 

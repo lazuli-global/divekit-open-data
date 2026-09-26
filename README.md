@@ -9,7 +9,7 @@ This repository powers [open.divekit.app](https://open.divekit.app) — the cano
 
 `lazuli-global/divekit-open-data` provides:
 
-- **Public Datasets** – Canonical, versioned JSON datasets for dive certifications, agencies, cylinders, and dive signals.
+- **Public Datasets** – Canonical, versioned JSON datasets for dive certifications, agencies, cylinders, dive signals, and references.
 - **Schemas & Standards** – JSON Schema definitions for validating and interoperating with Dive Kit's open data formats.
 - **Visual Assets** – Openly licensed dive signal illustrations (CC BY 4.0), agency logos (third-party trademarks), and Dive Kit branding.
 - **Documentation** – Design guidelines, contributor guidelines, and open-data governance notes.
@@ -27,6 +27,7 @@ divekit-open-data/
 │ ├── agencies.json
 │ ├── cylinders.json
 │ ├── dive-signals.json
+│ ├── references.json
 │ └── LICENSE.md
 │
 ├── schemas/
@@ -38,6 +39,8 @@ divekit-open-data/
 │ │ └── cylinders.schema.v1.0.0.json
 │ ├── dive-signals/
 │ │ └── dive-signals.schema.v1.0.0.json
+│ ├── references/
+│ │ └── references.schema.v1.0.0.json
 │ └── LICENSE.md
 │
 ├── assets/
@@ -87,6 +90,8 @@ divekit-open-data/
 | **Cylinder Schema**             | JSON Schema for validating cylinder data                           | [View Schema →](https://open.divekit.app/schemas/cylinders/cylinders.schema.v1.0.0.json)                |
 | **Dive Signals Dataset**        | Diver communication signals with names, meanings, and artwork      | [View JSON →](https://open.divekit.app/datasets/dive-signals.json)                                      |
 | **Dive Signals Schema**         | JSON Schema for validating dive signal data                        | [View Schema →](https://open.divekit.app/schemas/dive-signals/dive-signals.schema.v1.0.0.json)          |
+| **References Dataset**          | Vetted papers, books, standards and articles behind Dive Kit, with topics and what each is authoritative for | [View JSON →](https://open.divekit.app/datasets/references.json)                                        |
+| **References Schema**           | JSON Schema for validating reference records                                                                 | [View Schema →](https://open.divekit.app/schemas/references/references.schema.v1.0.0.json)               |
 | **Dive Signal Illustrations**   | CC BY 4.0 vector artwork for every signal in the dataset           | [View Illustrations →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/dive-signals) |
 | **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/agency-logos)        |
 | **Dataset Documentation**       | Beginner-friendly guide to understanding and contributing          | [View Guide →](https://open.divekit.app/docs/DATASETS.md)                                               |
