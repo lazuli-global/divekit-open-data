@@ -2,7 +2,7 @@
   "$id": "https://open.divekit.app/schemas/references/references.schema.v1.1.0.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Dive Kit References Schema",
-  "description": "Vetted references behind Dive Kit's calculators and guide: the papers, books, standards and articles the numbers are built from, the planners they are cross-checked against, and the community sources that shaped the tools. Each record says what it is authoritative for so an assistant can cite it instead of searching the web. Search hubs name where to look next when no reference matches, and say whether each is vetted.",
+  "description": "Vetted references behind Dive Kit's calculators and guide: the papers, books, standards and articles the numbers are built from, the planners they are cross-checked against, and the community sources that shaped the tools. Each record says what it is authoritative for so an assistant can cite it instead of searching the web.",
   "type": "object",
   "properties": {
     "$schema": { "type": "string", "description": "Reference to this schema URL." },
@@ -27,7 +27,7 @@
           "year": { "type": ["integer", "null"], "description": "Year of publication, or null when undated (living web pages)." },
           "type": {
             "type": "string",
-            "enum": ["paper", "book", "standard", "manual", "article", "blog", "thread", "dataset", "website", "talk", "software"],
+            "enum": ["paper", "book", "standard", "manual", "article", "blog", "thread", "dataset", "website", "talk", "software", "video", "podcast", "course_material", "report"],
             "description": "What kind of source this is."
           },
           "publisher": { "type": "string", "description": "Publisher, journal, agency or site." },
@@ -37,6 +37,16 @@
             "type": "string",
             "enum": ["open", "paywalled", "borrow", "print"],
             "description": "open: free online; paywalled: behind a subscription; borrow: lendable scan (e.g. archive.org); print: no reliable online copy."
+          },
+          "format": {
+            "type": "string",
+            "enum": ["html", "pdf", "video", "audio", "print"],
+            "description": "Optional. What opening the url gives you: a web page, a PDF, a video, audio, or print only."
+          },
+          "recommended_by": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Optional. Communities or publications that point divers to this source, e.g. 'r/scuba wiki', 'ScubaBoard sticky', 'DAN Alert Diver'."
           },
           "topics": {
             "type": "array",
@@ -56,24 +66,6 @@
           "checked_at": { "type": "string", "format": "date", "description": "Date the URL was last verified to resolve." }
         },
         "required": ["id", "title", "authors", "type", "access", "topics", "authoritative_for", "checked_at"],
-        "additionalProperties": false
-      }
-    },
-    "search_hubs": {
-      "type": "array",
-      "description": "Optional. Where to search next when no reference matches, in the order to try them. A hub is a site to search, not a source Dive Kit relies on; vetted says whether its content can be cited as a trusted source.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string", "pattern": "^hub-[a-z0-9\\-]+$", "description": "Unique id across references and hubs, kebab-case, prefixed 'hub-'. Example: 'hub-dan'." },
-          "name": { "type": "string", "description": "Name of the site or organisation." },
-          "url": { "type": "string", "format": "uri", "description": "Home or search page URL." },
-          "use_for": { "type": "string", "maxLength": 200, "description": "One plain phrase: what to search this hub for." },
-          "vetted": { "type": "boolean", "description": "true: an agency, research or medical body whose content can be cited; false: community content to verify against a vetted source." },
-          "notes": { "type": "string", "description": "Optional caveats, such as how far to trust it or a bot-blocking host." },
-          "checked_at": { "type": "string", "format": "date", "description": "Date the URL was last verified to resolve." }
-        },
-        "required": ["id", "name", "url", "use_for", "vetted", "checked_at"],
         "additionalProperties": false
       }
     }

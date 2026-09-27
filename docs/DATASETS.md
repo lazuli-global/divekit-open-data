@@ -125,13 +125,15 @@ Each reference entry includes:
 - **title**: The title of the work as published
 - **authors**: Authors or issuing body, in published order (empty for anonymous web pages)
 - **year**: Year of publication, or `null` for undated, living web pages
-- **type**: What kind of source it is: `paper`, `book`, `standard`, `manual`, `article`, `blog`, `thread`, `dataset`, `website`, `talk`, or `software`
+- **type**: What kind of source it is: `paper`, `book`, `standard`, `manual`, `article`, `blog`, `thread`, `dataset`, `website`, `talk`, `software`, `video`, `podcast`, `course_material`, or `report`
 - **publisher** (optional): Publisher, journal, agency or site
 - **url** (optional): Canonical URL, preferring the publisher or an open archive over a mirror
 - **doi** (optional): DOI without the resolver prefix (e.g., `10.1002/cphy.c091004`)
 - **access**: How you can actually get it: `open` (free online), `paywalled` (subscription), `borrow` (lendable scan, e.g. archive.org), or `print` (no reliable online copy)
 - **topics**: One or more guide topics the reference supports (see below)
 - **authoritative_for**: One plain sentence, under 200 characters, saying what Dive Kit relies on this source for
+- **format** (optional, since v1.1.0): What opening the url gives you: `html`, `pdf`, `video`, `audio`, or `print`
+- **recommended_by** (optional, since v1.1.0): Communities or publications that point divers to it, e.g. `r/scuba wiki`, `ScubaBoard sticky`, `DAN Alert Diver`
 - **notes** (optional): Caveats, such as a superseded edition, a bot-blocking host, or which section to read
 - **checked_at**: The date the URL was last verified to resolve
 
@@ -167,22 +169,27 @@ Each reference entry includes:
 5. Make sure the URL or DOI is not already used by another record; one record per work
 6. Run `./scripts/validate.sh` before submitting
 
-**Search hubs.** Since schema v1.1.0 the file also has an optional `search_hubs` array: where to
-search next when no reference matches, in the order to try them. A hub is a site to search, not a
-source Dive Kit relies on. Each hub entry includes:
-
-- **id**: A unique identifier, kebab-case, prefixed `hub-` (e.g., `hub-dan`); unique across references and hubs
-- **name**: The site or organisation
-- **url**: Its home or search page
-- **use_for**: One plain phrase saying what to search it for
-- **vetted**: `true` for an agency, research or medical body whose content can be cited; `false` for community content to verify against a vetted source
-- **notes** (optional): Caveats, such as how far to trust it or a bot-blocking host
-- **checked_at**: The date the URL was last verified to resolve
-
 **Consumers.** This dataset is read by the Dive Kit MCP server's `lookup_references` tool, which
 searches by `topics`, `type`, and free text over `title`, `authors`, `authoritative_for` and `notes`
-(and lists the search hubs when nothing matches),
+(and returns the search sources when nothing matches),
 and by the Dive Kit app's public guide, which links out to these sources from its "Further reading" pages.
+
+### Search Sources Dataset
+
+The search sources dataset (`datasets/search-sources.json`) lists where to search next when no
+reference answers a question, in the order to try them. A search source is a place to look, not a
+source Dive Kit relies on. Each entry includes:
+
+- **id**: A unique identifier, kebab-case, prefixed `src-` (e.g., `src-dan`); unique across this file and the references
+- **name**: The site or organisation
+- **url**: Its home or search page
+- **kind**: `organisation`, `journal_index`, `agency`, `forum`, or `encyclopedia`
+- **use_for**: One sentence on what to search it for
+- **topics**: The guide topics it is good for, from the same list as the references
+- **vetted**: `true` for a research, medical or agency source whose content can be cited; `false` for community content to verify against a vetted source
+- **how_to_search**: One sentence on how to search it (e.g., `site:dan.org <question>`)
+- **notes** (optional): Caveats, such as how far to trust it or a host that blocks automated checks
+- **checked_at**: The date the URL was last verified to resolve
 
 ## How to Read the Data
 

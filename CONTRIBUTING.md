@@ -97,6 +97,21 @@ Refer to the schema files in `/schemas` for detailed field requirements and exam
 
 ---
 
+## 📚 Adding a reference
+
+References live in `datasets/references.json`, and search sources live in `datasets/search-sources.json`. The README section "References and search sources" shows one example record of each.
+
+1. **Required fields:** `id` (`ref-` plus kebab-case, unique across both files), `title`, `authors` (empty for an anonymous page), `type`, `access`, `topics`, `authoritative_for` (one sentence, under 200 characters) and `checked_at`. Add `year`, `publisher`, `url`, `doi`, `format`, `recommended_by` and `notes` when you know them.
+2. **Link to the source itself.** The `url` must be the publisher's page or an official mirror, such as the agency, the journal, the author's own site or an open archive. Never link a pirated manual, a scan of a paid book, or a re-upload of someone else's video.
+3. **Set `access` honestly:** `open` is free online, `paywalled` is behind a subscription or purchase, `borrow` is a lendable scan such as archive.org, and `print` means there is no reliable online copy.
+4. **Check the link.** Run `curl -sIL -A 'Mozilla/5.0' <url>` and expect a 2xx or 3xx status. Some hosts block automated checks. Keep those records, open the page in a browser, and add the note "Site blocks automated checks; open it in a browser." Set `checked_at` to today.
+5. **Put it in its place.** A record goes in the block of its first topic, with ids A to Z inside the block (see "Order" in the README).
+6. **Validate** with `./scripts/validate.sh` from the repository root. It checks the schema, duplicate ids across both files, and the order.
+
+A search source follows the same steps, with an `src-` id and `kind`, `use_for`, `topics`, `vetted` and `how_to_search`. Mark community sites `vetted: false`.
+
+---
+
 ## 🧱 Schema Contributions
 
 For schema updates or new schemas:

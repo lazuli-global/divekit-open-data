@@ -28,6 +28,7 @@ divekit-open-data/
 │ ├── cylinders.json
 │ ├── dive-signals.json
 │ ├── references.json
+│ ├── search-sources.json
 │ └── LICENSE.md
 │
 ├── schemas/
@@ -42,6 +43,8 @@ divekit-open-data/
 │ ├── references/
 │ │ ├── references.schema.v1.0.0.json
 │ │ └── references.schema.v1.1.0.json
+│ ├── search-sources/
+│ │ └── search-sources.schema.v1.0.0.json
 │ └── LICENSE.md
 │
 ├── assets/
@@ -93,10 +96,61 @@ divekit-open-data/
 | **Dive Signals Schema**         | JSON Schema for validating dive signal data                        | [View Schema →](https://open.divekit.app/schemas/dive-signals/dive-signals.schema.v1.0.0.json)          |
 | **References Dataset**          | Vetted papers, books, standards and articles behind Dive Kit, with topics and what each is authoritative for | [View JSON →](https://open.divekit.app/datasets/references.json)                                        |
 | **References Schema**           | JSON Schema for validating reference records                                                                 | [View Schema →](https://open.divekit.app/schemas/references/references.schema.v1.1.0.json)               |
+| **Search Sources Dataset**      | Where to search next when no reference answers a question, each marked vetted or not                       | [View JSON →](https://open.divekit.app/datasets/search-sources.json)                                    |
+| **Search Sources Schema**       | JSON Schema for validating search source records                                                             | [View Schema →](https://open.divekit.app/schemas/search-sources/search-sources.schema.v1.0.0.json)       |
 | **Dive Signal Illustrations**   | CC BY 4.0 vector artwork for every signal in the dataset           | [View Illustrations →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/dive-signals) |
 | **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/agency-logos)        |
 | **Dataset Documentation**       | Beginner-friendly guide to understanding and contributing          | [View Guide →](https://open.divekit.app/docs/DATASETS.md)                                               |
 | **Docs**                        | Design guidelines and documentation                                | [View Docs →](https://github.com/lazuli-global/divekit-open-data/tree/main/docs)                        |
+
+---
+
+## 📚 References and search sources
+
+Two files hold everything Dive Kit knows about sources. Both are meant to grow with contributions.
+
+- **`datasets/references.json`** lists the sources Dive Kit relies on: the papers, books, standards, manuals, articles and videos behind its calculators and guide. Each record says what the source is authoritative for, so an assistant can cite it.
+- **`datasets/search-sources.json`** lists where to search next when no reference answers a question: organisations, journal indexes, training agencies, forums and wikis, in the order to try them. `vetted` says whether what you find there can be cited as trustworthy. ScubaBoard and the r/scuba wiki are useful but not vetted.
+
+A reference record, as it is in the file:
+
+```json
+{
+  "id": "ref-baker-understanding-m-values",
+  "title": "Understanding M-values",
+  "authors": ["Baker, Erik C."],
+  "year": null,
+  "type": "article",
+  "publisher": "Shearwater Research",
+  "url": "https://www.shearwater.com/wp-content/uploads/2019/05/understanding_m-values.pdf",
+  "access": "open",
+  "topics": ["deco_theory", "gradient_factors"],
+  "authoritative_for": "Plain-language explanation of M-values and the decompression zone behind the gradient-factor method.",
+  "checked_at": "2026-09-26"
+}
+```
+
+Optional fields a record can add: `doi`, `notes`, `format` (`html`, `pdf`, `video`, `audio` or `print`) and `recommended_by` (for example `["r/scuba wiki", "DAN Alert Diver"]`).
+
+A search source record:
+
+```json
+{
+  "id": "src-dan",
+  "name": "DAN (Divers Alert Network)",
+  "url": "https://dan.org/",
+  "kind": "organisation",
+  "use_for": "Diving medicine, fitness to dive, injuries, incident data and safety research.",
+  "topics": ["emergencies", "deco_theory", "oxygen_toxicity"],
+  "vetted": true,
+  "how_to_search": "site:dan.org <question>",
+  "checked_at": "2026-09-27"
+}
+```
+
+**Order.** `references.json` keeps one block per topic, in the order of the schema's topic list (`deco_theory` first, `community` last). A record belongs to the block of its first topic, and ids run A to Z inside each block. `search-sources.json` is in the order to try the sources: vetted sources first, community sources last. `scripts/validate.sh` checks both files, their ids across both files, and the references order.
+
+**How Dive Kit uses them.** The Dive Kit MCP server's `lookup_references` tool searches `references.json`. When nothing matches, it returns `search-sources.json` so the assistant knows where to look next and says the result is not Dive Kit-vetted. The Dive Kit guide cites references by id. To add a record, see [Adding a reference](CONTRIBUTING.md#-adding-a-reference) in CONTRIBUTING.
 
 ---
 
