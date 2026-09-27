@@ -1,0 +1,83 @@
+{
+  "$id": "https://open.divekit.app/schemas/references/references.schema.v1.1.0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dive Kit References Schema",
+  "description": "Vetted references behind Dive Kit's calculators and guide: the papers, books, standards and articles the numbers are built from, the planners they are cross-checked against, and the community sources that shaped the tools. Each record says what it is authoritative for so an assistant can cite it instead of searching the web. Search hubs name where to look next when no reference matches, and say whether each is vetted.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string", "description": "Reference to this schema URL." },
+    "meta": {
+      "type": "object",
+      "description": "Metadata about this dataset version.",
+      "properties": {
+        "version": { "type": "string", "description": "Date-based tag for this dataset (e.g. '2026.09.26.1')." },
+        "generated_at": { "type": "string", "format": "date-time", "description": "ISO timestamp when the dataset was last generated." }
+      },
+      "required": ["version", "generated_at"]
+    },
+    "references": {
+      "type": "array",
+      "description": "All references in this dataset.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "pattern": "^ref-[a-z0-9\\-]+$", "description": "Unique id, kebab-case, prefixed 'ref-'. Example: 'ref-baker-understanding-m-values'." },
+          "title": { "type": "string", "description": "Title of the work as published." },
+          "authors": { "type": "array", "items": { "type": "string" }, "description": "Authors or issuing body, in published order. Empty for anonymous web pages." },
+          "year": { "type": ["integer", "null"], "description": "Year of publication, or null when undated (living web pages)." },
+          "type": {
+            "type": "string",
+            "enum": ["paper", "book", "standard", "manual", "article", "blog", "thread", "dataset", "website", "talk", "software"],
+            "description": "What kind of source this is."
+          },
+          "publisher": { "type": "string", "description": "Publisher, journal, agency or site." },
+          "url": { "type": "string", "format": "uri", "description": "Canonical URL. Prefer the publisher or an open archive over a mirror." },
+          "doi": { "type": "string", "description": "DOI without the resolver prefix, e.g. '10.1002/cphy.c091004'." },
+          "access": {
+            "type": "string",
+            "enum": ["open", "paywalled", "borrow", "print"],
+            "description": "open: free online; paywalled: behind a subscription; borrow: lendable scan (e.g. archive.org); print: no reliable online copy."
+          },
+          "topics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "deco_theory", "gradient_factors", "oxygen_toxicity", "gas_density", "icd", "hpns", "ccr",
+                "gas_selection", "gas_planning", "gas_blending", "oxygen_handling", "real_gas", "cylinders",
+                "buoyancy", "breathing_rate", "conventions", "training", "emergencies", "cross_checks", "community"
+              ]
+            },
+            "description": "Guide topics this reference supports. Aligned with the Dive Kit MCP guide topic names."
+          },
+          "authoritative_for": { "type": "string", "maxLength": 200, "description": "One plain sentence: what Dive Kit relies on this source for." },
+          "notes": { "type": "string", "description": "Optional caveats: superseded editions, bot-blocking hosts, which section to read." },
+          "checked_at": { "type": "string", "format": "date", "description": "Date the URL was last verified to resolve." }
+        },
+        "required": ["id", "title", "authors", "type", "access", "topics", "authoritative_for", "checked_at"],
+        "additionalProperties": false
+      }
+    },
+    "search_hubs": {
+      "type": "array",
+      "description": "Optional. Where to search next when no reference matches, in the order to try them. A hub is a site to search, not a source Dive Kit relies on; vetted says whether its content can be cited as a trusted source.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "pattern": "^hub-[a-z0-9\\-]+$", "description": "Unique id across references and hubs, kebab-case, prefixed 'hub-'. Example: 'hub-dan'." },
+          "name": { "type": "string", "description": "Name of the site or organisation." },
+          "url": { "type": "string", "format": "uri", "description": "Home or search page URL." },
+          "use_for": { "type": "string", "maxLength": 200, "description": "One plain phrase: what to search this hub for." },
+          "vetted": { "type": "boolean", "description": "true: an agency, research or medical body whose content can be cited; false: community content to verify against a vetted source." },
+          "notes": { "type": "string", "description": "Optional caveats, such as how far to trust it or a bot-blocking host." },
+          "checked_at": { "type": "string", "format": "date", "description": "Date the URL was last verified to resolve." }
+        },
+        "required": ["id", "name", "url", "use_for", "vetted", "checked_at"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["meta", "references"],
+  "additionalProperties": false
+}

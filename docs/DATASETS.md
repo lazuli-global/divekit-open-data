@@ -167,8 +167,21 @@ Each reference entry includes:
 5. Make sure the URL or DOI is not already used by another record; one record per work
 6. Run `./scripts/validate.sh` before submitting
 
+**Search hubs.** Since schema v1.1.0 the file also has an optional `search_hubs` array: where to
+search next when no reference matches, in the order to try them. A hub is a site to search, not a
+source Dive Kit relies on. Each hub entry includes:
+
+- **id**: A unique identifier, kebab-case, prefixed `hub-` (e.g., `hub-dan`); unique across references and hubs
+- **name**: The site or organisation
+- **url**: Its home or search page
+- **use_for**: One plain phrase saying what to search it for
+- **vetted**: `true` for an agency, research or medical body whose content can be cited; `false` for community content to verify against a vetted source
+- **notes** (optional): Caveats, such as how far to trust it or a bot-blocking host
+- **checked_at**: The date the URL was last verified to resolve
+
 **Consumers.** This dataset is read by the Dive Kit MCP server's `lookup_references` tool, which
-searches by `topics`, `type`, and free text over `title`, `authors`, `authoritative_for` and `notes`,
+searches by `topics`, `type`, and free text over `title`, `authors`, `authoritative_for` and `notes`
+(and lists the search hubs when nothing matches),
 and by the Dive Kit app's public guide, which links out to these sources from its "Further reading" pages.
 
 ## How to Read the Data

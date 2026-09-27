@@ -102,7 +102,12 @@ check_duplicate_ids() {
     
     # Determine the array key based on filename
     local array_key=""
-    if [[ "$json_file" == *"agencies.json"* ]]; then
+    # References and search hubs share one id space.
+    local ids_filter=""
+    if [[ "$json_file" == *"references.json"* ]]; then
+        array_key="references"
+        ids_filter='(.references[]?, .search_hubs[]?) | .id? // empty'
+    elif [[ "$json_file" == *"agencies.json"* ]]; then
         array_key="agencies"
     elif [[ "$json_file" == *"certifications"* ]]; then
         array_key="certifications"
@@ -121,7 +126,7 @@ check_duplicate_ids() {
     
     # Extract all IDs and check for duplicates
     local duplicates
-    duplicates=$(jq -r ".${array_key}[]? | .id? // empty" "$json_file" 2>/dev/null | sort | uniq -d || echo "")
+    duplicates=$(jq -r "${ids_filter:-.${array_key}[]? | .id? // empty}" "$json_file" 2>/dev/null | sort | uniq -d || echo "")
     
     if [ -n "$duplicates" ] && [ "$duplicates" != "" ]; then
         echo -e "${RED}❌ ERROR: Duplicate IDs found:${NC}"

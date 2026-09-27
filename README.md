@@ -40,7 +40,8 @@ divekit-open-data/
 │ ├── dive-signals/
 │ │ └── dive-signals.schema.v1.0.0.json
 │ ├── references/
-│ │ └── references.schema.v1.0.0.json
+│ │ ├── references.schema.v1.0.0.json
+│ │ └── references.schema.v1.1.0.json
 │ └── LICENSE.md
 │
 ├── assets/
@@ -91,7 +92,7 @@ divekit-open-data/
 | **Dive Signals Dataset**        | Diver communication signals with names, meanings, and artwork      | [View JSON →](https://open.divekit.app/datasets/dive-signals.json)                                      |
 | **Dive Signals Schema**         | JSON Schema for validating dive signal data                        | [View Schema →](https://open.divekit.app/schemas/dive-signals/dive-signals.schema.v1.0.0.json)          |
 | **References Dataset**          | Vetted papers, books, standards and articles behind Dive Kit, with topics and what each is authoritative for | [View JSON →](https://open.divekit.app/datasets/references.json)                                        |
-| **References Schema**           | JSON Schema for validating reference records                                                                 | [View Schema →](https://open.divekit.app/schemas/references/references.schema.v1.0.0.json)               |
+| **References Schema**           | JSON Schema for validating reference records                                                                 | [View Schema →](https://open.divekit.app/schemas/references/references.schema.v1.1.0.json)               |
 | **Dive Signal Illustrations**   | CC BY 4.0 vector artwork for every signal in the dataset           | [View Illustrations →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/dive-signals) |
 | **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/agency-logos)        |
 | **Dataset Documentation**       | Beginner-friendly guide to understanding and contributing          | [View Guide →](https://open.divekit.app/docs/DATASETS.md)                                               |
