@@ -1,8 +1,8 @@
 {
   "$schema": "https://open.divekit.app/schemas/search-sources/search-sources.schema.v1.0.0.json",
   "meta": {
-    "version": "2026.09.27.1",
-    "generated_at": "2026-09-27T12:00:00Z"
+    "version": "2026.09.27.2",
+    "generated_at": "2026-09-27T18:30:00Z"
   },
   "sources": [
     {
@@ -14,6 +14,17 @@
       "topics": ["emergencies", "deco_theory", "oxygen_toxicity"],
       "vetted": true,
       "how_to_search": "site:dan.org <question>",
+      "checked_at": "2026-09-27"
+    },
+    {
+      "id": "src-dan-europe",
+      "name": "DAN Europe research and Alert Diver Europe",
+      "url": "https://www.daneurope.org/",
+      "kind": "organisation",
+      "use_for": "European diving safety research, Diving Safety Laboratory field data and diver-facing summaries in Alert Diver Europe.",
+      "topics": ["deco_theory", "emergencies"],
+      "vetted": true,
+      "how_to_search": "site:daneurope.org OR site:alertdiver.eu <question>",
       "checked_at": "2026-09-27"
     },
     {
@@ -36,6 +47,7 @@
       "topics": ["deco_theory", "oxygen_toxicity", "gas_density", "hpns"],
       "vetted": true,
       "how_to_search": "site:rubicon-foundation.org <topic>",
+      "notes": "On 2026-09-27 the site showed articles but no searchable repository; check it is available before relying on it.",
       "checked_at": "2026-09-27"
     },
     {
@@ -47,6 +59,19 @@
       "topics": ["deco_theory", "oxygen_toxicity", "emergencies"],
       "vetted": true,
       "how_to_search": "site:dhmjournal.com <topic>",
+      "notes": "Issues open after a one-year embargo; the archive goes back to 1971.",
+      "checked_at": "2026-09-27"
+    },
+    {
+      "id": "src-uhms",
+      "name": "Undersea and Hyperbaric Medical Society (UHMS)",
+      "url": "https://uhms.org/",
+      "kind": "organisation",
+      "use_for": "Workshop proceedings, consensus guidelines and the Undersea and Hyperbaric Medicine journal.",
+      "topics": ["deco_theory", "oxygen_toxicity", "emergencies"],
+      "vetted": true,
+      "how_to_search": "site:uhms.org <topic>",
+      "notes": "Some journal content needs a membership.",
       "checked_at": "2026-09-27"
     },
     {
