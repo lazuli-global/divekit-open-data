@@ -59,9 +59,16 @@ divekit-open-data/
 │ │ └── ...
 │ ├── divekit/              # Dive Kit brand assets
 │ │ ├── logo.png
+│ │ ├── logo-squircle-light.png   # iOS-style app icon
+│ │ ├── logo-squircle-dark.png
 │ │ ├── logo-circle-light.png
 │ │ ├── logo-circle-dark.png
-│ │ └── favicon.png
+│ │ ├── apple-touch-icon.png
+│ │ ├── favicon.png
+│ │ └── favicon-dark.png
+│ ├── fonts/                # Inter, Source Serif 4, IBM Plex Mono (SIL OFL 1.1)
+│ ├── site.css              # Site styles (divekit.app editorial system)
+│ └── site.js               # Theme switch and header
 │
 ├── docs/
 │ ├── DATASETS.md
@@ -72,7 +79,7 @@ divekit-open-data/
 │ ├── validate.sh
 │ └── test-local.sh
 │
-├── index.html
+├── index.html            # open.divekit.app home page
 ├── 404.html
 ├── CONTRIBUTING.md
 ├── LICENSE.md

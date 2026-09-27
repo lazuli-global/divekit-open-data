@@ -3,221 +3,134 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Page Not Found | Project Dive Kit Open</title>
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/assets/divekit/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/divekit/logo-circle-light.png" />
-
+    <title>Not found · Dive Kit Open</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="/assets/divekit/apple-touch-icon.png" />
+    <script>
+      (function () {
+        var t = new URLSearchParams(location.search).get('theme');
+        if (t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches))
+          document.documentElement.classList.add('dark');
+      })();
+    </script>
+    <link rel="stylesheet" href="/assets/site.css" />
     <style>
-      /* Dive Kit editorial palette (matches divekit.app) */
-      :root {
-        --paper: #fbfaf7;
-        --paper-raised: #ffffff;
-        --paper-tint: #f3f1ec;
-        --ink: #181a1c;
-        --ink-secondary: #494d52;
-        --ink-muted: #75797f;
-        --rule: rgb(24 26 28 / 0.14);
-        --rule-strong: rgb(24 26 28 / 0.45);
-        --accent: #0369a1;
-        --accent-strong: #075985;
-        --accent-wash: rgb(3 105 161 / 0.06);
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-        background-color: var(--paper);
-        color: var(--ink);
         min-height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
+        flex-direction: column;
       }
-      .container {
-        text-align: center;
-        max-width: 600px;
-        background-color: var(--paper-raised);
-        padding: 60px 40px;
-        border-radius: 12px;
-        border: 1px solid var(--rule);
-        box-shadow: 0 1px 2px rgb(24 26 28 / 0.04), 0 8px 24px rgb(24 26 28 / 0.06);
-      }
-      .logo-404 {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 20px;
-        animation: float 3s ease-in-out infinite;
-        display: inline-block;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-      h1 {
-        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-        font-size: 72px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: var(--accent);
-      }
-      h2 {
-        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: var(--ink);
-      }
-      p {
-        font-size: 18px;
-        line-height: 1.6;
-        color: var(--ink-secondary);
-        margin-bottom: 30px;
-      }
-      .links {
+      main {
+        flex: 1;
         display: flex;
-        gap: 15px;
-        justify-content: center;
+        align-items: center;
+        padding: 3rem 0 5rem;
+      }
+      .lost {
+        max-width: 40rem;
+      }
+      .lost h1 {
+        margin-top: 1rem;
+        font-size: 2.75rem;
+      }
+      @media (min-width: 640px) {
+        .lost h1 {
+          font-size: 3.5rem;
+        }
+      }
+      .lost .lead {
+        margin: 1.25rem 0 0;
+      }
+      .actions {
+        display: flex;
         flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2rem;
       }
-      a {
-        display: inline-block;
-        padding: 12px 24px;
-        background-color: var(--accent);
-        color: #ffffff;
-        text-decoration: none;
-        border-radius: 10px;
-        font-weight: 600;
-        transition: background-color 0.15s ease, border-color 0.15s ease;
-        border: 1px solid var(--accent);
-      }
-      a:hover {
-        background-color: var(--accent-strong);
-        border-color: var(--accent-strong);
-      }
-      a.secondary {
-        background-color: var(--paper-raised);
-        border: 1px solid var(--rule-strong);
-        color: var(--ink);
-      }
-      a.secondary:hover {
-        background-color: var(--paper-tint);
-        border-color: var(--ink-secondary);
-      }
-      .suggestions {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: var(--paper-tint);
-        border-radius: 12px;
-        border: 1px solid var(--rule);
-      }
-      .suggestions h3 {
-        font-size: 18px;
-        margin-bottom: 15px;
-        color: var(--accent);
-        font-weight: 600;
-      }
-      .suggestions ul {
+      .popular {
         list-style: none;
-        text-align: left;
+        margin: 3rem 0 0;
+        padding: 0;
+        border-top: 1px solid var(--rule-strong);
       }
-      .suggestions li {
-        padding: 10px 0;
+      .popular li {
         border-bottom: 1px solid var(--rule);
       }
-      .suggestions li:last-child {
-        border-bottom: none;
+      .popular a {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        text-decoration: none;
+        color: var(--ink);
       }
-      .suggestions a {
-        padding: 0;
-        background: none;
-        border: none;
+      .popular a:hover {
         color: var(--accent);
-        font-weight: 400;
-        display: inline;
       }
-      .suggestions a:hover {
-        color: var(--accent-strong);
-        text-decoration: underline;
+      .popular code {
+        border: 0;
         background: none;
-      }
-      code {
-        background-color: var(--paper-tint);
-        padding: 2px 6px;
-        border-radius: 6px;
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
-        font-size: 14px;
-        color: var(--ink-secondary);
-        border: 1px solid var(--rule);
-      }
-      @media (max-width: 600px) {
-        .container {
-          padding: 40px 20px;
-        }
-        h1 {
-          font-size: 56px;
-        }
-        a {
-          padding: 10px 20px;
-          font-size: 14px;
-        }
+        padding: 0;
+        color: var(--ink-muted);
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <img src="/assets/divekit/logo-circle-light.png" alt="Project Dive Kit Logo" class="logo-404" />
-      <h1>404</h1>
-      <h2>Resource Not Found</h2>
-      <p>
-        The resource you're looking for doesn't exist or may have been moved.
-        <br />Let's get you back on course!
-      </p>
-
-      <div class="links">
-        <a href="/">← Back to Home</a>
-        <a href="https://github.com/lazuli-global/divekit-open-data" class="secondary">View on GitHub</a>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Dive Kit Open home">
+          <img class="logo-light" src="/assets/divekit/logo-squircle-light.png" alt="" width="32" height="32" />
+          <img class="logo-dark" src="/assets/divekit/logo-squircle-dark.png" alt="" width="32" height="32" />
+          <span class="brand-name">Dive Kit</span>
+          <span class="brand-tag">Open</span>
+        </a>
+        <div class="header-actions">
+          <button class="theme-switch" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+            <span class="thumb"></span>
+            <svg class="sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+            <svg class="moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+            </svg>
+          </button>
+        </div>
       </div>
+    </header>
 
-      <div class="suggestions">
-        <h3>🧭 Popular Resources</h3>
-        <ul>
-          <li>
-            📊
-            <a href="/datasets/certifications.json">Dive Certifications Dataset</a>
-          </li>
-          <li>
-            🤿
-            <a href="/datasets/dive-signals.json">Dive Signals Dataset</a>
-          </li>
-          <li>
-            📋
-            <a href="/schemas/certifications/dive-certifications.schema.v1.0.0.json">Dive Certifications Schema</a>
-          </li>
-          <li>
-            🖼️
-            <a href="https://github.com/lazuli-global/divekit-open-data/tree/main/assets">Visual Assets Library</a>
-          </li>
-          <li>
-            📚
-            <a href="https://github.com/lazuli-global/divekit-open-data/tree/main/docs">Documentation</a>
-          </li>
-          <li>
-            🤝
-            <a href="https://github.com/lazuli-global/divekit-open-data/blob/main/CONTRIBUTING.md">Contributing Guide</a>
-          </li>
-        </ul>
+    <main>
+      <div class="wrap">
+        <div class="lost">
+          <p class="eyebrow"><span class="num">404</span> · Not found</p>
+          <h1 class="display">Nothing at this depth.</h1>
+          <p class="lead">
+            The file you asked for doesn't exist or has moved. Dataset and schema URLs are versioned, so check the
+            version in the path.
+          </p>
+          <div class="actions">
+            <a class="btn" href="/">Back to Dive Kit Open</a>
+            <a class="btn ghost" href="https://github.com/lazuli-global/divekit-open-data">Browse on GitHub</a>
+          </div>
+          <ul class="popular">
+            <li><a href="/datasets/certifications.json">Certifications <code>datasets/certifications.json</code></a></li>
+            <li><a href="/datasets/cylinders.json">Cylinders <code>datasets/cylinders.json</code></a></li>
+            <li><a href="/datasets/dive-signals.json">Dive signals <code>datasets/dive-signals.json</code></a></li>
+            <li><a href="/datasets/references.json">References <code>datasets/references.json</code></a></li>
+            <li><a href="https://github.com/lazuli-global/divekit-open-data/tree/main/schemas">All schemas <code>schemas/</code></a></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </main>
+
+    <footer class="site-footer" style="padding: 2rem 0; margin: 0">
+      <div class="wrap footer-bottom" style="margin: 0; padding: 0; border: 0">
+        <span>&copy; Project Dive Kit</span>
+        <a href="https://divekit.app">divekit.app</a>
+      </div>
+    </footer>
+    <script src="/assets/site.js"></script>
   </body>
 </html>

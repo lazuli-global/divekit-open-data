@@ -3,249 +3,827 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Dive Kit — Open Data & Standards</title>
+    <title>Dive Kit Open: open diving data and schemas</title>
+    <meta
+      name="description"
+      content="Open, versioned JSON datasets and JSON Schemas for the diving community: certifications, agencies, cylinders, dive signals, references and search sources." />
+    <meta name="theme-color" content="#fbfaf7" />
+    <link rel="canonical" href="https://open.divekit.app/" />
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/assets/divekit/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/divekit/logo-circle-light.png" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="/assets/divekit/apple-touch-icon.png" />
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Project Dive Kit — Open Data & Standards" />
-    <meta property="og:description" content="Open data, schemas, and public standards for the diving community" />
-    <meta property="og:image" content="https://open.divekit.app/assets/divekit/logo-circle-light.png" />
+    <meta property="og:title" content="Dive Kit Open: open diving data and schemas" />
+    <meta property="og:description" content="Open data, schemas and public standards for the diving community." />
+    <meta property="og:image" content="https://open.divekit.app/assets/divekit/logo-squircle-light.png" />
+    <meta property="og:url" content="https://open.divekit.app/" />
     <meta property="og:type" content="website" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
-      integrity="sha384-LTbdgUzZ3SXn50n5dAZ75Kpp86fR5oSHELRlFJqZ08kHpI2/Jwsgi/KA8UdnqXSK"
-      crossorigin="anonymous" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/marked@11.1.0/marked.min.js"
-      integrity="sha384-+pBQSmYtEXC3hQ5VUaVCf29+iZoVJLtwOW9Wf/iFxETwDke401fmC3cesoWnEI3r"
-      crossorigin="anonymous"></script>
+    <!-- Apply the theme before first paint (site.js keeps it in sync afterwards) -->
+    <script>
+      (function () {
+        var t = new URLSearchParams(location.search).get('theme');
+        if (t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches))
+          document.documentElement.classList.add('dark');
+      })();
+    </script>
+    <link rel="preload" href="/assets/fonts/InterVariable-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/SourceSerif4Variable-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/site.css" />
     <style>
-      /* Dive Kit editorial palette (matches divekit.app) */
-      :root {
-        --paper: #fbfaf7;
-        --paper-raised: #ffffff;
-        --paper-tint: #f3f1ec;
-        --ink: #181a1c;
-        --ink-secondary: #494d52;
-        --ink-muted: #75797f;
-        --rule: rgb(24 26 28 / 0.14);
-        --rule-strong: rgb(24 26 28 / 0.45);
-        --accent: #0369a1;
-        --accent-strong: #075985;
-        --accent-wash: rgb(3 105 161 / 0.06);
+      section {
+        padding: 3.5rem 0;
       }
-      body {
+      @media (min-width: 640px) {
+        section {
+          padding: 5rem 0;
+        }
+      }
+      section + section {
+        border-top: 1px solid var(--rule);
+      }
+      .section-head {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
+      .section-head h2 {
+        font-size: 1.875rem;
+      }
+      @media (min-width: 640px) {
+        .section-head h2 {
+          font-size: 2.25rem;
+        }
+      }
+      .section-head p {
         margin: 0;
-        padding: 0;
-        background-color: var(--paper);
-        color: var(--ink);
       }
-      .container {
-        max-width: 1012px;
-        margin: 0 auto;
-        padding: 45px;
+
+      .masthead-grid > *,
+      .steps > *,
+      .split > * {
+        min-width: 0;
       }
-      .markdown-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
-        background-color: var(--paper-raised);
-        color: var(--ink);
-        border-radius: 12px;
+
+      /* Masthead */
+      .masthead {
+        padding: 2.5rem 0 3rem;
+      }
+      @media (min-width: 640px) {
+        .masthead {
+          padding: 4rem 0 4rem;
+        }
+      }
+      .masthead-grid {
+        display: grid;
+        gap: 3rem;
+        align-items: center;
+      }
+      @media (min-width: 1024px) {
+        .masthead-grid {
+          grid-template-columns: 7fr 5fr;
+          gap: 4rem;
+        }
+      }
+      .masthead h1 {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+      }
+      @media (min-width: 640px) {
+        .masthead h1 {
+          font-size: 3.25rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .masthead h1 {
+          font-size: 3.5rem;
+        }
+      }
+      .masthead .lead {
+        margin: 1.5rem 0 0;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+
+      .fig {
+        margin: 0;
+        max-width: 30rem;
+        justify-self: center;
+        width: 100%;
+      }
+      .fig-stage {
+        position: relative;
+        padding: 2.25rem 0 0 2.25rem;
+      }
+      .plate {
         border: 1px solid var(--rule);
-        box-shadow: 0 1px 2px rgb(24 26 28 / 0.04), 0 8px 24px rgb(24 26 28 / 0.06);
-      }
-      @media (max-width: 767px) {
-        .markdown-body {
-          padding: 15px;
-        }
-        .container {
-          padding: 16px;
-        }
-      }
-      /* Dive Kit brand theme colors */
-      .markdown-body a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      .markdown-body a:hover {
-        color: var(--accent-strong);
-        text-decoration: underline;
-      }
-      .markdown-body code {
-        background-color: var(--paper-tint);
-        padding: 2px 6px;
+        background: var(--paper-raised);
         border-radius: 6px;
-        border: 1px solid var(--rule);
+        padding: 0.375rem;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+        transform: rotate(0.8deg);
+      }
+      .plate pre {
+        border: 0;
+        background: var(--paper-tint);
+        border-radius: 3px;
+        font-size: 0.75rem;
+      }
+      .plate .file {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.25rem 0.5rem 0.5rem 3.75rem;
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        color: var(--ink-muted);
+      }
+      pre .p {
         color: var(--ink-secondary);
       }
-      .markdown-body pre {
-        background-color: var(--paper-tint);
-        padding: 16px;
-        border-radius: 10px;
+      pre .n {
+        color: var(--accent);
+      }
+      .fig-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5.5rem;
+        height: 5.5rem;
+        z-index: 1;
+        transform: rotate(-4deg);
+        filter: drop-shadow(0 10px 12px rgb(0 0 0 / 0.18));
+      }
+      .fig .figure-caption {
+        margin-top: 1rem;
+      }
+
+      .chips {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 0;
+        padding: 1.5rem 0 0;
+        border-top: 1px solid var(--rule);
+      }
+      .chips a,
+      .chips span {
+        display: inline-block;
         border: 1px solid var(--rule);
+        background: var(--paper-raised);
+        border-radius: 3px;
+        padding: 0.375rem 0.75rem;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink-secondary);
+        text-decoration: none;
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .chips a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* Dataset catalogue */
+      .table-scroll {
         overflow-x: auto;
       }
-      .markdown-body pre code {
-        background-color: transparent;
-        padding: 0;
-        border: none;
+      .data-table {
+        width: 100%;
+        min-width: 44rem;
+        border-collapse: collapse;
+        font-size: 0.875rem;
       }
-      .markdown-body table {
-        border-collapse: separate;
-        border-spacing: 0;
-        border: 1px solid var(--rule);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-      .markdown-body table tr {
-        background-color: var(--paper-raised);
-      }
-      .markdown-body table tr:nth-child(2n) {
-        background-color: var(--paper);
-      }
-      .markdown-body table th,
-      .markdown-body table td {
-        border-right: 1px solid var(--rule);
-        border-bottom: 1px solid var(--rule);
-        padding: 12px 16px;
-      }
-      .markdown-body table th:last-child,
-      .markdown-body table td:last-child {
-        border-right: 0;
-      }
-      .markdown-body table tr:last-child td {
-        border-bottom: 0;
-      }
-      .markdown-body table th {
-        background-color: var(--paper-tint);
-        font-weight: 600;
+      .data-table th {
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: left;
+        color: var(--ink-muted);
+        padding: 0 0.75rem 0.5rem;
         border-bottom: 1px solid var(--rule-strong);
       }
-      .markdown-body hr {
-        background-color: var(--rule);
-        height: 1px;
-        border: 0;
+      .data-table td {
+        padding: 1rem 0.75rem;
+        border-bottom: 1px solid var(--rule);
+        vertical-align: top;
       }
-      .markdown-body blockquote {
-        border-left: 3px solid var(--accent);
-        color: var(--ink-secondary);
-        padding-left: 16px;
-        margin-left: 0;
-        background-color: var(--accent-wash);
-        padding: 12px 16px;
-        border-radius: 8px;
+      .data-table .num {
+        font-family: var(--mono);
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+        white-space: nowrap;
       }
-      .markdown-body h1,
-      .markdown-body h2,
-      .markdown-body h3,
-      .markdown-body h4,
-      .markdown-body h5,
-      .markdown-body h6 {
-        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-        color: var(--ink);
+      .data-table td.name {
+        font-family: var(--serif);
+        font-size: 1.0625rem;
         font-weight: 600;
-        border-bottom-color: var(--rule);
+        white-space: nowrap;
       }
-      /* Loading screen */
-      .loading {
+      .data-table td.name small {
+        display: block;
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        font-weight: 400;
+        color: var(--ink-muted);
+      }
+      .data-table td.desc {
+        color: var(--ink-secondary);
+        max-width: 40ch;
+      }
+      .data-table td.ver {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink-muted);
+        white-space: nowrap;
+      }
+      .data-table td.links {
+        white-space: nowrap;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+      }
+      .data-table td.links a {
+        text-decoration: none;
+      }
+      .data-table td.links a + a {
+        margin-left: 0.75rem;
+      }
+      .table-note {
+        margin-top: 0.75rem;
+      }
+
+      /* Quick start */
+      .steps {
+        display: grid;
+        gap: 1.5rem;
+      }
+      @media (min-width: 900px) {
+        .steps {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      .step h3 {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0.5rem 0 0.5rem;
+      }
+      .step p {
+        margin: 0 0 1rem;
+        font-size: 0.9375rem;
+        color: var(--ink-secondary);
+      }
+
+      /* Signals gallery: masked SVGs take the ink colour in both themes */
+      .signals {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--rule);
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        overflow: hidden;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      @media (min-width: 640px) {
+        .signals {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+      @media (min-width: 1024px) {
+        .signals {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+      }
+      .signals li {
+        background: var(--paper-raised);
+        padding: 1.25rem 1rem 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        min-height: 100vh;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-        font-size: 16px;
+        gap: 0.75rem;
+      }
+      .signals i {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        background: var(--ink);
+        -webkit-mask: var(--src) center / contain no-repeat;
+        mask: var(--src) center / contain no-repeat;
+      }
+      .signals span {
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        color: var(--ink-muted);
+        text-align: center;
+      }
+
+      /* Two-up prose blocks */
+      .split {
+        display: grid;
+        gap: 2.5rem;
+      }
+      @media (min-width: 900px) {
+        .split {
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+        }
+      }
+      .split h3 {
+        font-family: var(--serif);
+        font-size: 1.375rem;
+        font-weight: 600;
+        margin: 0 0 0.75rem;
+      }
+      .split p,
+      .split li {
         color: var(--ink-secondary);
-        background-color: var(--paper);
       }
-      .loading-logo {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 20px;
-        animation: pulse 2s ease-in-out infinite;
+      .split p {
+        margin: 0 0 1rem;
       }
-      .spinner {
-        border: 3px solid var(--paper-tint);
-        border-top: 3px solid var(--accent);
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        animation: spin 1s linear infinite;
-        margin-bottom: 15px;
+      .split ul {
+        padding-left: 1.125rem;
+        margin: 0 0 1rem;
       }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
+      .split li {
+        margin-bottom: 0.375rem;
+      }
+
+      .pull {
+        margin: 0;
+        padding: 3rem 0 0;
+        border-top: 1px solid var(--rule);
+        text-align: center;
+      }
+      .pull blockquote {
+        margin: 0 auto;
+        max-width: 34ch;
+        font-family: var(--serif);
+        font-size: 1.625rem;
+        line-height: 1.3;
+        font-style: normal;
+        letter-spacing: -0.01em;
+      }
+      @media (min-width: 640px) {
+        .pull blockquote {
+          font-size: 2rem;
         }
       }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.7;
-          transform: scale(0.95);
-        }
+      .pull figcaption {
+        margin-top: 1.25rem;
       }
     </style>
   </head>
   <body>
-    <div id="loading" class="loading">
-      <img src="/assets/divekit/logo-circle-light.png" alt="Project Dive Kit Logo" class="loading-logo" />
-      <div class="spinner"></div>
-      <span>Loading...</span>
-    </div>
-    <div id="content" class="container" style="display: none">
-      <article class="markdown-body" id="markdown-content"></article>
-    </div>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Dive Kit Open home">
+          <img class="logo-light" src="/assets/divekit/logo-squircle-light.png" alt="" width="32" height="32" />
+          <img class="logo-dark" src="/assets/divekit/logo-squircle-dark.png" alt="" width="32" height="32" />
+          <span class="brand-name">Dive Kit</span>
+          <span class="brand-tag">Open</span>
+        </a>
+        <nav class="nav" aria-label="Sections">
+          <a href="#datasets">Datasets</a>
+          <a href="#quick-start">Quick start</a>
+          <a href="#signals">Dive signals</a>
+          <a href="#contribute">Contribute</a>
+          <a href="#license">License</a>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-switch" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+            <span class="thumb"></span>
+            <svg class="sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+            <svg class="moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+            </svg>
+          </button>
+          <a class="btn" href="https://github.com/lazuli-global/divekit-open-data">GitHub</a>
+        </div>
+      </div>
+    </header>
 
+    <main>
+      <section class="masthead">
+        <div class="wrap">
+          <div class="masthead-grid">
+            <div>
+              <p class="eyebrow">Open data &amp; standards · Project Dive Kit</p>
+              <h1 class="display">Diving data, open for anyone to build on.</h1>
+              <p class="lead">
+                Versioned JSON datasets and JSON Schemas for certifications, agencies, cylinders, dive signals and the
+                sources behind them. The same data that powers the Dive Kit app, free for apps, researchers and
+                training platforms.
+              </p>
+              <div class="actions">
+                <a class="btn" href="#datasets">Browse the datasets</a>
+                <a class="btn ghost" href="https://github.com/lazuli-global/divekit-open-data">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.97 3.22 9.18 7.69 10.67.56.1.77-.24.77-.54v-1.9c-3.13.68-3.79-1.51-3.79-1.51-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.28.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.57 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.99 0 0 .95-.3 3.1 1.16a10.7 10.7 0 0 1 5.64 0c2.15-1.46 3.1-1.16 3.1-1.16.61 1.56.23 2.71.11 2.99.72.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.28-5.15 5.56.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.78.54 4.46-1.49 7.68-5.7 7.68-10.67C23.25 5.48 18.27.5 12 .5z" />
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+
+            <figure class="fig">
+              <div class="fig-stage">
+                <img class="fig-icon logo-light" src="/assets/divekit/logo-squircle-light.png" alt="" width="88" height="88" />
+                <img class="fig-icon logo-dark" src="/assets/divekit/logo-squircle-dark.png" alt="" width="88" height="88" />
+                <div class="plate">
+                  <div class="file"><span>datasets/cylinders.json</span><span>cylinders[0]</span></div>
+<pre><span class="p">{</span>
+  <span class="p">"id":</span> "al80",
+  <span class="p">"commonName":</span> "AL80",
+  <span class="p">"waterVolumeL":</span> <span class="n">11.1</span>,
+  <span class="p">"workingPressureBar":</span> <span class="n">207</span>,
+  <span class="p">"material":</span> "aluminum",
+  <span class="p">"emptyWeightKg":</span> <span class="n">14.2</span>,
+  <span class="p">"buoyancyKg":</span> <span class="p">{</span>
+    <span class="p">"full":</span> <span class="n">-1.0</span>,
+    <span class="p">"at50bar":</span> <span class="n">1.1</span>,
+    <span class="p">"empty":</span> <span class="n">1.8</span>
+  <span class="p">},</span>
+  <span class="p">"brands":</span> ["Luxfer", "Catalina", "Thunderbird"]
+<span class="p">}</span></pre>
+                </div>
+              </div>
+              <figcaption class="figure-caption"><b>Fig. 1:</b> One record from the cylinder database, as it is in the file.</figcaption>
+            </figure>
+          </div>
+
+          <ul class="chips">
+            <li><a href="#datasets">6 datasets</a></li>
+            <li><a href="#signals">93 signal illustrations</a></li>
+            <li><a href="#contribute">Validated against JSON Schema in CI</a></li>
+            <li><a href="#license">Data CC BY 4.0 · schemas MIT</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="datasets">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span class="num">01</span> · Datasets</p>
+            <h2 class="display">The catalogue</h2>
+            <p class="lead">
+              Every dataset is a single JSON file with a <code>$schema</code> link and a <code>meta.version</code>. Fetch
+              it straight from this site; the URLs are stable.
+            </p>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>What it holds</th>
+                  <th class="num">Records</th>
+                  <th>Version</th>
+                  <th>Files</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-file="certifications" data-key="certifications">
+                  <td class="name">Certifications<small>certifications.json</small></td>
+                  <td class="desc">Scuba certifications across the world's training agencies, with limits and equivalencies.</td>
+                  <td class="num" data-count>—</td>
+                  <td class="ver" data-version>—</td>
+                  <td class="links">
+                    <a href="/datasets/certifications.json">JSON</a>
+                    <a href="/schemas/certifications/dive-certifications.schema.v1.0.0.json">Schema</a>
+                  </td>
+                </tr>
+                <tr data-file="agencies" data-key="agencies">
+                  <td class="name">Agencies<small>agencies.json</small></td>
+                  <td class="desc">Recognised certifying agencies.</td>
+                  <td class="num" data-count>—</td>
+                  <td class="ver" data-version>—</td>
+                  <td class="links">
+                    <a href="/datasets/agencies.json">JSON</a>
+                    <a href="/schemas/agencies/agencies.schema.v1.0.0.json">Schema</a>
+                  </td>
+                </tr>
+                <tr data-file="cylinders" data-key="cylinders">
+                  <td class="name">Cylinders<small>cylinders.json</small></td>
+                  <td class="desc">Specifications for common scuba cylinders: volume, pressure, weight and buoyancy.</td>
+                  <td class="num" data-count>—</td>
+                  <td class="ver" data-version>—</td>
+                  <td class="links">
+                    <a href="/datasets/cylinders.json">JSON</a>
+                    <a href="/schemas/cylinders/cylinders.schema.v1.0.0.json">Schema</a>
+                  </td>
+                </tr>
+                <tr data-file="dive-signals" data-key="signals">
+                  <td class="name">Dive signals<small>dive-signals.json</small></td>
+                  <td class="desc">Diver communication signals with names, meanings and artwork.</td>
+                  <td class="num" data-count>—</td>
+                  <td class="ver" data-version>—</td>
+                  <td class="links">
+                    <a href="/datasets/dive-signals.json">JSON</a>
+                    <a href="/schemas/dive-signals/dive-signals.schema.v1.0.0.json">Schema</a>
+                  </td>
+                </tr>
+                <tr data-file="references" data-key="references">
+                  <td class="name">References<small>references.json</small></td>
+                  <td class="desc">Vetted papers, books, standards and articles behind Dive Kit, with what each is authoritative for.</td>
+                  <td class="num" data-count>—</td>
+                  <td class="ver" data-version>—</td>
+                  <td class="links">
+                    <a href="/datasets/references.json">JSON</a>
+                    <a href="/schemas/references/references.schema.v1.1.0.json">Schema</a>
+                  </td>
+                </tr>
+                <tr data-file="search-sources" data-key="sources">
+                  <td class="name">Search sources<small>search-sources.json</small></td>
+                  <td class="desc">Where to search next when no reference answers a question, each marked vetted or not.</td>
+                  <td class="num" data-count>—</td>
+                  <td class="ver" data-version>—</td>
+                  <td class="links">
+                    <a href="/datasets/search-sources.json">JSON</a>
+                    <a href="/schemas/search-sources/search-sources.schema.v1.0.0.json">Schema</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="figure-caption table-note">
+            <b>Table 1:</b> Record counts and versions are read live from each file. New to the data? Start with the
+            <a href="https://github.com/lazuli-global/divekit-open-data/blob/main/docs/DATASETS.md">dataset guide</a>.
+          </p>
+        </div>
+      </section>
+
+      <section id="quick-start">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span class="num">02</span> · Quick start</p>
+            <h2 class="display">Use it in a minute</h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <p class="eyebrow">Fetch</p>
+              <h3>From the command line</h3>
+              <p>Plain static files. No key, no rate limit.</p>
+<pre><span class="k">curl</span> https://open.divekit.app/datasets/certifications.json</pre>
+            </div>
+            <div class="step">
+              <p class="eyebrow">Validate</p>
+              <h3>Against its schema</h3>
+              <p>Each dataset names its schema in <code>$schema</code>.</p>
+<pre><span class="k">npx</span> ajv validate \
+  -s https://open.divekit.app/schemas/certifications/dive-certifications.schema.v1.0.0.json \
+  -d certifications.json</pre>
+            </div>
+            <div class="step">
+              <p class="eyebrow">Build</p>
+              <h3>In your app</h3>
+              <p>Served with CORS by GitHub Pages, so a browser can read it too.</p>
+<pre><span class="k">const</span> res = <span class="k">await</span> fetch(
+  <span class="p">'https://open.divekit.app/datasets/cylinders.json'</span>
+);
+<span class="k">const</span> { cylinders } = <span class="k">await</span> res.json();</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="signals">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span class="num">03</span> · Dive signals</p>
+            <h2 class="display">Signal artwork you can reuse</h2>
+            <p class="lead">
+              Vector illustrations for every signal in the dataset: hand signals, technical and fish ID, light signals
+              and buddy contact. Licensed CC BY 4.0, including for commercial use. Credit
+              <em>“Dive signals by Project Dive Kit — https://divekit.app”</em>.
+            </p>
+          </div>
+          <ul class="signals">
+            <li><i style="--src: url(/assets/dive-signals/hand/core/ok.svg)"></i><span>OK</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/core/pressure-check.svg)"></i><span>Pressure check</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/core/up.svg)"></i><span>Up</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/core/descend-go-down.svg)"></i><span>Descend</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/core/share-air.svg)"></i><span>Share air</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/core/safety-stop.svg)"></i><span>Safety stop</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/core/turn-around.svg)"></i><span>Turn the dive</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/technical/deco.svg)"></i><span>Deco</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/fish-id/shark.svg)"></i><span>Shark</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/fish-id/turtle.svg)"></i><span>Turtle</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/fish-id/seahorse.svg)"></i><span>Seahorse</span></li>
+            <li><i style="--src: url(/assets/dive-signals/hand/fish-id/blue-spotted-ray.svg)"></i><span>Blue-spotted ray</span></li>
+          </ul>
+          <p class="figure-caption table-note">
+            <b>Fig. 2:</b> 12 of 93 illustrations.
+            <a href="https://github.com/lazuli-global/divekit-open-data/tree/main/assets/dive-signals">See them all on GitHub</a>.
+            Agency logos live in
+            <a href="https://github.com/lazuli-global/divekit-open-data/tree/main/assets/agency-logos">assets/agency-logos</a>;
+            they are third-party trademarks, for reference use only.
+          </p>
+        </div>
+      </section>
+
+      <section id="references">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span class="num">04</span> · References</p>
+            <h2 class="display">Where the numbers come from</h2>
+          </div>
+          <div class="split">
+            <div>
+              <h3>References</h3>
+              <p>
+                <code>references.json</code> lists the papers, books, standards, manuals, articles and videos behind Dive
+                Kit's calculators and guide. Each record says what the source is authoritative for, so an assistant can
+                cite it.
+              </p>
+              <h3>Search sources</h3>
+              <p>
+                <code>search-sources.json</code> lists where to search next when no reference answers a question, in the
+                order to try them. <code>vetted</code> says whether what you find there can be cited as trustworthy.
+              </p>
+            </div>
+            <div>
+              <h3>How Dive Kit uses them</h3>
+              <p>
+                The <a href="https://divekit.app/ai">Dive Kit MCP server</a>'s <code>lookup_references</code> tool searches
+                the references. When nothing matches, it returns the search sources, so the assistant knows where to look
+                next and says the result is not Dive Kit-vetted.
+              </p>
+              <p>
+                Both files are meant to grow with contributions. See
+                <a href="https://github.com/lazuli-global/divekit-open-data/blob/main/CONTRIBUTING.md#-adding-a-reference">Adding a reference</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contribute">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span class="num">05</span> · Contribute</p>
+            <h2 class="display">Fix a record, add a dataset</h2>
+          </div>
+          <div class="split">
+            <div>
+              <p>We welcome:</p>
+              <ul>
+                <li>New or corrected certification data</li>
+                <li>Updated equivalencies or limits</li>
+                <li>Additional recognised agencies</li>
+                <li>New references and search sources</li>
+                <li>Translations, metadata and documentation</li>
+              </ul>
+              <div class="actions">
+                <a class="btn" href="https://github.com/lazuli-global/divekit-open-data/blob/main/CONTRIBUTING.md">Contributing guide</a>
+                <a class="btn ghost" href="https://github.com/lazuli-global/divekit-open-data/discussions">Discussions</a>
+              </div>
+            </div>
+            <div>
+              <p>Validate locally before you open a pull request. CI runs the same checks on every PR.</p>
+<pre><span class="k">./scripts/validate.sh</span>
+<span class="c"># ✓ schemas are valid JSON Schema
+# ✓ each dataset matches its schema
+# ✓ no duplicate ids</span></pre>
+              <p class="figure-caption table-note">
+                Needs <a href="https://bun.sh">Bun</a> (or Node.js) and <a href="https://jqlang.github.io/jq/">jq</a>.
+                Datasets and schemas are versioned semantically; a breaking change bumps the major version.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="license">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span class="num">06</span> · License</p>
+            <h2 class="display">Free to use, with credit</h2>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>License</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="name">Datasets &amp; docs</td>
+                  <td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+                  <td class="desc">Free to share and remix with attribution.</td>
+                </tr>
+                <tr>
+                  <td class="name">Dive signal illustrations</td>
+                  <td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+                  <td class="desc">Credit “Dive signals by Project Dive Kit — https://divekit.app”.</td>
+                </tr>
+                <tr>
+                  <td class="name">Schemas &amp; code</td>
+                  <td><a href="https://opensource.org/licenses/MIT">MIT</a></td>
+                  <td class="desc">Free to use in software projects.</td>
+                </tr>
+                <tr>
+                  <td class="name">Agency logos</td>
+                  <td>Third-party trademarks</td>
+                  <td class="desc">Owned by the respective agencies; reference use only.</td>
+                </tr>
+                <tr>
+                  <td class="name">Dive Kit brand assets</td>
+                  <td>All rights reserved</td>
+                  <td class="desc">Dive Kit trademark; permission required for use.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="figure-caption table-note">
+            <b>Table 2:</b> Unless otherwise noted. Full terms in
+            <a href="https://github.com/lazuli-global/divekit-open-data/blob/main/LICENSE.md">LICENSE.md</a>.
+          </p>
+
+          <figure class="pull" style="margin-top: 4rem">
+            <blockquote>
+              Unify how the diving world represents, shares and understands its data: safely, transparently, and for
+              everyone.
+            </blockquote>
+            <figcaption class="eyebrow">The Dive Kit Open mission</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="https://divekit.app">
+              <img class="logo-light" src="/assets/divekit/logo-squircle-light.png" alt="" width="28" height="28" />
+              <img class="logo-dark" src="/assets/divekit/logo-squircle-dark.png" alt="" width="28" height="28" />
+              <span class="brand-name">Dive Kit</span>
+            </a>
+            <p>The open data and standards behind Dive Kit, the dive planning toolkit for recreational and technical divers.</p>
+          </div>
+          <div>
+            <h3 class="eyebrow">Open data</h3>
+            <ul>
+              <li><a href="#datasets">Datasets</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/tree/main/schemas">Schemas</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/blob/main/docs/DATASETS.md">Dataset guide</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data">GitHub</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="eyebrow">Dive Kit</h3>
+            <ul>
+              <li><a href="https://divekit.app">divekit.app</a></li>
+              <li><a href="https://divekit.app/deco-planner">Deco planner</a></li>
+              <li><a href="https://divekit.app/docs">Docs</a></li>
+              <li><a href="https://divekit.app/ai">AI assistants</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="eyebrow">Community</h3>
+            <ul>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/blob/main/CONTRIBUTING.md">Contributing</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/discussions">Discussions</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/issues">Report an issue</a></li>
+              <li><a href="mailto:hello@divekit.app">hello@divekit.app</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; <span data-year>2026</span> Project Dive Kit</span>
+          <span>Maintained by <a href="https://github.com/lazuli-global">Project Dive Kit</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/site.js"></script>
     <script>
-      // Fetch and render README.md
-      fetch('README.md')
-        .then((response) => response.text())
-        .then((markdown) => {
-          // Configure marked for GitHub Flavored Markdown
-          marked.setOptions({
-            gfm: true,
-            breaks: true,
-            headerIds: true,
-            mangle: false,
-          });
-
-          // Convert markdown to HTML
-          const html = marked.parse(markdown);
-
-          // Insert into page
-          document.getElementById('markdown-content').innerHTML = html;
-
-          // Hide loading, show content
-          document.getElementById('loading').style.display = 'none';
-          document.getElementById('content').style.display = 'block';
-
-          // Update page title from first h1
-          const firstH1 = document.querySelector('h1');
-          if (firstH1) {
-            document.title = firstH1.textContent + ' — Project Dive Kit';
-          }
-        })
-        .catch((error) => {
-          console.error('Error loading README:', error);
-          document.getElementById('loading').innerHTML =
-            '<div style="color: #b91c1c;">⚠️ Failed to load README.md</div>';
-        });
+      document.querySelector('[data-year]').textContent = new Date().getFullYear();
+      // Fill record counts and versions from the live files; the table reads fine without them.
+      document.querySelectorAll('tr[data-file]').forEach(async (row) => {
+        try {
+          const data = await (await fetch(`/datasets/${row.dataset.file}.json`)).json();
+          row.querySelector('[data-count]').textContent = data[row.dataset.key].length.toLocaleString('en');
+          row.querySelector('[data-version]').textContent = data.meta.version;
+        } catch {}
+      });
     </script>
   </body>
 </html>

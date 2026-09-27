@@ -28,25 +28,15 @@ This site uses the Dive Kit editorial palette, shared with the main website
 
 ## Usage
 
-### Homepage (index.html)
+The palette lives as CSS custom properties in `assets/site.css`, shared by
+`index.html` and `404.html`. The `.dark` class on `<html>` swaps in the dark
+"night reading" palette (paper `#14161a`, ink `#e7e4dd`, accent `#38bdf8`),
+following the system theme unless `?theme=light|dark` is set, as on divekit.app.
 
-- Background: paper, content card: paper raised with a hairline rule and soft shadow
-- Links: accent → accent strong on hover
-- Blockquotes: accent left border on accent wash
-- Code blocks: paper tint with hairline rule
-
-### 404 Page (404.html)
-
-- Background: paper, container: paper raised card
-- 404 numeral: accent
-- Primary button: accent background, white text
-- Secondary button: paper raised with rule-strong border
-- Suggestions box: paper tint with hairline rule
-
-### Loading Spinner
-
-- Spinner border: paper tint
-- Spinner accent: accent
+- Headings: Source Serif 4; body: Inter; labels, tables and code: IBM Plex Mono
+- Links and primary buttons: accent, accent strong on hover
+- Cards and code: paper raised with a hairline rule
+- Tables: mono uppercase heads over a strong rule, hairline rows
 
 ## Typography
 
