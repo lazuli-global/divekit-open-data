@@ -579,6 +579,29 @@ check_references_and_sources() {
     echo ""
 }
 
+# The footer's "Last updated" fallback date in each page matches the newest
+# meta.generated_at across the datasets (index.html refreshes it at load).
+check_last_updated() {
+    echo -e "${YELLOW}🔎 Checking the footer's Last updated date${NC}"
+    local newest
+    newest=$(jq -r '.meta.generated_at // empty' datasets/*.json | sort | tail -1 | cut -c1-10)
+    local page baked stale=0
+    for page in index.html 404.html view.html; do
+        [ -f "$page" ] || continue
+        baked=$(grep -o 'data-updated datetime="[0-9-]*"' "$page" | grep -o '[0-9]\{4\}-[0-9-]*')
+        if [ "$baked" != "$newest" ]; then
+            echo -e "${RED}❌ ERROR: ${page} says Last updated ${baked:-(missing)}; the newest dataset is ${newest}. Update its <time data-updated> date and text.${NC}"
+            stale=1
+        fi
+    done
+    if [ $stale -eq 0 ]; then
+        echo -e "${GREEN}✅ Last updated reads ${newest} on every page${NC}"
+    else
+        VALIDATION_FAILED=1
+    fi
+    echo ""
+}
+
 # Main validation logic
 main() {
     # Check if jq is installed
@@ -665,6 +688,7 @@ main() {
     fi
     
     check_references_and_sources
+    check_last_updated
 
     # Final result
     echo "=========================================="
