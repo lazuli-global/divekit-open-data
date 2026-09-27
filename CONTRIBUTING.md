@@ -37,6 +37,8 @@ If you're contributing to a specific folder, please follow the corresponding sec
 6. Our CI will automatically validate your JSON and schema files.
 7. Once approved, your change will appear on [open.divekit.app](https://open.divekit.app).
 
+**Every change goes through a pull request, including maintainers' and automated agents' changes.** Never push to `main` directly, even when an admin token lets the push through the branch ruleset. A maintainer reviews and squash-merges the pull request.
+
 ---
 
 ## ✅ Validation & Formatting
