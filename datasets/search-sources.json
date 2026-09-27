@@ -1,8 +1,8 @@
 {
   "$schema": "https://open.divekit.app/schemas/search-sources/search-sources.schema.v1.0.0.json",
   "meta": {
-    "version": "2026.09.27.2",
-    "generated_at": "2026-09-27T18:30:00Z"
+    "version": "2026.09.27.4",
+    "generated_at": "2026-09-27T09:47:54Z"
   },
   "sources": [
     {
@@ -11,7 +11,11 @@
       "url": "https://dan.org/",
       "kind": "organisation",
       "use_for": "Diving medicine, fitness to dive, injuries, incident data and safety research.",
-      "topics": ["emergencies", "deco_theory", "oxygen_toxicity"],
+      "topics": [
+        "emergencies",
+        "deco_theory",
+        "oxygen_toxicity"
+      ],
       "vetted": true,
       "how_to_search": "site:dan.org <question>",
       "checked_at": "2026-09-27"
@@ -22,7 +26,10 @@
       "url": "https://www.daneurope.org/",
       "kind": "organisation",
       "use_for": "European diving safety research, Diving Safety Laboratory field data and diver-facing summaries in Alert Diver Europe.",
-      "topics": ["deco_theory", "emergencies"],
+      "topics": [
+        "deco_theory",
+        "emergencies"
+      ],
       "vetted": true,
       "how_to_search": "site:daneurope.org OR site:alertdiver.eu <question>",
       "checked_at": "2026-09-27"
@@ -33,7 +40,14 @@
       "url": "https://scholar.google.com/",
       "kind": "journal_index",
       "use_for": "Peer-reviewed decompression, physiology and breathing-gas research.",
-      "topics": ["deco_theory", "gradient_factors", "oxygen_toxicity", "gas_density", "icd", "hpns"],
+      "topics": [
+        "deco_theory",
+        "gradient_factors",
+        "oxygen_toxicity",
+        "gas_density",
+        "icd",
+        "hpns"
+      ],
       "vetted": true,
       "how_to_search": "Search scholar.google.com with the topic and \"diving\" or \"decompression\", and prefer papers with a DOI.",
       "checked_at": "2026-09-27"
@@ -44,7 +58,12 @@
       "url": "https://rubicon-foundation.org/",
       "kind": "journal_index",
       "use_for": "Open archive of diving and hyperbaric research papers, including older Navy and journal reports.",
-      "topics": ["deco_theory", "oxygen_toxicity", "gas_density", "hpns"],
+      "topics": [
+        "deco_theory",
+        "oxygen_toxicity",
+        "gas_density",
+        "hpns"
+      ],
       "vetted": true,
       "how_to_search": "site:rubicon-foundation.org <topic>",
       "notes": "On 2026-09-27 the site showed articles but no searchable repository; check it is available before relying on it.",
@@ -56,7 +75,11 @@
       "url": "https://www.dhmjournal.com/",
       "kind": "journal_index",
       "use_for": "Peer-reviewed diving and hyperbaric medicine journal of SPUMS and EUBS.",
-      "topics": ["deco_theory", "oxygen_toxicity", "emergencies"],
+      "topics": [
+        "deco_theory",
+        "oxygen_toxicity",
+        "emergencies"
+      ],
       "vetted": true,
       "how_to_search": "site:dhmjournal.com <topic>",
       "notes": "Issues open after a one-year embargo; the archive goes back to 1971.",
@@ -68,7 +91,11 @@
       "url": "https://uhms.org/",
       "kind": "organisation",
       "use_for": "Workshop proceedings, consensus guidelines and the Undersea and Hyperbaric Medicine journal.",
-      "topics": ["deco_theory", "oxygen_toxicity", "emergencies"],
+      "topics": [
+        "deco_theory",
+        "oxygen_toxicity",
+        "emergencies"
+      ],
       "vetted": true,
       "how_to_search": "site:uhms.org <topic>",
       "notes": "Some journal content needs a membership.",
@@ -80,7 +107,10 @@
       "url": "https://www.tdisdi.com/",
       "kind": "agency",
       "use_for": "Technical diving standards and course limits.",
-      "topics": ["training", "gas_blending"],
+      "topics": [
+        "training",
+        "gas_blending"
+      ],
       "vetted": true,
       "how_to_search": "site:tdisdi.com <course or standard>",
       "notes": "Site blocks automated checks; open it in a browser.",
@@ -92,7 +122,9 @@
       "url": "https://www.padi.com/",
       "kind": "agency",
       "use_for": "Recreational diving standards and course prerequisites.",
-      "topics": ["training"],
+      "topics": [
+        "training"
+      ],
       "vetted": true,
       "how_to_search": "site:padi.com <course or standard>",
       "checked_at": "2026-09-27"
@@ -103,7 +135,10 @@
       "url": "https://www.cmas.org/",
       "kind": "agency",
       "use_for": "Federation standards, certification equivalences and fact sheets.",
-      "topics": ["training", "gradient_factors"],
+      "topics": [
+        "training",
+        "gradient_factors"
+      ],
       "vetted": true,
       "how_to_search": "site:cmas.org <topic>",
       "checked_at": "2026-09-27"
@@ -114,7 +149,12 @@
       "url": "https://indepthmag.com/",
       "kind": "organisation",
       "use_for": "Technical diving articles by researchers and instructors, published by Global Underwater Explorers.",
-      "topics": ["deco_theory", "gas_density", "ccr", "gas_planning"],
+      "topics": [
+        "deco_theory",
+        "gas_density",
+        "ccr",
+        "gas_planning"
+      ],
       "vetted": true,
       "how_to_search": "site:indepthmag.com <topic>",
       "notes": "Magazine, not peer-reviewed; follow an article to the papers it cites.",
@@ -126,10 +166,58 @@
       "url": "https://scubaboard.com/",
       "kind": "forum",
       "use_for": "Community experience, gear and dive site reports.",
-      "topics": ["community"],
+      "topics": [
+        "community"
+      ],
       "vetted": false,
       "how_to_search": "site:scubaboard.com <question>",
       "notes": "Opinions, verify against a vetted source.",
+      "checked_at": "2026-09-27"
+    },
+    {
+      "id": "src-reddit-scuba",
+      "name": "r/scuba (Reddit)",
+      "url": "https://www.reddit.com/r/scuba/",
+      "kind": "forum",
+      "use_for": "Recreational diving questions, gear, training paths and trip reports.",
+      "topics": [
+        "community",
+        "training"
+      ],
+      "vetted": false,
+      "how_to_search": "site:reddit.com/r/scuba <question>",
+      "notes": "Opinions, verify against a vetted source. Reddit blocks automated fetches; open it in a browser.",
+      "checked_at": "2026-09-27"
+    },
+    {
+      "id": "src-reddit-diving",
+      "name": "r/diving (Reddit)",
+      "url": "https://www.reddit.com/r/diving/",
+      "kind": "forum",
+      "use_for": "General diving discussion, gear and dive site reports.",
+      "topics": [
+        "community"
+      ],
+      "vetted": false,
+      "how_to_search": "site:reddit.com/r/diving <question>",
+      "notes": "Opinions, verify against a vetted source. Reddit blocks automated fetches; open it in a browser.",
+      "checked_at": "2026-09-27"
+    },
+    {
+      "id": "src-reddit-techdiving",
+      "name": "r/techdiving (Reddit)",
+      "url": "https://www.reddit.com/r/techdiving/",
+      "kind": "forum",
+      "use_for": "Technical diving: deco planning, gas choices, CCR and blending in practice.",
+      "topics": [
+        "community",
+        "gradient_factors",
+        "gas_planning",
+        "ccr"
+      ],
+      "vetted": false,
+      "how_to_search": "site:reddit.com/r/techdiving <question>",
+      "notes": "Opinions, verify against a vetted source. Reddit blocks automated fetches; open it in a browser.",
       "checked_at": "2026-09-27"
     },
     {
@@ -138,7 +226,10 @@
       "url": "https://www.reddit.com/r/scuba/wiki/index/",
       "kind": "encyclopedia",
       "use_for": "Community answers to common beginner questions, with links to further reading.",
-      "topics": ["community", "training"],
+      "topics": [
+        "community",
+        "training"
+      ],
       "vetted": false,
       "how_to_search": "Open the wiki index, then search r/scuba for the question.",
       "notes": "Community-written; verify against a vetted source. Reddit renders it with JavaScript, so open it in a browser.",
