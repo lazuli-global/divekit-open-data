@@ -410,6 +410,9 @@ pre .k {
 }
 /* Phones: brand across the top, Open data on the left, Dive Kit above Community on the right. */
 @media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;

@@ -815,6 +815,7 @@
         </div>
         <div class="footer-bottom">
           <span>&copy; <span data-year>2026</span> Project Dive Kit</span>
+          <span>Last updated <time data-updated datetime="2026-09-27">27 September 2026</time></span>
           <span>Maintained by <a href="https://github.com/lazuli-global">Project Dive Kit</a></span>
         </div>
       </div>
@@ -824,11 +825,18 @@
     <script>
       document.querySelector('[data-year]').textContent = new Date().getFullYear();
       // Fill record counts and versions from the live files; the table reads fine without them.
+      // The same fetches give "Last updated": the newest meta.generated_at (the baked date is the no-JS fallback).
+      const updated = document.querySelector('[data-updated]');
       document.querySelectorAll('tr[data-file]').forEach(async (row) => {
         try {
           const data = await (await fetch(`/datasets/${row.dataset.file}.json`)).json();
           row.querySelector('[data-count]').textContent = data[row.dataset.key].length.toLocaleString('en');
           row.querySelector('[data-version]').textContent = data.meta.version;
+          const day = String(data.meta.generated_at).slice(0, 10);
+          if (updated && day > updated.dateTime) {
+            updated.dateTime = day;
+            updated.textContent = new Date(`${day}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+          }
         } catch {}
       });
     </script>
