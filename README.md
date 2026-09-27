@@ -80,6 +80,7 @@ divekit-open-data/
 │ └── test-local.sh
 │
 ├── index.html            # open.divekit.app home page
+├── view.html             # Dataset browser (each dataset as a searchable table)
 ├── 404.html
 ├── CONTRIBUTING.md
 ├── LICENSE.md

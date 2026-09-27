@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse the data · Dive Kit Open</title>
+    <meta name="description" content="Browse the Dive Kit open datasets as searchable, sortable tables." />
+    <meta name="theme-color" content="#fbfaf7" />
+    <link rel="canonical" href="https://open.divekit.app/view.html" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="/assets/divekit/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="/assets/divekit/apple-touch-icon.png" />
+    <script>
+      (function () {
+        var t = new URLSearchParams(location.search).get('theme');
+        if (t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches))
+          document.documentElement.classList.add('dark');
+      })();
+    </script>
+    <link rel="preload" href="/assets/fonts/InterVariable-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <style>
+      main {
+        padding: 2.5rem 0 4rem;
+      }
+      h1 {
+        margin-top: 1rem;
+        font-size: 2.25rem;
+      }
+      @media (min-width: 640px) {
+        main {
+          padding: 3.5rem 0 5rem;
+        }
+        h1 {
+          font-size: 3rem;
+        }
+      }
+      .lead {
+        margin: 1rem 0 0;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 2rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .tabs a {
+        display: inline-block;
+        border: 1px solid var(--rule);
+        background: var(--paper-raised);
+        border-radius: 3px;
+        padding: 0.375rem 0.75rem;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink-secondary);
+        text-decoration: none;
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .tabs a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .tabs a[aria-current='page'] {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: var(--paper);
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem 1.5rem;
+        margin: 2rem 0 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--rule);
+      }
+      .toolbar input {
+        flex: 1 1 18rem;
+        max-width: 28rem;
+        font: inherit;
+        font-size: 0.9375rem;
+        color: var(--ink);
+        background: var(--paper-raised);
+        border: 1px solid var(--rule-strong);
+        border-radius: 4px;
+        padding: 0.5rem 0.75rem;
+      }
+      .toolbar input::placeholder {
+        color: var(--ink-muted);
+      }
+      .toolbar input:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: -1px;
+        border-color: transparent;
+      }
+      .toolbar .meta {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink-muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem 1rem;
+      }
+
+      .table-scroll {
+        overflow: auto;
+        max-height: 75vh;
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        background: var(--paper-raised);
+      }
+      table {
+        border-collapse: collapse;
+        font-size: 0.8125rem;
+        min-width: 100%;
+      }
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: var(--paper-raised);
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: left;
+        white-space: nowrap;
+        color: var(--ink-muted);
+        padding: 0.75rem 0.75rem 0.5rem;
+        box-shadow: inset 0 -1px 0 var(--rule-strong);
+      }
+      th button {
+        all: unset;
+        cursor: pointer;
+      }
+      th button:hover,
+      th[aria-sort] button {
+        color: var(--ink);
+      }
+      th button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      th[aria-sort='ascending'] button::after {
+        content: ' ↑';
+        color: var(--accent);
+      }
+      th[aria-sort='descending'] button::after {
+        content: ' ↓';
+        color: var(--accent);
+      }
+      td {
+        padding: 0.625rem 0.75rem;
+        border-bottom: 1px solid var(--rule);
+        vertical-align: top;
+        color: var(--ink);
+        min-width: 7rem;
+        max-width: 26rem;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      tbody tr:hover td {
+        background: var(--accent-wash);
+      }
+      td.id {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink-secondary);
+        white-space: nowrap;
+        min-width: 0;
+      }
+      td .none {
+        color: var(--ink-muted);
+      }
+      td ul {
+        margin: 0;
+        padding-left: 1rem;
+      }
+      td li + li {
+        margin-top: 0.125rem;
+      }
+      td .tag {
+        display: inline-block;
+        margin: 0 0.25rem 0.25rem 0;
+        padding: 0 0.375rem;
+        border: 1px solid var(--rule);
+        border-radius: 3px;
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        color: var(--ink-secondary);
+        white-space: nowrap;
+      }
+      td dl {
+        margin: 0;
+      }
+      td dt {
+        font-family: var(--mono);
+        font-size: 0.6875rem;
+        color: var(--ink-muted);
+      }
+      td dd {
+        margin: 0 0 0.375rem;
+      }
+      td.num {
+        font-family: var(--mono);
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+        white-space: nowrap;
+      }
+      td a {
+        overflow-wrap: anywhere;
+      }
+      td .art {
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        background: var(--ink);
+        -webkit-mask: var(--src) center / contain no-repeat;
+        mask: var(--src) center / contain no-repeat;
+      }
+      .status {
+        padding: 3rem 1rem;
+        text-align: center;
+        color: var(--ink-muted);
+        font-family: var(--mono);
+        font-size: 0.8125rem;
+      }
+      .files {
+        margin-top: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Dive Kit Open home">
+          <img class="logo-light" src="/assets/divekit/logo-squircle-light.png" alt="" width="32" height="32" />
+          <img class="logo-dark" src="/assets/divekit/logo-squircle-dark.png" alt="" width="32" height="32" />
+          <span class="brand-name">Dive Kit</span>
+          <span class="brand-tag">Open</span>
+        </a>
+        <nav class="nav" aria-label="Sections">
+          <a href="/#datasets">Datasets</a>
+          <a href="/view.html">Browse</a>
+          <a href="/#quick-start">Quick start</a>
+          <a href="/#signals">Dive signals</a>
+          <a href="/#contribute">Contribute</a>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-switch" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+            <span class="thumb"></span>
+            <svg class="sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+            <svg class="moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+            </svg>
+          </button>
+          <a class="btn" href="https://github.com/lazuli-global/divekit-open-data">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <p class="eyebrow"><span class="num">Browse</span> · Datasets</p>
+        <h1 class="display" id="title">Browse the data</h1>
+        <p class="lead" id="lead">Every dataset as a table. Search across all fields, click a column to sort.</p>
+
+        <ul class="tabs" id="tabs"></ul>
+
+        <div class="toolbar">
+          <input id="q" type="search" placeholder="Search this dataset…" aria-label="Search this dataset" autocomplete="off" />
+          <div class="meta" id="meta"></div>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead><tr id="head"></tr></thead>
+            <tbody id="body"></tbody>
+          </table>
+          <p class="status" id="status">Loading…</p>
+        </div>
+        <p class="figure-caption files" id="files"></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="https://divekit.app">
+              <img class="logo-light" src="/assets/divekit/logo-squircle-light.png" alt="" width="28" height="28" />
+              <img class="logo-dark" src="/assets/divekit/logo-squircle-dark.png" alt="" width="28" height="28" />
+              <span class="brand-name">Dive Kit</span>
+            </a>
+            <p>The open data and standards behind Dive Kit, the dive planning toolkit for recreational and technical divers.</p>
+          </div>
+          <div>
+            <h3 class="eyebrow">Open data</h3>
+            <ul>
+              <li><a href="/#datasets">Datasets</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/tree/main/schemas">Schemas</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/blob/main/docs/DATASETS.md">Dataset guide</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data">GitHub</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="eyebrow">Dive Kit</h3>
+            <ul>
+              <li><a href="https://divekit.app">divekit.app</a></li>
+              <li><a href="https://divekit.app/deco-planner">Deco planner</a></li>
+              <li><a href="https://divekit.app/docs">Docs</a></li>
+              <li><a href="https://divekit.app/ai">AI assistants</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="eyebrow">Community</h3>
+            <ul>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/blob/main/CONTRIBUTING.md">Contributing</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/discussions">Discussions</a></li>
+              <li><a href="https://github.com/lazuli-global/divekit-open-data/issues">Report an issue</a></li>
+              <li><a href="mailto:hello@divekit.app">hello@divekit.app</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; <span data-year>2026</span> Project Dive Kit</span>
+          <span>Maintained by <a href="https://github.com/lazuli-global">Project Dive Kit</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/site.js"></script>
+    <script>
+      document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+      // file = datasets/<file>.json, key = the array of records inside it
+      const DATASETS = [
+        { file: 'certifications', key: 'certifications', title: 'Certifications' },
+        { file: 'agencies', key: 'agencies', title: 'Agencies' },
+        { file: 'cylinders', key: 'cylinders', title: 'Cylinders' },
+        { file: 'dive-signals', key: 'signals', title: 'Dive signals' },
+        { file: 'references', key: 'references', title: 'References' },
+        { file: 'search-sources', key: 'sources', title: 'Search sources' },
+      ];
+
+      const $ = (id) => document.getElementById(id);
+      const params = new URLSearchParams(location.search);
+      const ds = DATASETS.find((d) => d.file === params.get('d')) || DATASETS[0];
+      let rows = [];
+      let columns = [];
+      let sort = null; // { col, dir: 1 | -1 }
+
+      const el = (tag, props = {}, ...kids) => {
+        const n = Object.assign(document.createElement(tag), props);
+        n.append(...kids);
+        return n;
+      };
+      const none = () => el('span', { className: 'none', textContent: '—' });
+      const isUrl = (v) => typeof v === 'string' && /^https?:\/\//.test(v);
+      const link = (href) => {
+        const u = new URL(href);
+        return el('a', { href, rel: 'noopener', textContent: u.hostname.replace(/^www\./, '') + (u.pathname.length > 1 ? '/…' : '') });
+      };
+
+      // Render any JSON value as cell content. textContent only: records come from contributors.
+      function render(value, col) {
+        if (value === null || value === undefined || value === '') return none();
+        if (col === 'image' && typeof value === 'string' && value.endsWith('.svg')) {
+          const art = el('span', { className: 'art', role: 'img', ariaLabel: 'Illustration' });
+          art.style.setProperty('--src', `url("/${value.replace(/"/g, '')}")`);
+          return el('a', { href: '/' + value, title: value }, art);
+        }
+        if (typeof value === 'boolean') return document.createTextNode(value ? 'Yes' : 'No');
+        if (isUrl(value)) return link(value);
+        if (Array.isArray(value)) {
+          if (!value.length) return none();
+          // Short id-like strings read best as tags, longer text as a list
+          if (value.every((v) => typeof v === 'string' && v.length <= 32 && !isUrl(v)))
+            return el('div', {}, ...value.map((v) => el('span', { className: 'tag', textContent: v })));
+          return el('ul', {}, ...value.map((v) => el('li', {}, render(v))));
+        }
+        if (typeof value === 'object') {
+          const entries = Object.entries(value);
+          if (!entries.length) return none();
+          return el('dl', {}, ...entries.flatMap(([k, v]) => [el('dt', { textContent: k }), el('dd', {}, render(v, k))]));
+        }
+        return document.createTextNode(String(value));
+      }
+
+      function draw() {
+        const q = $('q').value.trim().toLowerCase();
+        let shown = q ? rows.filter((r) => r._text.includes(q)) : rows.slice();
+        if (sort) {
+          const { col, dir } = sort;
+          const key = (r) => {
+            const v = r.data[col];
+            return v === null || v === undefined ? '' : typeof v === 'object' ? JSON.stringify(v) : v;
+          };
+          shown.sort((a, b) => {
+            const x = key(a), y = key(b);
+            if (x === '' || y === '') return x === y ? 0 : x === '' ? 1 : -1; // blanks last
+            return (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y), 'en', { numeric: true })) * dir;
+          });
+        }
+
+        $('head').querySelectorAll('th').forEach((th) => {
+          if (sort && th.dataset.col === sort.col) th.setAttribute('aria-sort', sort.dir > 0 ? 'ascending' : 'descending');
+          else th.removeAttribute('aria-sort');
+        });
+
+        const frag = document.createDocumentFragment();
+        for (const r of shown) {
+          frag.append(
+            el('tr', {}, ...columns.map((c) => {
+              const v = r.data[c];
+              const td = el('td', {}, render(v, c));
+              if (c === 'id') td.className = 'id';
+              else if (typeof v === 'number') td.className = 'num';
+              return td;
+            })),
+          );
+        }
+        $('body').replaceChildren(frag);
+        $('status').hidden = shown.length > 0;
+        $('status').textContent = 'No records match.';
+        $('meta').firstChild.textContent = q ? `${shown.length} of ${rows.length} records` : `${rows.length} records`;
+
+        const url = new URL(location.href);
+        url.searchParams.set('d', ds.file);
+        q ? url.searchParams.set('q', $('q').value) : url.searchParams.delete('q');
+        history.replaceState(null, '', url);
+      }
+
+      $('tabs').append(
+        ...DATASETS.map((d) => {
+          const url = new URL(location.href);
+          url.searchParams.set('d', d.file);
+          url.searchParams.delete('q');
+          const a = el('a', { href: url.pathname + url.search, textContent: d.title });
+          if (d === ds) a.setAttribute('aria-current', 'page');
+          return el('li', {}, a);
+        }),
+      );
+      $('title').textContent = ds.title;
+      document.title = `${ds.title} · Dive Kit Open`;
+      $('q').value = params.get('q') || '';
+
+      fetch(`/datasets/${ds.file}.json`)
+        .then((r) => {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        })
+        .then((data) => {
+          const records = data[ds.key] || [];
+          // Columns: every key used by any record, in first-seen order; the id goes last,
+          // so the name or title leads on a phone
+          const seen = new Set();
+          records.forEach((rec) => Object.keys(rec).forEach((k) => seen.add(k)));
+          columns = [...seen].filter((c) => c !== 'id');
+          if (seen.has('id')) columns.push('id');
+          rows = records.map((rec) => ({ data: rec, _text: JSON.stringify(rec).toLowerCase() }));
+
+          $('head').append(
+            ...columns.map((c) => {
+              const th = el('th', { scope: 'col' }, el('button', { type: 'button', textContent: c.replace(/_/g, ' ') }));
+              th.dataset.col = c;
+              th.firstChild.addEventListener('click', () => {
+                sort = sort && sort.col === c ? (sort.dir > 0 ? { col: c, dir: -1 } : null) : { col: c, dir: 1 };
+                draw();
+              });
+              return th;
+            }),
+          );
+          $('meta').append(el('span'), el('span', { textContent: `v${data.meta?.version ?? '—'}` }));
+          $('files').append(
+            'Source: ',
+            el('a', { href: `/datasets/${ds.file}.json`, textContent: `datasets/${ds.file}.json` }),
+          );
+          if (isUrl(data.$schema))
+            $('files').append(' · Schema: ', el('a', { href: data.$schema, textContent: data.$schema.split('/').pop() }));
+          $('q').addEventListener('input', draw);
+          draw();
+        })
+        .catch(() => {
+          $('status').textContent = `Could not load datasets/${ds.file}.json.`;
+        });
+    </script>
+  </body>
+</html>
