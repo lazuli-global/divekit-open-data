@@ -102,12 +102,7 @@ check_duplicate_ids() {
     
     # Determine the array key based on filename
     local array_key=""
-    # References and search hubs share one id space.
-    local ids_filter=""
-    if [[ "$json_file" == *"references.json"* ]]; then
-        array_key="references"
-        ids_filter='(.references[]?, .search_hubs[]?) | .id? // empty'
-    elif [[ "$json_file" == *"agencies.json"* ]]; then
+    if [[ "$json_file" == *"agencies.json"* ]]; then
         array_key="agencies"
     elif [[ "$json_file" == *"certifications"* ]]; then
         array_key="certifications"
@@ -126,7 +121,7 @@ check_duplicate_ids() {
     
     # Extract all IDs and check for duplicates
     local duplicates
-    duplicates=$(jq -r "${ids_filter:-.${array_key}[]? | .id? // empty}" "$json_file" 2>/dev/null | sort | uniq -d || echo "")
+    duplicates=$(jq -r ".${array_key}[]? | .id? // empty" "$json_file" 2>/dev/null | sort | uniq -d || echo "")
     
     if [ -n "$duplicates" ] && [ "$duplicates" != "" ]; then
         echo -e "${RED}❌ ERROR: Duplicate IDs found:${NC}"
@@ -546,6 +541,44 @@ check_signal_images() {
     echo ""
 }
 
+# References and search sources share one id space, and references.json keeps
+# one block per topic (the first topic in the schema's order), ids A to Z inside.
+check_references_and_sources() {
+    local refs="datasets/references.json"
+    local srcs="datasets/search-sources.json"
+    [ -f "$refs" ] || return 0
+
+    echo -e "${YELLOW}🔎 Checking ids across ${refs} and ${srcs}${NC}"
+    local duplicates
+    duplicates=$( { jq -r '.references[]?.id' "$refs"; [ -f "$srcs" ] && jq -r '.sources[]?.id' "$srcs"; } | sort | uniq -d)
+    if [ -n "$duplicates" ]; then
+        echo -e "${RED}❌ ERROR: Ids used more than once across references and search sources:${NC}"
+        echo "$duplicates" | sed 's/^/   - /'
+        VALIDATION_FAILED=1
+    else
+        echo -e "${GREEN}✅ Ids are unique across references and search sources${NC}"
+    fi
+
+    echo -e "${YELLOW}🔎 Checking the order of ${refs}${NC}"
+    local schema_file
+    schema_file=$(jq -r '."$schema"' "$refs" | sed 's|https://open.divekit.app/||')
+    local misplaced
+    misplaced=$(jq -r --slurpfile s "$schema_file" '
+        ($s[0].properties.references.items.properties.topics.items.enum) as $order
+        | [.references[] | (.topics[0] // "") as $t | {id, rank: ($order | index($t))}]
+        | . as $r
+        | [range(1; length) | select([$r[. - 1].rank, $r[. - 1].id] > [$r[.].rank, $r[.].id]) | $r[.].id]
+        | .[]' "$refs")
+    if [ -n "$misplaced" ]; then
+        echo -e "${RED}❌ ERROR: references.json is out of order (by first topic, then id). Out of place:${NC}"
+        echo "$misplaced" | sed 's/^/   - /'
+        VALIDATION_FAILED=1
+    else
+        echo -e "${GREEN}✅ References are in topic blocks, ids A to Z inside${NC}"
+    fi
+    echo ""
+}
+
 # Main validation logic
 main() {
     # Check if jq is installed
@@ -631,6 +664,8 @@ main() {
         done <<< "$json_files"
     fi
     
+    check_references_and_sources
+
     # Final result
     echo "=========================================="
     if [ $VALIDATION_FAILED -eq 0 ]; then

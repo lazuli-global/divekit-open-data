@@ -1,0 +1,51 @@
+{
+  "$id": "https://open.divekit.app/schemas/search-sources/search-sources.schema.v1.0.0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dive Kit Search Sources Schema",
+  "description": "Where to search next when Dive Kit's references dataset has no answer: organisations, journal indexes, training agencies, forums and wikis, in the order to try them. A search source is a place to look, not a source Dive Kit relies on; vetted says whether what you find there can be cited as trustworthy.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string", "description": "Reference to this schema URL." },
+    "meta": {
+      "type": "object",
+      "description": "Metadata about this dataset version.",
+      "properties": {
+        "version": { "type": "string", "description": "Date-based tag for this dataset (e.g. '2026.09.27.1')." },
+        "generated_at": { "type": "string", "format": "date-time", "description": "ISO timestamp when the dataset was last generated." }
+      },
+      "required": ["version", "generated_at"]
+    },
+    "sources": {
+      "type": "array",
+      "description": "Search sources in the order to try them: vetted sources first, community sources last.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "pattern": "^src-[a-z0-9\\-]+$", "description": "Unique id, kebab-case, prefixed 'src-'; unique across this file and references.json. Example: 'src-dan'." },
+          "name": { "type": "string", "description": "Name of the site or organisation." },
+          "url": { "type": "string", "format": "uri", "description": "Home or search page URL." },
+          "kind": {
+            "type": "string",
+            "enum": ["organisation", "journal_index", "agency", "forum", "encyclopedia"],
+            "description": "organisation: a research, medical or safety body; journal_index: a journal or paper index; agency: a training agency; forum: a discussion board; encyclopedia: a wiki or reference site."
+          },
+          "use_for": { "type": "string", "maxLength": 200, "description": "One sentence: what to search this source for." },
+          "topics": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "enum": ["deco_theory", "gradient_factors", "oxygen_toxicity", "gas_density", "icd", "hpns", "ccr", "gas_selection", "gas_planning", "gas_blending", "oxygen_handling", "real_gas", "cylinders", "buoyancy", "breathing_rate", "conventions", "training", "emergencies", "cross_checks", "community"] },
+            "description": "Guide topics this source is good for; the same list as references.json."
+          },
+          "vetted": { "type": "boolean", "description": "true: a research, medical or agency source whose content can be cited; false: community content to verify against a vetted source." },
+          "how_to_search": { "type": "string", "maxLength": 200, "description": "One sentence on how to search it, e.g. 'site:dan.org <question>'." },
+          "notes": { "type": "string", "description": "Optional caveats, such as how far to trust it or a host that blocks automated checks." },
+          "checked_at": { "type": "string", "format": "date", "description": "Date the URL was last verified to resolve." }
+        },
+        "required": ["id", "name", "url", "kind", "use_for", "topics", "vetted", "how_to_search", "checked_at"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["meta", "sources"],
+  "additionalProperties": false
+}
