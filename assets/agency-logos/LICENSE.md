@@ -18,4 +18,4 @@ These logos are provided for **informational and reference purposes only** withi
 ---
 
 For questions regarding agency logos, please open an issue at:  
-https://github.com/lazuli-global/divekit-open-data
+https://github.com/majani-plus/divekit-open-data

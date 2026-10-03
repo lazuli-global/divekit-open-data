@@ -7,7 +7,7 @@ This repository powers [open.divekit.app](https://open.divekit.app) — the cano
 
 ## 🧭 Purpose
 
-`lazuli-global/divekit-open-data` provides:
+`majani-plus/divekit-open-data` provides:
 
 - **Public Datasets** – Canonical, versioned JSON datasets for dive certifications, agencies, cylinders, dive signals, and references.
 - **Schemas & Standards** – JSON Schema definitions for validating and interoperating with Dive Kit's open data formats.
@@ -106,10 +106,10 @@ divekit-open-data/
 | **References Schema**           | JSON Schema for validating reference records                                                                 | [View Schema →](https://open.divekit.app/schemas/references/references.schema.v1.1.0.json)               |
 | **Search Sources Dataset**      | Where to search next when no reference answers a question, each marked vetted or not                       | [View JSON →](https://open.divekit.app/datasets/search-sources.json)                                    |
 | **Search Sources Schema**       | JSON Schema for validating search source records                                                             | [View Schema →](https://open.divekit.app/schemas/search-sources/search-sources.schema.v1.0.0.json)       |
-| **Dive Signal Illustrations**   | CC BY 4.0 vector artwork for every signal in the dataset           | [View Illustrations →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/dive-signals) |
-| **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/agency-logos)        |
+| **Dive Signal Illustrations**   | CC BY 4.0 vector artwork for every signal in the dataset           | [View Illustrations →](https://github.com/majani-plus/divekit-open-data/tree/main/assets/dive-signals) |
+| **Agency Logos**                | Collection of scuba diving agency logos                            | [View Logos →](https://github.com/majani-plus/divekit-open-data/tree/main/assets/agency-logos)        |
 | **Dataset Documentation**       | Beginner-friendly guide to understanding and contributing          | [View Guide →](https://open.divekit.app/docs/DATASETS.md)                                               |
-| **Docs**                        | Design guidelines and documentation                                | [View Docs →](https://github.com/lazuli-global/divekit-open-data/tree/main/docs)                        |
+| **Docs**                        | Design guidelines and documentation                                | [View Docs →](https://github.com/majani-plus/divekit-open-data/tree/main/docs)                        |
 
 ---
 
@@ -186,11 +186,11 @@ npx ajv validate \
 
 ### For Designers / Educators
 
-Use the dive signal illustrations from [`assets/dive-signals`](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/dive-signals)
+Use the dive signal illustrations from [`assets/dive-signals`](https://github.com/majani-plus/divekit-open-data/tree/main/assets/dive-signals)
 in briefing cards, slides, posters, or your own apps. They are licensed **CC BY 4.0**: free for any use,
 including commercial, as long as you credit "Dive signals by Project Dive Kit — https://divekit.app".
 
-Agency logos in [`assets/agency-logos`](https://github.com/lazuli-global/divekit-open-data/tree/main/assets/agency-logos)
+Agency logos in [`assets/agency-logos`](https://github.com/majani-plus/divekit-open-data/tree/main/assets/agency-logos)
 are third-party trademarks and should be used for reference purposes only.
 
 ---
@@ -259,7 +259,7 @@ Each dataset and schema is versioned semantically (`v1.0.0`, `v1.1.0`, …).
 Breaking changes will increment the major version.
 
 All changes are tracked via pull requests and validated in CI.
-Community suggestions are discussed in [Discussions](https://github.com/lazuli-global/divekit-open-data/discussions).
+Community suggestions are discussed in [Discussions](https://github.com/majani-plus/divekit-open-data/discussions).
 
 ---
 
