@@ -200,7 +200,7 @@ Full license details: [LICENSE.md](LICENSE.md)
 
 ## 💬 Community & Support
 
-- **Discussions:** [GitHub Discussions →](https://github.com/lazuli-global/divekit-open-data/discussions)
+- **Discussions:** [GitHub Discussions →](https://github.com/majani-plus/divekit-open-data/discussions)
 - **Issues:** Use GitHub Issues for bugs, schema suggestions, or data corrections.
 - **Website:** [open.divekit.app](https://open.divekit.app)
 

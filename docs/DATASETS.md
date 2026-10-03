@@ -234,7 +234,7 @@ We welcome contributions! Here's how to help:
 
 If you find incorrect information:
 
-1. Go to the [GitHub repository](https://github.com/lazuli-global/divekit-open-data)
+1. Go to the [GitHub repository](https://github.com/majani-plus/divekit-open-data)
 2. Click "Issues" → "New Issue"
 3. Describe what's wrong (e.g., "PADI Advanced Open Water max depth is 30m, not 40m")
 
@@ -439,8 +439,8 @@ A: Here are the most common validation errors and how to fix them:
 
 ## Need More Help?
 
-- **Questions?** Open a discussion on [GitHub](https://github.com/lazuli-global/divekit-open-data/discussions)
-- **Found a bug?** Report it in [Issues](https://github.com/lazuli-global/divekit-open-data/issues)
+- **Questions?** Open a discussion on [GitHub](https://github.com/majani-plus/divekit-open-data/discussions)
+- **Found a bug?** Report it in [Issues](https://github.com/majani-plus/divekit-open-data/issues)
 - **Want to contribute code?** See [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 Remember: Every contribution helps make diving certification information more accessible to everyone! 🤿
